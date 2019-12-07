@@ -1,0 +1,140 @@
+{
+    "name": "Wanderer",
+    "description": "",
+    "theme": "dark",
+    "lists": {
+        "1463394567_1005693800_3793023534_2523788226": "TODO",
+        "1901749129_962513719_918349320_1149498453": "Doing",
+        "1994759157_3198025395_360080308_1005768122": "Done"
+    },
+    "cards": [
+        {
+            "id": "2775249964_3926464596_1611168160_1008452023",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 0,
+            "title": "Choose name",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "3267542806_2668350600_2957385233_984043023",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 1,
+            "title": "Choose programming language",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "933944626_2806977787_227411340_3377458057",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 2,
+            "title": "Create project on github",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "3619354459_2889607529_3086928605_3858061606",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 3,
+            "title": "Install game engine",
+            "description": "Unity? PyGame? Something else?",
+            "labels": []
+        },
+        {
+            "id": "3388036575_436440252_4156889895_1988962351",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 4,
+            "title": "Import 'Master of Stars' stuff to create randomized world with stars and planets",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "2764517655_3968030259_3591491117_2021233754",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 5,
+            "title": "Player class",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "1832546242_2887351767_3015130704_3442157218",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 6,
+            "title": "Ship class",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "4219047632_3630737559_1280686700_4275324277",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 7,
+            "title": "Cockpit UI",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "3217620502_1376862668_3527955332_858619495",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 8,
+            "title": "Body class",
+            "description": "SpaceX, SpaceY, Name\n\nFor stars, planets, stations, asteroids, comets...",
+            "labels": []
+        },
+        {
+            "id": "481700607_2704421970_3433118822_381914478",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 9,
+            "title": "Star class",
+            "description": "Inherit Body",
+            "labels": []
+        },
+        {
+            "id": "1716390189_3766223763_642844036_3489765349",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 10,
+            "title": "Planet class",
+            "description": "Inherit Body",
+            "labels": []
+        },
+        {
+            "id": "2009124817_3500995035_1326300440_283178087",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 11,
+            "title": "Station class",
+            "description": "Inherit Body",
+            "labels": []
+        },
+        {
+            "id": "3438612815_3576665032_648051149_1609108209",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 12,
+            "title": "Asteroid class",
+            "description": "Inherit Body",
+            "labels": []
+        },
+        {
+            "id": "1397014827_816900498_235780156_1865574713",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 13,
+            "title": "Comet class",
+            "description": "Inherit Body",
+            "labels": []
+        },
+        {
+            "id": "1343862095_1231198859_745926488_1555386104",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 14,
+            "title": "Destination class",
+            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
+            "labels": []
+        },
+        {
+            "id": "3834620474_3088399316_1568448146_2202349938",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 15,
+            "title": "Base class",
+            "description": "Inherit Destination",
+            "labels": []
+        }
+    ]
+}
