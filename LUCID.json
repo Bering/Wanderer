@@ -9,9 +9,49 @@
     },
     "cards": [
         {
-            "id": "2775249964_3926464596_1611168160_1008452023",
+            "id": "2764517655_3968030259_3591491117_2021233754",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 0,
+            "title": "Player class",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "4219047632_3630737559_1280686700_4275324277",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 0,
+            "title": "Jump interface (show stars)",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "3388036575_436440252_4156889895_1988962351",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 1,
+            "title": "Import 'Master of Stars' stuff to create randomized world with stars and planets",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "3619354459_2889607529_3086928605_3858061606",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 2,
+            "title": "Install game engine",
+            "description": "Unity? PyGame? Something else?",
+            "labels": []
+        },
+        {
+            "id": "933944626_2806977787_227411340_3377458057",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 3,
+            "title": "Create project on github",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "2775249964_3926464596_1611168160_1008452023",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 4,
             "title": "Choose name",
             "description": "",
             "labels": []
@@ -19,40 +59,8 @@
         {
             "id": "3267542806_2668350600_2957385233_984043023",
             "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 1,
-            "title": "Choose programming language",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": "933944626_2806977787_227411340_3377458057",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 2,
-            "title": "Create project on github",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": "3619354459_2889607529_3086928605_3858061606",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 3,
-            "title": "Install game engine",
-            "description": "Unity? PyGame? Something else?",
-            "labels": []
-        },
-        {
-            "id": "3388036575_436440252_4156889895_1988962351",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 4,
-            "title": "Import 'Master of Stars' stuff to create randomized world with stars and planets",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": "2764517655_3968030259_3591491117_2021233754",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 5,
-            "title": "Player class",
+            "title": "Choose programming language",
             "description": "",
             "labels": []
         },
@@ -61,14 +69,6 @@
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 6,
             "title": "Ship class",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": "4219047632_3630737559_1280686700_4275324277",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 7,
-            "title": "Cockpit UI",
             "description": "",
             "labels": []
         },
