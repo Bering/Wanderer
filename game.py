@@ -46,6 +46,7 @@ class Game:
     def cmd_jump(self):
         
         cols, lines = shutil.get_terminal_size()
+        
         view_left = max(self.player.world_x - (cols // 2), 1)
         view_left = min(view_left, self.config.world_width - cols)
         view_right = view_left + cols - 1
@@ -92,7 +93,7 @@ class Game:
                     target_text = s.name
                     target = s
                     break
-
+            
             print('\x1b[' + str(lines) + ';0H' + 'Jump to: ' + '\x1b[0J' + target_text, end='', flush=True)
             print('\x1b[' + str(line) + ';' + str(col) + 'H', end='', flush=True)
             
@@ -110,7 +111,7 @@ class Game:
                 if line < lines - 1:
                     line += 1
         
-        if ord(k) == 27:
+        if ord(k) == 27 or (cursor_x == self.player.world_x and cursor_y == self.player.world_y):
             print('\x1b[' + str(lines) + ';0H' + '\n' + 'Jump CANCELED')
             return
         

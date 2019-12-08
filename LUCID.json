@@ -21,7 +21,15 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 0,
             "title": "Jump interface (show stars)",
-            "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [ ] Make that work in a viewport so world can be bigger than window size\n",
+            "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [x] Make that work in a viewport so world can be bigger than window size\n",
+            "labels": []
+        },
+        {
+            "id": "1832546242_2887351767_3015130704_3442157218",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 0,
+            "title": "Ship class",
+            "description": " - [ ] Energy management\n - [ ] Sensors\n - [ ] Stealth field\n - [ ] Missiles\n - [ ] Mazers\n - [ ] Rail guns\n - [ ] Crew\n - [ ] Shuttles\n",
             "labels": []
         },
         {
@@ -33,11 +41,27 @@
             "labels": []
         },
         {
+            "id": "3217620502_1376862668_3527955332_858619495",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 1,
+            "title": "Body class",
+            "description": "SpaceX, SpaceY, Name\n\nFor stars, planets, stations, asteroids, comets...",
+            "labels": []
+        },
+        {
             "id": "3619354459_2889607529_3086928605_3858061606",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 2,
             "title": "Install game engine",
             "description": "Unity? PyGame? Something else?",
+            "labels": []
+        },
+        {
+            "id": "481700607_2704421970_3433118822_381914478",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 2,
+            "title": "Star class",
+            "description": "Inherit Body",
             "labels": []
         },
         {
@@ -49,11 +73,27 @@
             "labels": []
         },
         {
+            "id": "1716390189_3766223763_642844036_3489765349",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 3,
+            "title": "Planet class",
+            "description": "Inherit Body",
+            "labels": []
+        },
+        {
             "id": "2775249964_3926464596_1611168160_1008452023",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 4,
             "title": "Choose name",
             "description": "",
+            "labels": []
+        },
+        {
+            "id": "2009124817_3500995035_1326300440_283178087",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 4,
+            "title": "Station class",
+            "description": "Inherit Body",
             "labels": []
         },
         {
@@ -65,49 +105,9 @@
             "labels": []
         },
         {
-            "id": "1832546242_2887351767_3015130704_3442157218",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 6,
-            "title": "Ship class",
-            "description": " - [ ] Energy management\n - [ ] Sensors\n - [ ] Stealth field\n - [ ] Missiles\n - [ ] Mazers\n - [ ] Rail guns\n - [ ] Crew\n - [ ] Shuttles\n",
-            "labels": []
-        },
-        {
-            "id": "3217620502_1376862668_3527955332_858619495",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 8,
-            "title": "Body class",
-            "description": "SpaceX, SpaceY, Name\n\nFor stars, planets, stations, asteroids, comets...",
-            "labels": []
-        },
-        {
-            "id": "481700607_2704421970_3433118822_381914478",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 9,
-            "title": "Star class",
-            "description": "Inherit Body",
-            "labels": []
-        },
-        {
-            "id": "1716390189_3766223763_642844036_3489765349",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 10,
-            "title": "Planet class",
-            "description": "Inherit Body",
-            "labels": []
-        },
-        {
-            "id": "2009124817_3500995035_1326300440_283178087",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 11,
-            "title": "Station class",
-            "description": "Inherit Body",
-            "labels": []
-        },
-        {
             "id": "3438612815_3576665032_648051149_1609108209",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 12,
+            "position": 5,
             "title": "Asteroid class",
             "description": "Inherit Body",
             "labels": []
@@ -115,7 +115,7 @@
         {
             "id": "1397014827_816900498_235780156_1865574713",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 13,
+            "position": 6,
             "title": "Comet class",
             "description": "Inherit Body",
             "labels": []
@@ -123,7 +123,7 @@
         {
             "id": "1343862095_1231198859_745926488_1555386104",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 14,
+            "position": 7,
             "title": "Destination class",
             "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
             "labels": []
@@ -131,10 +131,20 @@
         {
             "id": "3834620474_3088399316_1568448146_2202349938",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 15,
+            "position": 8,
             "title": "Base class",
             "description": "Inherit Destination",
             "labels": []
+        },
+        {
+            "id": "57057396_3134067602_1890572729_2752396516",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 9,
+            "title": "Bug: jumping near the bottom of the map skews things",
+            "description": "",
+            "labels": [
+                1
+            ]
         }
     ]
 }
