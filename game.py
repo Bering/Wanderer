@@ -1,6 +1,7 @@
 import shutil
 import getch
 import colorama
+from time import sleep
 
 from world import World
 from player import Player
@@ -111,6 +112,10 @@ class Game:
             return
         
         print('\x1b[' + str(lines) + ';0H' + '\n' + 'Initiating jump...')
+        sleep(1)
+        # TODO: random event or something :-)
+        print('Jump successful!')
+
 
     def cmd_test(self):
         cols, lines = shutil.get_terminal_size()
