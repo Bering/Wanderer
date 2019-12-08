@@ -30,8 +30,8 @@ class Game:
 
             if k == 'q' or ord(k) == 27:
                 self.cmd_quit()
-            elif k == 'j':
-                self.cmd_jump()
+            elif k == 'g':
+                self.cmd_galaxy_map()
             elif k == 't':
                 self.cmd_test()
             else:
@@ -43,20 +43,21 @@ class Game:
     def cmd_quit(self):
         print("Quit")
 
-    def cmd_jump(self):
+    def cmd_galaxy_map(self):
         
         cols, lines = shutil.get_terminal_size()
-        
+
         view_left = max(self.player.world_x - (cols // 2), 1)
         view_left = min(view_left, self.config.world_width - cols)
         view_right = view_left + cols - 1
 
         view_top = max(self.player.world_y - (lines // 2), 1)
         view_top = min(view_top, self.config.world_height - lines)
-        view_bottom = view_top + lines - 1
+        view_bottom = view_top + lines - 3 # -1 for math, -1 for header, -1 for footer
 
         # clear screen
         print('\x1b[2J')
+        print('\x1b[0;0HGalactic View')
 
         #print("Window size: " + str(cols) + "x" + str(lines))
         #print("Viewing: (" + str(view_left) + "," + str(view_top) + ") - (" + str(view_right) + "," + str(view_bottom) + ")")
@@ -68,12 +69,12 @@ class Game:
 
             col = s.world_x - view_left + 1
             line = s.world_y - view_top + 1
-            print('\x1b[' + str(line) + ';' + str(col) + 'H' + s.style + s.color + '*', end='')
+            print('\x1b[' + str(line + 1) + ';' + str(col) + 'H' + s.style + s.color + '*', end='')
         
         col = self.player.world_x - view_left + 1
         line = self.player.world_y - view_top + 1
         print(
-            '\x1b[' + str(line) + ';' + str(col) + 'H' + 
+            '\x1b[' + str(line + 1) + ';' + str(col) + 'H' + 
             colorama.Style.BRIGHT + 
             colorama.Fore.WHITE + 
             '@'
@@ -95,7 +96,7 @@ class Game:
                     break
             
             print('\x1b[' + str(lines) + ';0H' + 'Jump to: ' + '\x1b[0J' + target_text, end='', flush=True)
-            print('\x1b[' + str(line) + ';' + str(col) + 'H', end='', flush=True)
+            print('\x1b[' + str(line + 1) + ';' + str(col) + 'H', end='', flush=True)
             
             k = getch.getch()
             if k == 'w':
@@ -108,7 +109,7 @@ class Game:
                 if col < cols:
                     col += 1
             elif k == 's':
-                if line < lines - 1:
+                if line < lines - 2:
                     line += 1
         
         if ord(k) == 27 or (cursor_x == self.player.world_x and cursor_y == self.player.world_y):
