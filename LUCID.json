@@ -21,7 +21,7 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 0,
             "title": "Jump interface (show stars)",
-            "description": "",
+            "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [ ] Make that work in a viewport so world can be bigger than window size\n",
             "labels": []
         },
         {

@@ -12,6 +12,7 @@ class Star:
 		self.world_y = y
 		self.name = name
 		self.color = _colors[random.randrange(len(_colors))]
+		self.style = _styles[random.randrange(len(_styles))]
 		self.planets = []
 
 	def add_planet(self, x, y):
