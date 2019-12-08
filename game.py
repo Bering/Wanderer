@@ -70,7 +70,7 @@ class Game:
             print('\x1b[' + str(sv_y) + ';' + str(sv_x) + 'H' + s.style + s.color + '*', end='')
         
         print(
-            '\x1b[' + str(self.player.world_y - min_y) + ';' + str(self.player.world_x - min_x) + 'H' + 
+            '\x1b[' + str(self.player.world_y - min_y + 1) + ';' + str(self.player.world_x - min_x + 1) + 'H' + 
             colorama.Style.BRIGHT + 
             colorama.Fore.WHITE + 
             '@'
