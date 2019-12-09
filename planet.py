@@ -1,28 +1,27 @@
 from colorama import Fore
 import random
 
+from body import Body
+
+_suffixes = ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega"]
 _sizes = ["Tiny", "Small", "Medium", "Large", "Huge"]
 _types = ["Baren", "Arid", "Terran", "Rich", "Gaia"]
 _colors = [Fore.WHITE, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.GREEN]
-_suffixes = ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega"]
-_population_limits = {
-	"Tiny" : 10,
-	"Small" : 100,
-	"Medium" : 1000,
-	"Large" : 10000,
-	"Huge" : 100000
-}
 
-class Planet:
+class Planet(Body):
 
 	def __init__(self, star, x, y):
-		self.star = star
-		self.name = star.name + " " + _suffixes[len(star.planets)]
+		name = star.name + " " + _suffixes[len(star.bodies)]
 		self.size = _sizes[random.randrange(len(_sizes))]
-		
+		if self.size == "HUGE":
+			symbol = 'O'
+		elif self.size == "Tiny":
+			symbol = 'o'
+		else:
+			symbol = '0'
+
 		i = random.randrange(len(_types))
 		self.type = _types[i]
 		self.color = _colors[i]
 		
-		self.population_limit = _population_limits[self.size]
-		
+		super().__init__(star, name, x, y, symbol, self.color)

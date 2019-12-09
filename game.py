@@ -32,6 +32,8 @@ class Game:
                 self.cmd_quit()
             elif k == 'g':
                 self.cmd_galaxy_map()
+            elif k == 's':
+                self.cmd_system_map()
             elif k == 't':
                 self.cmd_test()
             else:
@@ -125,6 +127,73 @@ class Game:
         self.player.world_y = cursor_y
         self.player.star = target
 
+    def cmd_system_map(self):
+        
+        if self.player.star == None:
+            print('Currently in interstellar space, not in a system.')
+            return
+
+        cols, lines = shutil.get_terminal_size()
+
+        # clear screen
+        print('\x1b[2J')
+        print('\x1b[0;0H' + self.player.star.name + ' System')
+
+        for b in self.player.star.bodies:
+            print('\x1b[' + str(b.system_y + 1) + ';' + str(b.system_x) + 'H' + b.color + b.symbol, end='')
+        
+        col = self.player.system_x
+        line = self.player.system_y
+        print(
+            '\x1b[' + str(line + 1) + ';' + str(col) + 'H' + 
+            colorama.Style.BRIGHT + 
+            colorama.Fore.WHITE + 
+            '@'
+        )
+
+        print(colorama.Style.RESET_ALL);
+
+        k = '?'
+        while(ord(k) != 13 and k != ' ' and ord(k) != 27):
+
+            target_text = '(' + str(col) + ',' + str(line) + ')'
+            target = None
+            for s in self.player.star.bodies:
+                if b.system_x == col and b.system_y == line:
+                    target_text = b.name
+                    target = b
+                    break
+            
+            print('\x1b[' + str(lines) + ';0H' + 'Jump to: ' + '\x1b[0J' + target_text, end='', flush=True)
+            print('\x1b[' + str(line + 1) + ';' + str(col) + 'H', end='', flush=True)
+            
+            k = getch.getch()
+            if k == 'w':
+                if line > 1:
+                    line -= 1
+            elif k == 'a':
+                if col > 1:
+                    col -= 1
+            elif k == 'd':
+                if col < cols:
+                    col += 1
+            elif k == 's':
+                if line < lines - 2:
+                    line += 1
+        
+        if ord(k) == 27 or (col == self.player.system_x and line == self.player.system_y):
+            print('\x1b[' + str(lines) + ';0H' + '\n' + 'Jump CANCELED')
+            return
+        
+        print('\x1b[' + str(lines) + ';0H' + '\n' + 'Initiating jump...')
+        sleep(1)
+        # TODO: random event or something :-)
+        print('Jump successful!')
+
+        self.player.system_x = col
+        self.player.system_y = line
+        self.player.body = target
+    
     def cmd_test(self):
         cols, lines = shutil.get_terminal_size()
 

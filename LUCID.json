@@ -117,7 +117,7 @@
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 6,
             "title": "Comet class",
-            "description": "Inherit Body",
+            "description": "Inherit Body\n\nSymbol is /, \\, | or --, pointing towards the star",
             "labels": []
         },
         {

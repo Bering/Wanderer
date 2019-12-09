@@ -20,4 +20,4 @@ class Player:
 
         self.environment = Environment.WORLD
         self.star = None
-        
+        self.body = None
