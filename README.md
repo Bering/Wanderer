@@ -1,7 +1,7 @@
 Wanderer
 ========
 
-Pretty simple game about wandering around in a space ship.
+Pretty simple text-based game about wandering around in a space ship.
 
 Inpired by the Expeditionary Force books.
 
