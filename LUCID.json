@@ -9,18 +9,10 @@
     },
     "cards": [
         {
-            "id": "2764517655_3968030259_3591491117_2021233754",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 0,
-            "title": "Player class",
-            "description": "",
-            "labels": []
-        },
-        {
             "id": "4219047632_3630737559_1280686700_4275324277",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 0,
-            "title": "Jump interface (show stars)",
+            "title": "Galaxy view",
             "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [x] Make that work in a viewport so world can be bigger than window size\n",
             "labels": []
         },
@@ -33,59 +25,67 @@
             "labels": []
         },
         {
-            "id": "3388036575_436440252_4156889895_1988962351",
+            "id": "3217620502_1376862668_3527955332_858619495",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 0,
+            "title": "Body class",
+            "description": "star, name, system_x, system_y, symbol, color\n\nFor stars, planets, stations, asteroids, comets...",
+            "labels": []
+        },
+        {
+            "id": "2764517655_3968030259_3591491117_2021233754",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 1,
+            "title": "Player class",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "3388036575_436440252_4156889895_1988962351",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 2,
             "title": "Import 'Master of Stars' stuff to create randomized world with stars and planets",
             "description": "",
             "labels": []
         },
         {
-            "id": "3217620502_1376862668_3527955332_858619495",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 1,
-            "title": "Body class",
-            "description": "SpaceX, SpaceY, Name\n\nFor stars, planets, stations, asteroids, comets...",
+            "id": "481700607_2704421970_3433118822_381914478",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 2,
+            "title": "Star class",
+            "description": " - [x] Planets\n - [x]\u00a0Asteroids\n - [ ] Stations\n - [ ] Comets\n - [ ] Derelics\n - [ ] Wormholes\n",
             "labels": []
         },
         {
             "id": "3619354459_2889607529_3086928605_3858061606",
             "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 2,
+            "position": 3,
             "title": "Install game engine",
             "description": "Unity? PyGame? Something else?",
             "labels": []
         },
         {
-            "id": "481700607_2704421970_3433118822_381914478",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 2,
-            "title": "Star class",
-            "description": "Inherit Body",
-            "labels": []
-        },
-        {
-            "id": "933944626_2806977787_227411340_3377458057",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 3,
-            "title": "Create project on github",
-            "description": "",
-            "labels": []
-        },
-        {
             "id": "1716390189_3766223763_642844036_3489765349",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 3,
             "title": "Planet class",
             "description": "Inherit Body",
             "labels": []
         },
         {
-            "id": "2775249964_3926464596_1611168160_1008452023",
+            "id": "933944626_2806977787_227411340_3377458057",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 4,
-            "title": "Choose name",
+            "title": "Create project on github",
             "description": "",
+            "labels": []
+        },
+        {
+            "id": "3438612815_3576665032_648051149_1609108209",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 4,
+            "title": "Asteroid class",
+            "description": "Inherit Body",
             "labels": []
         },
         {
@@ -97,19 +97,19 @@
             "labels": []
         },
         {
-            "id": "3267542806_2668350600_2957385233_984043023",
+            "id": "2775249964_3926464596_1611168160_1008452023",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 5,
-            "title": "Choose programming language",
+            "title": "Choose name",
             "description": "",
             "labels": []
         },
         {
-            "id": "3438612815_3576665032_648051149_1609108209",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 5,
-            "title": "Asteroid class",
-            "description": "Inherit Body",
+            "id": "3267542806_2668350600_2957385233_984043023",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 6,
+            "title": "Choose programming language",
+            "description": "",
             "labels": []
         },
         {
@@ -121,11 +121,27 @@
             "labels": []
         },
         {
+            "id": "3285542083_2777414111_1708969119_2353456641",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 6,
+            "title": "Derelic class",
+            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
+            "labels": []
+        },
+        {
             "id": "1343862095_1231198859_745926488_1555386104",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 7,
             "title": "Destination class",
             "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
+            "labels": []
+        },
+        {
+            "id": "4037761311_4253389076_3422507072_1285356446",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 7,
+            "title": "Wormholes",
+            "description": "",
             "labels": []
         },
         {
@@ -141,10 +157,18 @@
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 9,
             "title": "Bug: jumping near the bottom of the map skews things",
-            "description": "",
+            "description": "In both the galaxy view and the system view",
             "labels": [
                 1
             ]
+        },
+        {
+            "id": "2113445069_468766045_693428332_1374657037",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 4,
+            "title": "System view",
+            "description": "Show bodies (planets, asteroids, comets, etc)",
+            "labels": []
         }
     ]
 }
