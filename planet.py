@@ -11,7 +11,6 @@ _colors = [Fore.WHITE, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.GREEN]
 class Planet(Body):
 
 	def __init__(self, star, x, y):
-		name = star.name + " " + _suffixes[len(star.bodies)]
 		self.size = _sizes[random.randrange(len(_sizes))]
 		if self.size == "HUGE":
 			symbol = 'O'
@@ -24,4 +23,6 @@ class Planet(Body):
 		self.type = _types[i]
 		self.color = _colors[i]
 		
+		name = 'Planet ' + star.name + " " + _suffixes[len(star.bodies)] + " (" + self.size + " " + self.type + ")"
+
 		super().__init__(star, name, x, y, symbol, self.color)

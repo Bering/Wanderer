@@ -21,7 +21,7 @@
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 0,
             "title": "Ship class",
-            "description": " - [ ] Energy management\n - [ ] Sensors\n - [ ] Stealth field\n - [ ] Missiles\n - [ ] Mazers\n - [ ] Rail guns\n - [ ] Crew\n - [ ] Shuttles\n",
+            "description": " - [ ] Energy management\n - [ ] Sensors\n - [ ] Stealth field\n - [ ] Missiles\n - [ ] Mazers\n - [ ] Rail guns\n - [ ] Crew\n - [ ] Dropships\n",
             "labels": []
         },
         {
@@ -69,7 +69,7 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 3,
             "title": "Planet class",
-            "description": "Inherit Body",
+            "description": "Inherit Body\n\nHas Landmarks (cities, bases, outposts, research facility, shipyards, etc.)",
             "labels": []
         },
         {
@@ -132,7 +132,7 @@
             "id": "1343862095_1231198859_745926488_1555386104",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 7,
-            "title": "Destination class",
+            "title": "Landmark class",
             "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
             "labels": []
         },
@@ -149,7 +149,7 @@
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 8,
             "title": "Base class",
-            "description": "Inherit Destination",
+            "description": "Inherit Landmark",
             "labels": []
         },
         {
@@ -169,6 +169,16 @@
             "title": "System view",
             "description": "Show bodies (planets, asteroids, comets, etc)",
             "labels": []
+        },
+        {
+            "id": "2440150274_157638296_3025540694_745833145",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 5,
+            "title": "All planets and asteroids have the same name",
+            "description": "WTH !? I'm pretty sure I'm not doing it wrong :-/",
+            "labels": [
+                1
+            ]
         }
     ]
 }
