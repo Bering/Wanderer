@@ -89,6 +89,7 @@ class Game:
 
             cursor_x = col + view_left - 1
             cursor_y = line + view_top - 1
+            
             target_text = '(' + str(cursor_x) + ',' + str(cursor_y) + ')'
             target = None
             for s in self.world.stars:
@@ -135,15 +136,29 @@ class Game:
 
         cols, lines = shutil.get_terminal_size()
 
+        view_left = max(self.player.system_x - (cols // 2), 1)
+        view_left = min(view_left, self.config.system_width - cols)
+        view_right = view_left + cols - 1
+
+        view_top = max(self.player.system_y - (lines // 2), 1)
+        view_top = min(view_top, self.config.system_height - lines)
+        view_bottom = view_top + lines - 3 # -1 for math, -1 for header, -1 for footer
+
         # clear screen
         print('\x1b[2J')
         print('\x1b[0;0H' + self.player.star.name + ' System')
 
         for b in self.player.star.bodies:
-            print('\x1b[' + str(b.system_y + 1) + ';' + str(b.system_x) + 'H' + b.color + b.symbol, end='')
+            if b.system_x < view_left or b.system_x > view_right \
+            or b.system_y < view_top or b.system_y > view_bottom:
+                continue
+
+            col = b.system_x - view_left + 1
+            line = b.system_y - view_top + 1
+            print('\x1b[' + str(line + 1) + ';' + str(col) + 'H' + b.color + b.symbol, end='')
         
-        col = self.player.system_x
-        line = self.player.system_y
+        col = self.player.system_x - view_left + 1
+        line = self.player.system_y - view_top + 1
         print(
             '\x1b[' + str(line + 1) + ';' + str(col) + 'H' + 
             colorama.Style.BRIGHT + 
@@ -156,10 +171,13 @@ class Game:
         k = '?'
         while(ord(k) != 13 and k != ' ' and ord(k) != 27):
 
-            target_text = '(' + str(col) + ',' + str(line) + ')'
+            cursor_x = col + view_left - 1
+            cursor_y = line + view_top - 1
+
+            target_text = '(' + str(cursor_x) + ',' + str(cursor_y) + ')'
             target = None
             for s in self.player.star.bodies:
-                if b.system_x == col and b.system_y == line:
+                if b.system_x == cursor_x and b.system_y == cursor_y:
                     target_text = b.name
                     target = b
                     break
@@ -181,7 +199,7 @@ class Game:
                 if line < lines - 2:
                     line += 1
         
-        if ord(k) == 27 or (col == self.player.system_x and line == self.player.system_y):
+        if ord(k) == 27 or (cursor_x == self.player.system_x and cursor_y == self.player.system_y):
             print('\x1b[' + str(lines) + ';0H' + '\n' + 'Jump CANCELED')
             return
         
@@ -190,8 +208,8 @@ class Game:
         # TODO: random event or something :-)
         print('Jump successful!')
 
-        self.player.system_x = col
-        self.player.system_y = line
+        self.player.system_x = cursor_x
+        self.player.system_y = cursor_y
         self.player.body = target
     
     def cmd_test(self):
