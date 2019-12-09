@@ -68,6 +68,10 @@ class Star:
             # 				p.rect.move_ip(-64, 0)
             # 				p.name_rect.move_ip(-64, 0)
 
-    def add_planet(self, x, y):
-        p = Planet(self, x, y)
-        self.planets.append(p)
+    def get_body_at(self, x, y):
+        for b in self.bodies:
+            if b.system_x == x and b.system_y == y:
+                return b
+        
+        return None
+    

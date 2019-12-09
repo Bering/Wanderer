@@ -1,8 +1,9 @@
 import shutil
-import getch
+import random
 import colorama
 from time import sleep
 
+import getch
 from world import World
 from player import Player
 #from ai import AI
@@ -127,6 +128,10 @@ class Game:
         self.player.world_x = cursor_x
         self.player.world_y = cursor_y
         self.player.star = target
+        self.player.system_x = random.randrange(self.config.system_width)
+        self.player.system_y = random.randrange(self.config.system_height)
+        self.player.body = self.player.star.get_body_at(self.player.system_x, self.player.system_y)
+
 
     def cmd_system_map(self):
         
@@ -174,13 +179,11 @@ class Game:
             cursor_x = col + view_left - 1
             cursor_y = line + view_top - 1
 
-            target_text = '(' + str(cursor_x) + ',' + str(cursor_y) + ')'
-            target = None
-            for s in self.player.star.bodies:
-                if b.system_x == cursor_x and b.system_y == cursor_y:
-                    target_text = b.name
-                    target = b
-                    break
+            target = self.player.star.get_body_at(cursor_x, cursor_y)
+            if target == None:
+                target_text = '(' + str(cursor_x) + ',' + str(cursor_y) + ')'
+            else:
+                target_text = b.name
             
             print('\x1b[' + str(lines) + ';0H' + 'Jump to: ' + '\x1b[0J' + target_text, end='', flush=True)
             print('\x1b[' + str(line + 1) + ';' + str(col) + 'H', end='', flush=True)
