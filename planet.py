@@ -25,4 +25,4 @@ class Planet(Body):
 		
 		name = 'Planet ' + star.name + " " + _suffixes[len(star.bodies)] + " (" + self.size + " " + self.type + ")"
 
-		super().__init__(star, name, x, y, symbol, self.color)
+		super().__init__(star, name, x, y, self.color, symbol)
