@@ -130,7 +130,8 @@ class Game:
         self.player.star = target
         self.player.system_x = random.randrange(self.config.system_width)
         self.player.system_y = random.randrange(self.config.system_height)
-        self.player.body = self.player.star.get_body_at(self.player.system_x, self.player.system_y)
+        if self.player.star:
+            self.player.body = self.player.star.get_body_at(self.player.system_x, self.player.system_y)
 
 
     def cmd_system_map(self):
