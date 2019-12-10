@@ -184,7 +184,7 @@ class Game:
             if target == None:
                 target_text = '(' + str(cursor_x) + ',' + str(cursor_y) + ')'
             else:
-                target_text = b.name
+                 target_text = target.name
             
             print('\x1b[' + str(lines) + ';0H' + 'Jump to: ' + '\x1b[0J' + target_text, end='', flush=True)
             print('\x1b[' + str(line + 1) + ';' + str(col) + 'H', end='', flush=True)
