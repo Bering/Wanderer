@@ -25,7 +25,7 @@ class Player:
 
     def jump(self, x, y, target):
         self.world_x = x
-        self.world_y = x
+        self.world_y = y
         self.star = target
         self.system_x = 0
         self.system_y = 0
