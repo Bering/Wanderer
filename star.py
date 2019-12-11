@@ -70,7 +70,7 @@ class Star:
 
     def get_body_at(self, x, y):
         for b in self.bodies:
-            if b.system_x == x and b.system_y == y:
+            if b.body_x == x and b.body_y == y:
                 return b
         
         return None

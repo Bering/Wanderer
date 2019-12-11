@@ -18,6 +18,7 @@ class Game:
         #for n in range(config.nb_ais):
         #	self.ais.append(AI(self.world))
 
+
     def run(self):
         colorama.init()
         print("Wanderer v.alpha0")
@@ -43,8 +44,10 @@ class Game:
         print(colorama.Style.RESET_ALL)
         colorama.deinit()
 
+
     def cmd_quit(self):
         print("Quit")
+
 
     def cmd_galaxy_map(self):
         
@@ -153,17 +156,28 @@ class Game:
         print('\x1b[2J')
         print('\x1b[0;0H' + self.player.star.name + ' System')
 
+        # System coordinates are centered around the star, hence + star_x and + star_y all over the place
+        star_x = cols // 2
+        star_y = lines // 2
+
+        print(
+            '\x1b[' + str(star_y + 1) + ';' + str(star_x) + 'H' + 
+            self.player.star.color + 
+            '*',
+            end=''
+        )
+
         for b in self.player.star.bodies:
-            if b.system_x < view_left or b.system_x > view_right \
-            or b.system_y < view_top or b.system_y > view_bottom:
+            if b.body_x < view_left or b.body_x > view_right \
+            or b.body_y < view_top or b.body_y > view_bottom:
                 continue
 
-            col = b.system_x - view_left + 1
-            line = b.system_y - view_top + 1
+            col = star_x + b.body_x
+            line = star_y + b.body_y
             print('\x1b[' + str(line + 1) + ';' + str(col) + 'H' + b.color + b.symbol, end='')
         
-        col = self.player.system_x - view_left + 1
-        line = self.player.system_y - view_top + 1
+        col = star_x + self.player.system_x
+        line = star_y + self.player.system_y
         print(
             '\x1b[' + str(line + 1) + ';' + str(col) + 'H' + 
             colorama.Style.BRIGHT + 
@@ -176,14 +190,14 @@ class Game:
         k = '?'
         while(ord(k) != 13 and k != ' ' and ord(k) != 27):
 
-            cursor_x = col + view_left - 1
-            cursor_y = line + view_top - 1
+            cursor_x = col - star_x
+            cursor_y = line - star_y
 
             target = self.player.star.get_body_at(cursor_x, cursor_y)
             if target == None:
                 target_text = '(' + str(cursor_x) + ',' + str(cursor_y) + ')'
             else:
-                 target_text = target.name
+                target_text = target.name
             
             print('\x1b[' + str(lines) + ';0H' + 'Jump to: ' + '\x1b[0J' + target_text, end='', flush=True)
             print('\x1b[' + str(line + 1) + ';' + str(col) + 'H', end='', flush=True)
@@ -215,6 +229,7 @@ class Game:
         self.player.system_y = cursor_y
         self.player.body = target
     
+
     def cmd_test(self):
         cols, lines = shutil.get_terminal_size()
 
