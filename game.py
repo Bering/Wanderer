@@ -128,10 +128,9 @@ class Game:
         self.player.world_x = cursor_x
         self.player.world_y = cursor_y
         self.player.star = target
-        self.player.system_x = random.randrange(self.config.system_width)
-        self.player.system_y = random.randrange(self.config.system_height)
-        if self.player.star:
-            self.player.body = self.player.star.get_body_at(self.player.system_x, self.player.system_y)
+        self.player.system_x = 0
+        self.player.system_y = 0
+        self.player.body = self.player.star
 
 
     def cmd_system_map(self):
