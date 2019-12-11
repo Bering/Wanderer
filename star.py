@@ -22,7 +22,8 @@ class Star:
         max_distance = min(config.system_width, config.system_height) - 3
         for n in range(min_distance, max_distance + 1, 3):
             chance = random.randint(1, 100)
-            if len(self.bodies) < 24 and chance <= config.probability_planet:
+            if len(self.bodies) < config.max_planet_per_system \
+            and chance <= config.probability_planet:
                 angle = random.randint(0, 359)
                 self.bodies.append(Planet(self, angle, n))
             else:
