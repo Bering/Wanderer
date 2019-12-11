@@ -21,3 +21,18 @@ class Player:
         self.environment = Environment.WORLD
         self.star = None
         self.body = None
+
+
+    def jump(self, x, y, target):
+        self.world_x = x
+        self.world_y = x
+        self.star = target
+        self.system_x = 0
+        self.system_y = 0
+        self.body = self.star
+
+
+    def jump_in_system(self, x, y, target):
+        self.system_x = x
+        self.system_y = y
+        self.body = target

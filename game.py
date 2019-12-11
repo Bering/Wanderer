@@ -127,13 +127,7 @@ class Game:
         sleep(1)
         # TODO: random event or something :-)
         print('Jump successful!')
-
-        self.player.world_x = cursor_x
-        self.player.world_y = cursor_y
-        self.player.star = target
-        self.player.system_x = 0
-        self.player.system_y = 0
-        self.player.body = self.player.star
+        self.player.jump(cursor_x, cursor_y, target)
 
 
     def cmd_system_map(self):
@@ -224,11 +218,7 @@ class Game:
         sleep(1)
         # TODO: random event or something :-)
         print('Jump successful!')
-
-        self.player.system_x = cursor_x
-        self.player.system_y = cursor_y
-        self.player.body = target
-    
+        self.player.jump_in_system(cursor_x, cursor_y, target)
 
     def cmd_test(self):
         cols, lines = shutil.get_terminal_size()
