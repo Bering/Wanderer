@@ -18,21 +18,21 @@ class Star:
         self.style = _styles[random.randrange(len(_styles))]
         self.bodies = []
 
-        nb_planets = random.randint(config.min_planets_per_star, config.max_planets_per_star)
-        for n in range(nb_planets):
-            x = random.randrange(1, config.system_width)
-            y = random.randrange(1, config.system_height)
-            self.bodies.append(Planet(self, x, y))
+        min_distance = 3
+        max_distance = min(config.system_width, config.system_height) - 3
+        for n in range(min_distance, max_distance + 1, 3):
+            chance = random.randint(1, 100)
+            if len(self.bodies) < 24 and chance <= config.probability_planet:
+                angle = random.randint(0, 359)
+                self.bodies.append(Planet(self, angle, n))
+            else:
+                chance = random.randint(1, 100)
+                if chance <= config.probability_asteroids:
+                    nb_asteroids = random.randrange(config.max_asteroids_per_belt)
+                    for a in range(nb_asteroids):
+                        angle = random.randint(0, 359)
+                        self.bodies.append(Asteroid(self, angle, n))
 
-        for n in range(config.max_asteroids_per_star):
-            x = random.randrange(1, config.system_width)
-            y = random.randrange(1, config.system_height)
-            self.bodies.append(Asteroid(self, x, y))
-
-        # for n in range(config.max_comets_per_star):
-        #     x = random.randrange(1, config.system_width)
-        #     y = random.randrange(1, config.system_height)
-        #     self.bodies.append(Comet(self, x, y))
 
     def _scatter_bodies(self, config, star):
         star_x = config.system_width // 2
