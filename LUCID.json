@@ -9,6 +9,14 @@
     },
     "cards": [
         {
+            "id": "4219047632_3630737559_1280686700_4275324277",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 0,
+            "title": "Galaxy view",
+            "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [x] Make that work in a viewport so world can be bigger than window size\n",
+            "labels": []
+        },
+        {
             "id": "1832546242_2887351767_3015130704_3442157218",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 0,
@@ -33,7 +41,7 @@
             "labels": []
         },
         {
-            "id": "1716390189_3766223763_642844036_3489765349",
+            "id": "2764517655_3968030259_3591491117_2021233754",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 2,
             "title": "Planet class",
