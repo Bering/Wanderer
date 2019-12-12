@@ -162,7 +162,7 @@ class Game:
         # clear screen
         print('\x1b[2J')
         print('\x1b[0;0H' + self.player.star.name + ' System')
-        print("Viewing: (" + str(view_left) + "," + str(view_top) + ") - (" + str(view_right) + "," + str(view_bottom) + ")")
+        #print("Viewing: (" + str(view_left) + "," + str(view_top) + ") - (" + str(view_right) + "," + str(view_bottom) + ")")
 
         print(
             '\x1b[' + str(star_y + 1) + ';' + str(star_x) + 'H' + 

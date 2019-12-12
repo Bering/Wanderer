@@ -4,6 +4,8 @@ from colorama import Fore, Style
 import body
 from planet import Planet
 from asteroid import Asteroid
+from station import Station
+from comet import Comet
 
 _colors = [Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
 _styles = [Style.NORMAL, Style.BRIGHT]
@@ -33,6 +35,16 @@ class Star:
                     for a in range(nb_asteroids):
                         angle = random.randint(0, 359)
                         self.bodies.append(Asteroid(self, angle, n))
+                else:
+                    chance = random.randint(1, 100)
+                    if chance <= config.probability_station:
+                        angle = random.randint(0, 359)
+                        self.bodies.append(Station(self, angle, n))
+                    else:
+                        chance = random.randint(1, 100)
+                        if chance <= config.probability_comet:
+                            angle = random.randint(0, 359)
+                            self.bodies.append(Comet(self, angle, n))
 
 
     def _scatter_bodies(self, config, star):

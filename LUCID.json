@@ -27,6 +27,16 @@
             ]
         },
         {
+            "id": "1891226080_4151853736_2706102033_2766950107",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 0,
+            "title": "getch() for Windows returns an int not a char",
+            "description": "Fred might have time to test the fix sometime this week",
+            "labels": [
+                1
+            ]
+        },
+        {
             "id": "1290033882_4111822711_4269353178_3642925237",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 1,
@@ -35,6 +45,14 @@
             "labels": [
                 1
             ]
+        },
+        {
+            "id": "2009124817_3500995035_1326300440_283178087",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 1,
+            "title": "Station class",
+            "description": "Inherit Body\n\n - [ ] Repair\n - [ ] Rearm\n - [ ] Upgrade\n - [ ] Trade\n - [ ] Recruit\n - [ ] Research\n",
+            "labels": []
         },
         {
             "id": "2113445069_468766045_693428332_1374657037",
@@ -53,30 +71,12 @@
             "labels": []
         },
         {
-            "id": "2009124817_3500995035_1326300440_283178087",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 4,
-            "title": "Station class",
-            "description": "Inherit Body",
-            "labels": []
-        },
-        {
             "id": "3438612815_3576665032_648051149_1609108209",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 5,
             "title": "Asteroid class",
             "description": "Inherit Body",
             "labels": []
-        },
-        {
-            "id": "1891226080_4151853736_2706102033_2766950107",
-            "list_id": "1901749129_962513719_918349320_1149498453",
-            "position": 5,
-            "title": "getch() for Windows returns an int not a char",
-            "description": "Fred might have time to test the fix sometime this week",
-            "labels": [
-                1
-            ]
         },
         {
             "id": "481700607_2704421970_3433118822_381914478",
