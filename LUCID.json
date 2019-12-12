@@ -9,14 +9,6 @@
     },
     "cards": [
         {
-            "id": "1832546242_2887351767_3015130704_3442157218",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 0,
-            "title": "Ship class",
-            "description": " - [ ] Energy management\n - [ ] Sensors\n - [ ] Stealth field\n - [ ] Missiles\n - [ ] Mazers\n - [ ] Rail guns\n - [ ] Crew\n - [ ] Dropships\n",
-            "labels": []
-        },
-        {
             "id": "1891226080_4151853736_2706102033_2766950107",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 0,
@@ -32,6 +24,22 @@
             "position": 0,
             "title": "Comet class",
             "description": "Inherit Body\n\nSymbol is /, \\, | or --, pointing towards the star",
+            "labels": []
+        },
+        {
+            "id": "3054881890_243648585_1762188127_3621766692",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 0,
+            "title": "Good Reference: https://expeditionary-force-by-craig-alanson.fandom.com/wiki/Books",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "3285542083_2777414111_1708969119_2353456641",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 1,
+            "title": "Derelic class",
+            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
             "labels": []
         },
         {
@@ -53,6 +61,22 @@
             "labels": []
         },
         {
+            "id": "1343862095_1231198859_745926488_1555386104",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 2,
+            "title": "Landmark class",
+            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
+            "labels": []
+        },
+        {
+            "id": "1832546242_2887351767_3015130704_3442157218",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 2,
+            "title": "Ship class",
+            "description": " - [ ] Sensors\n - [ ] Reactors\n - [ ] Fuel\n - [ ] Jump drive (also coils quantity and alignment)\n - [ ] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n - [ ] Rail guns\n - [ ] Masers\n - [ ] Missiles\n - [ ] Nukes\n - [ ] Replicators\n\n - [ ] Energy management\n - [ ] Crew\n - [ ] Dropships\n",
+            "labels": []
+        },
+        {
             "id": "1290033882_4111822711_4269353178_3642925237",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 2,
@@ -71,11 +95,27 @@
             "labels": []
         },
         {
+            "id": "4037761311_4253389076_3422507072_1285356446",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 3,
+            "title": "Wormholes",
+            "description": "On the galaxy map",
+            "labels": []
+        },
+        {
             "id": "4219047632_3630737559_1280686700_4275324277",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 4,
             "title": "Galaxy view",
             "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [x] Make that work in a viewport so world can be bigger than window size\n",
+            "labels": []
+        },
+        {
+            "id": "3834620474_3088399316_1568448146_2202349938",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 4,
+            "title": "Base class",
+            "description": "Inherit Landmark",
             "labels": []
         },
         {
@@ -87,6 +127,16 @@
             "labels": []
         },
         {
+            "id": "57057396_3134067602_1890572729_2752396516",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 5,
+            "title": "Bug: jumping near the bottom of the map skews things",
+            "description": "In both the galaxy view and the system view",
+            "labels": [
+                1
+            ]
+        },
+        {
             "id": "481700607_2704421970_3433118822_381914478",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 6,
@@ -95,11 +145,11 @@
             "labels": []
         },
         {
-            "id": "3285542083_2777414111_1708969119_2353456641",
+            "id": "460078232_1811257596_703611331_636981942",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 6,
-            "title": "Derelic class",
-            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
+            "title": "Ground screen",
+            "description": "For dropships going to planets and asteroids",
             "labels": []
         },
         {
@@ -113,46 +163,12 @@
             ]
         },
         {
-            "id": "1343862095_1231198859_745926488_1555386104",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 7,
-            "title": "Landmark class",
-            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
-            "labels": []
-        },
-        {
-            "id": "4037761311_4253389076_3422507072_1285356446",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 7,
-            "title": "Wormholes",
-            "description": "On the galaxy map",
-            "labels": []
-        },
-        {
             "id": "3217620502_1376862668_3527955332_858619495",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 8,
             "title": "Body class",
             "description": "star, name, system_x, system_y, color, symbol\n\nFor stars, planets, stations, asteroids, comets...\n\ncoordinates are centered around the star",
             "labels": []
-        },
-        {
-            "id": "3834620474_3088399316_1568448146_2202349938",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 8,
-            "title": "Base class",
-            "description": "Inherit Landmark",
-            "labels": []
-        },
-        {
-            "id": "57057396_3134067602_1890572729_2752396516",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 9,
-            "title": "Bug: jumping near the bottom of the map skews things",
-            "description": "In both the galaxy view and the system view",
-            "labels": [
-                1
-            ]
         },
         {
             "id": "2764517655_3968030259_3591491117_2021233754",

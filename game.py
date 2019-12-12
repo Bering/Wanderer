@@ -4,6 +4,7 @@ import colorama
 from time import sleep
 
 import getch
+import ui
 from world import World
 from player import Player
 #from ai import AI
@@ -73,8 +74,7 @@ class Game:
         view_bottom = view_top + lines - 3 # -1 for math, -1 for header, -1 for footer
 
         # clear screen
-        print('\x1b[2J')
-        print('\x1b[0;0HGalactic View')
+        print(ui.clear_screen() + ui.pos(1,1) + 'Galactic View')
 
         #print("Window size: " + str(cols) + "x" + str(lines))
         #print("Viewing: (" + str(view_left) + "," + str(view_top) + ") - (" + str(view_right) + "," + str(view_bottom) + ")")
@@ -86,12 +86,12 @@ class Game:
 
             col = s.world_x - view_left + 1
             line = s.world_y - view_top + 1
-            print('\x1b[' + str(line + 1) + ';' + str(col) + 'H' + s.style + s.color + '*', end='')
+            print(ui.pos(col, line + 1) + s.style + s.color + '*', end='')
         
         col = self.player.world_x - view_left + 1
         line = self.player.world_y - view_top + 1
         print(
-            '\x1b[' + str(line + 1) + ';' + str(col) + 'H' + 
+            ui.pos(col, line + 1) + 
             colorama.Style.BRIGHT + 
             colorama.Fore.WHITE + 
             '@'
@@ -113,8 +113,8 @@ class Game:
                     target = s
                     break
             
-            print('\x1b[' + str(lines) + ';0H' + 'Jump to: ' + '\x1b[0J' + target_text, end='', flush=True)
-            print('\x1b[' + str(line + 1) + ';' + str(col) + 'H', end='', flush=True)
+            print(ui.pos(1, lines) + 'Jump to: ' + ui.clear_line() + target_text, end='', flush=True)
+            print(ui.pos(col, line + 1), end='', flush=True)
             
             k = getch.getch()
             if k == 'w':
@@ -131,10 +131,10 @@ class Game:
                     line += 1
         
         if ord(k) == 27 or (cursor_x == self.player.world_x and cursor_y == self.player.world_y):
-            print('\x1b[' + str(lines) + ';0H' + '\n' + 'Jump CANCELED')
+            print(ui.pos(1, lines) + '\n' + 'Jump CANCELED')
             return
         
-        print('\x1b[' + str(lines) + ';0H' + '\n' + 'Initiating jump...')
+        print(ui.pos(1, lines) + '\n' + 'Initiating jump...')
         sleep(1)
         # TODO: random event or something :-)
         print('Jump successful!')
@@ -160,12 +160,11 @@ class Game:
         view_bottom = view_top + lines - 3 # -1 for math, -1 for header, -1 for footer
 
         # clear screen
-        print('\x1b[2J')
-        print('\x1b[0;0H' + self.player.star.name + ' System')
+        print(ui.clear_screen() + ui.pos(1,1) + self.player.star.name + ' System')
         #print("Viewing: (" + str(view_left) + "," + str(view_top) + ") - (" + str(view_right) + "," + str(view_bottom) + ")")
 
         print(
-            '\x1b[' + str(star_y + 1) + ';' + str(star_x) + 'H' + 
+            ui.pos(star_x, star_y + 1) + 
             self.player.star.color + 
             '*',
             end=''
@@ -178,12 +177,12 @@ class Game:
 
             col = star_x + b.body_x
             line = star_y + b.body_y
-            print('\x1b[' + str(line + 1) + ';' + str(col) + 'H' + b.color + b.symbol, end='')
+            print(ui.pos(col, line + 1) + b.color + b.symbol, end='')
         
         col = star_x + self.player.system_x
         line = star_y + self.player.system_y
         print(
-            '\x1b[' + str(line + 1) + ';' + str(col) + 'H' + 
+            ui.pos(col, line + 1) + 
             colorama.Style.BRIGHT + 
             colorama.Fore.WHITE + 
             '@'
@@ -203,8 +202,8 @@ class Game:
             else:
                 target_text = target.name
             
-            print('\x1b[' + str(lines) + ';0H' + 'Jump to: ' + '\x1b[0J' + target_text, end='', flush=True)
-            print('\x1b[' + str(line + 1) + ';' + str(col) + 'H', end='', flush=True)
+            print(ui.pos(1, lines) + 'Jump to: ' + ui.clear_line() + target_text, end='', flush=True)
+            print(ui.pos(col, line + 1), end='', flush=True)
             
             k = getch.getch()
             if k == 'w':
@@ -221,10 +220,10 @@ class Game:
                     line += 1
         
         if ord(k) == 27 or (cursor_x == self.player.system_x and cursor_y == self.player.system_y):
-            print('\x1b[' + str(lines) + ';0H' + '\n' + 'Jump CANCELED')
+            print(ui.pos(1, lines) + '\n' + 'Jump CANCELED')
             return
         
-        print('\x1b[' + str(lines) + ';0H' + '\n' + 'Initiating jump...')
+        print(ui.pos(1, lines) + '\n' + 'Initiating jump...')
         sleep(1)
         # TODO: random event or something :-)
         print('Jump successful!')
@@ -233,7 +232,9 @@ class Game:
     def cmd_test(self):
         cols, lines = shutil.get_terminal_size()
 
-        print('\x1b[2J')
+        print(ui.clear_screen())
 
-        print('\x1b[0;0H' + 'Top-Left')
-        print('\x1b[' + str(lines) + ';0H' + 'Bottom-Left', end='')
+        print(ui.pos(1,1) + 'Top-Left')
+
+        print(ui.pos(1, lines) + 'Press any key...', end='', flush=True)
+        k = getch.getch()
