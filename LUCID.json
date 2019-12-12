@@ -17,16 +17,6 @@
             "labels": []
         },
         {
-            "id": "2292943580_855386292_1665295193_828085516",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 0,
-            "title": "Bodies only show up in the bottom of the screen !?",
-            "description": "",
-            "labels": [
-                1
-            ]
-        },
-        {
             "id": "1891226080_4151853736_2706102033_2766950107",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 0,
@@ -37,11 +27,19 @@
             ]
         },
         {
-            "id": "1290033882_4111822711_4269353178_3642925237",
+            "id": "1397014827_816900498_235780156_1865574713",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 0,
+            "title": "Comet class",
+            "description": "Inherit Body\n\nSymbol is /, \\, | or --, pointing towards the star",
+            "labels": []
+        },
+        {
+            "id": "2292943580_855386292_1665295193_828085516",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 1,
-            "title": "View should be centered around the player when the window is bigger than the map",
-            "description": "Maximize the console and look at the system view",
+            "title": "Bodies only show up in the bottom of the screen !?",
+            "description": "",
             "labels": [
                 1
             ]
@@ -55,9 +53,19 @@
             "labels": []
         },
         {
-            "id": "2113445069_468766045_693428332_1374657037",
+            "id": "1290033882_4111822711_4269353178_3642925237",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 2,
+            "title": "View should be centered around the player when the window is bigger than the map",
+            "description": "Maximize the console and look at the system view",
+            "labels": [
+                1
+            ]
+        },
+        {
+            "id": "2113445069_468766045_693428332_1374657037",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 3,
             "title": "System view",
             "description": " - [x] Center the view on the star\n - [x] Show bodies (planets, asteroids, comets, etc) in orbit\n - [x] Make that work in a viewport so world can be bigger than window size\n - [x] Make that work in a window bigger than the viewport\n",
             "labels": []
@@ -84,14 +92,6 @@
             "position": 6,
             "title": "Star class",
             "description": "",
-            "labels": []
-        },
-        {
-            "id": "1397014827_816900498_235780156_1865574713",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 6,
-            "title": "Comet class",
-            "description": "Inherit Body\n\nSymbol is /, \\, | or --, pointing towards the star",
             "labels": []
         },
         {
@@ -137,14 +137,6 @@
             "labels": []
         },
         {
-            "id": "2764517655_3968030259_3591491117_2021233754",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 8,
-            "title": "Planet class",
-            "description": "Inherit Body\n\nHas Landmarks (cities, bases, outposts, research facility, shipyards, etc.)",
-            "labels": []
-        },
-        {
             "id": "3834620474_3088399316_1568448146_2202349938",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 8,
@@ -161,6 +153,14 @@
             "labels": [
                 1
             ]
+        },
+        {
+            "id": "2764517655_3968030259_3591491117_2021233754",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 10,
+            "title": "Planet class",
+            "description": "Inherit Body\n\nHas Landmarks (cities, bases, outposts, research facility, shipyards, etc.)",
+            "labels": []
         },
         {
             "id": "2764517655_3968030259_3591491117_2021233754",
