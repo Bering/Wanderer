@@ -1,6 +1,5 @@
 from colorama import Fore
 import random
-import math
 
 from body import Body
 
