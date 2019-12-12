@@ -26,7 +26,4 @@ class Planet(Body):
 		
 		name = 'Planet ' + star.name + " " + _suffixes[len(star.bodies)] + " (" + self.size + " " + self.type + ")"
 
-		x = round(distance * math.cos(math.radians(angle)))
-		y = round(distance * math.sin(math.radians(angle)))
-
-		super().__init__(star, name, x, y, self.color, symbol)
+		super().__init__(star, name, angle, distance, self.color, symbol)

@@ -149,21 +149,20 @@ class Game:
 
         cols, lines = shutil.get_terminal_size()
 
-        view_left = max(self.player.system_x - (cols // 2), 1)
-        view_left = min(view_left, self.config.system_width - cols)
+        # System coordinates are centered around the star, hence + star_x and + star_y all over the place
+        star_x = cols // 2
+        star_y = lines // 2
+
+        view_left = -(cols // 2)
         view_right = view_left + cols - 1
 
-        view_top = max(self.player.system_y - (lines // 2), 1)
-        view_top = min(view_top, self.config.system_height - lines)
+        view_top = -(lines // 2)
         view_bottom = view_top + lines - 3 # -1 for math, -1 for header, -1 for footer
 
         # clear screen
         print('\x1b[2J')
         print('\x1b[0;0H' + self.player.star.name + ' System')
-
-        # System coordinates are centered around the star, hence + star_x and + star_y all over the place
-        star_x = cols // 2
-        star_y = lines // 2
+        print("Viewing: (" + str(view_left) + "," + str(view_top) + ") - (" + str(view_right) + "," + str(view_bottom) + ")")
 
         print(
             '\x1b[' + str(star_y + 1) + ';' + str(star_x) + 'H' + 
