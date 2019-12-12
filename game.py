@@ -35,10 +35,10 @@ class Game:
             str(nb_asteroids) + 
             " asteroids"
         )
-        print("Player position: " + str(self.player.world_x) + "," + str(self.player.world_y))
 
         k = "?"
         while(k != 'q' and ord(k) != 27):
+            self.show_status()
             print("> ", end='', flush=True)
             k = getch.getch()
 
@@ -55,6 +55,22 @@ class Game:
         
         print(colorama.Style.RESET_ALL)
         colorama.deinit()
+
+
+    def show_status(self):
+        print('\n' + self.player.ship.name)
+        print('--------------------')
+        print('Crew:'.ljust(15) + ui.progress_bar(self.player.ship.crew, self.player.ship.crew_max))
+        print('Hull:'.ljust(15) + ui.progress_bar(self.player.ship.hull, self.player.ship.hull_max))
+        print('Fuel:'.ljust(15) + ui.progress_bar(self.player.ship.fuel, self.player.ship.fuel_max))
+        for s in self.player.ship.subsystems:
+            print(s.name + ':', end='')
+            print(s.status.rjust(12))
+        
+        # TODO: Show self.player.star (or intersideral space)
+        # TODO: Show self.player.body (or nothing)
+
+        print()
 
 
     def cmd_quit(self):
@@ -236,5 +252,10 @@ class Game:
 
         print(ui.pos(1,1) + 'Top-Left')
 
+        print(ui.pos(1, 3), end='')
+        for n in range(0,101, 5):
+            print(f'{n: 8}', end='')
+            print(ui.progress_bar(n, 100))
+        
         print(ui.pos(1, lines) + 'Press any key...', end='', flush=True)
         k = getch.getch()

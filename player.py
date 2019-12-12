@@ -1,10 +1,6 @@
 import random
-from enum import Enum
 
-class Environment(Enum):
-    GROUND = 1
-    SYSTEM = 2
-    WORLD = 3
+from ship_the_flying_dutchman import TheFlyingDutchman
 
 class Player:
 
@@ -16,9 +12,10 @@ class Player:
         self.ground_x = 0
         self.ground_y = 0
 
-        self.environment = Environment.WORLD
         self.star = None
         self.body = None
+
+        self.ship = TheFlyingDutchman()
 
 
     def jump(self, x, y, target):
