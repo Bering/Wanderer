@@ -1,3 +1,5 @@
+from trade_items_stack import TradeItemsStack
+
 # World size (where the stars are)
 world_width = 320
 world_height = 96
@@ -14,3 +16,10 @@ probability_comet = 20
 
 max_planet_per_system = 24 # If you want more you need to provide more names in the Planet class
 max_asteroids_per_belt = 40
+
+# What are the chances a station has these services
+probability_repair = 100
+probability_rearm = 100
+probability_trade = 100
+probability_research = 100
+trade_items_stack = TradeItemsStack()

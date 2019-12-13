@@ -39,7 +39,7 @@ class Star:
                     chance = random.randint(1, 100)
                     if chance <= config.probability_station:
                         angle = random.randint(0, 359)
-                        self.bodies.append(Station(self, angle, n))
+                        self.bodies.append(Station(config, self, angle, n))
                     else:
                         chance = random.randint(1, 100)
                         if chance <= config.probability_comet:

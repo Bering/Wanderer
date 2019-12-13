@@ -1,0 +1,22 @@
+Raw materials
+Vehicles parts
+Ship parts
+Food rations
+Exotic food
+Spirits
+Milk
+Juice
+Wood
+Granite
+Marble
+Gems
+Ore (Iron)
+Ore (Silver)
+Ore (Gold)
+Ore (Unknown)
+Elder artefact (Unknown)
+Elder artefact (Trinket)
+Elder artefact (Weapon)
+Elder artefact (AI)
+Elder artefact (Wormhole Controller Module)
+Elder artefact (Power-Extender)
