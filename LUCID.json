@@ -225,6 +225,22 @@
             "title": "Choose programming language",
             "description": "",
             "labels": []
+        },
+        {
+            "id": "1746848055_3707858129_3460539862_3846853291",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 3,
+            "title": "SubSystem classes",
+            "description": " - [ ] Sensors\n - [ ] Reactors\n - [ ] Jump drive (also coils quantity and alignment)\n - [ ] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n",
+            "labels": []
+        },
+        {
+            "id": "2583110677_2541195920_3148970938_455457355",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 7,
+            "title": "Rogue Worlds",
+            "description": "",
+            "labels": []
         }
     ]
 }

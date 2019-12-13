@@ -6,8 +6,8 @@ class TheFlyingDutchman(Ship):
             "The Flying Dutchman",
             200,    # crew
             100,    # hull
+            999,    # fuel
             1,      # reactors
-            100,    # fuel
             1,      # jump drive
             1,      # shield emiters
             1,      # stealth field

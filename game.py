@@ -7,7 +7,6 @@ import getch
 import ui
 from world import World
 from player import Player
-#from ai import AI
 
 class Game:
 
@@ -58,14 +57,29 @@ class Game:
 
 
     def show_status(self):
-        print('\n' + self.player.ship.name)
+        print(colorama.Style.RESET_ALL + colorama.Fore.WHITE)
+        ship = self.player.ship
+        print('\n' + ship.name)
         print('--------------------')
-        print('Crew:'.ljust(15) + ui.progress_bar(self.player.ship.crew, self.player.ship.crew_max))
-        print('Hull:'.ljust(15) + ui.progress_bar(self.player.ship.hull, self.player.ship.hull_max))
-        print('Fuel:'.ljust(15) + ui.progress_bar(self.player.ship.fuel, self.player.ship.fuel_max))
-        for s in self.player.ship.subsystems:
-            print(s.name + ':', end='')
-            print(s.status.rjust(12))
+        print('Crew'.ljust(9) + ':' + ui.progress_bar(ship.crew, ship.crew_max).rjust(25))
+        print('Fuel'.ljust(9) + ':' + ui.progress_bar(ship.fuel, ship.fuel_max).rjust(25))
+        print('Power'.ljust(9) + ':' + ui.progress_bar(ship.power, ship.power_max).rjust(25))
+        print('Hull'.ljust(9) + ':' + ui.progress_bar(ship.hull, ship.hull_max).rjust(25))
+        print('Shields'.ljust(9) + ':' + ui.progress_bar(ship.shields, ship.shields_max).rjust(25))
+        for s in ship.subsystems:
+            if s.status == s.green:
+                color = colorama.Fore.GREEN
+            elif s.status == s.yellow:
+                color = colorama.Fore.YELLOW
+            else:
+                color = colorama.Fore.RED
+            print(
+                s.name.ljust(9) + 
+                ':' + 
+                color + 
+                s.status.rjust(10) + 
+                colorama.Fore.WHITE
+            )
         
         # TODO: Show self.player.star (or intersideral space)
         # TODO: Show self.player.body (or nothing)

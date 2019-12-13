@@ -1,29 +1,31 @@
 
 class SubSystem:
-    def __init__(self, name, status_green, status_yellow, status_red, power):
+    def __init__(self, ship, name, status_green, status_yellow, status_red, power):
+        self.ship = ship
         self.name = name
         self.green = status_green
         self.yellow = status_yellow
         self.red = status_red
-        self.power_max = power
-
         self.status = self.green
-        self.power = self.power_max
+        self.ship.power -= power    
 
 
 class Reactor(SubSystem):
-    def __init__(self):
+    def __init__(self, ship):
         super().__init__(
+            ship,
             "Reactor",
             "Online",
             "Damaged",
             "Critical",
-            100
+            -1000
         )
+        self.ship.power_max += 1000
 
 class Sensors(SubSystem):
-    def __init__(self):
+    def __init__(self, ship):
         super().__init__(
+            ship,
             "Sensors",
             "Online",
             "Offline",
@@ -32,9 +34,10 @@ class Sensors(SubSystem):
         )
 
 class JumpDrive(SubSystem):
-    def __init__(self):
+    def __init__(self, ship):
         super().__init__(
-            "JumpDrv",
+            ship,
+            "JumpDrive",
             "Ready",
             "Loading",
             "Offline",
@@ -42,18 +45,21 @@ class JumpDrive(SubSystem):
         )
         
 class ShieldEmitter(SubSystem):
-    def __init__(self):
+    def __init__(self, ship):
         super().__init__(
+            ship,
             "Shields",
             "Up",
             "Down",
             "Damaged",
-            100
+            500
         )
+        self.ship.shields_max += 100
         
 class StealthField(SubSystem):
-    def __init__(self):
+    def __init__(self, ship):
         super().__init__(
+            ship,
             "Stealth",
             "Engaged",
             "Offline",
@@ -62,12 +68,13 @@ class StealthField(SubSystem):
         )
         
 class DampeningField(SubSystem):
-    def __init__(self):
+    def __init__(self, ship):
         super().__init__(
-            "Dampnng",
+            ship,
+            "Dampening",
             "Online",
             "Offline",
             "Damaged",
-            100
+            250
         )
         

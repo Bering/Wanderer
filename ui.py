@@ -14,7 +14,7 @@ def pos(x, y):
 
 
 def progress_bar(value, maximum):
-    ret = colorama.Fore.WHITE + '['
+    ret = colorama.Fore.WHITE + str(value) + ' ['
 
     percent = value * 100 // maximum
     if (percent <= 20):
