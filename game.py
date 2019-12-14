@@ -34,19 +34,26 @@ class Game:
             str(nb_asteroids) + 
             " asteroids"
         )
+        print(colorama.Style.RESET_ALL + colorama.Fore.WHITE)
+        self.cmd_report()
 
         k = "?"
         while(k != 'q' and ord(k) != 27):
-            self.show_status()
-            print("> ", end='', flush=True)
+            print("(?,r,g,s,d,t,q) > ", end='', flush=True)
             k = getch.getch()
 
             if k == 'q' or ord(k) == 27:
                 self.cmd_quit()
+            elif k == '?':
+                self.cmd_help()
+            elif k == 'r':
+                self.cmd_report()
             elif k == 'g':
                 self.cmd_galaxy_map()
             elif k == 's':
                 self.cmd_system_map()
+            elif k == 'd':
+                self.cmd_dropship()
             elif k == 't':
                 self.cmd_test()
             else:
@@ -56,8 +63,25 @@ class Game:
         colorama.deinit()
 
 
-    def show_status(self):
-        print(colorama.Style.RESET_ALL + colorama.Fore.WHITE)
+    def cmd_quit(self):
+        print("Quit")
+
+
+    def cmd_help(self):
+        print("Help")
+        print()
+        print("    ?    This help")
+        print("    g    Galaxy map   (jump from star to star)")
+        print("    s    System map   (jump inside a star system)")
+        print("    d    Dropship     (visit planets, asteroids, comets and stations)")
+        print("    t    Tests        (debug stuff)")
+        print("    q    Quit")
+        print()
+
+
+    def cmd_report(self):
+        print("Report")
+
         ship = self.player.ship
         print('\n' + ship.name)
         print('--------------------')
@@ -85,10 +109,6 @@ class Game:
         # TODO: Show self.player.body (or nothing)
 
         print()
-
-
-    def cmd_quit(self):
-        print("Quit")
 
 
     def cmd_galaxy_map(self):
@@ -127,7 +147,7 @@ class Game:
             '@'
         )
 
-        print(colorama.Style.RESET_ALL);
+        print(colorama.Style.RESET_ALL + colorama.Fore.WHITE);
 
         k = '?'
         while(ord(k) != 13 and k != ' ' and ord(k) != 27):
@@ -161,20 +181,20 @@ class Game:
                     line += 1
         
         if ord(k) == 27 or (cursor_x == self.player.world_x and cursor_y == self.player.world_y):
-            print(ui.pos(1, lines) + '\n' + 'Jump CANCELED')
+            print(ui.pos(1, lines) + '\n' + 'Jump CANCELED\n')
             return
         
         print(ui.pos(1, lines) + '\n' + 'Initiating jump...')
         sleep(1)
         # TODO: random event or something :-)
-        print('Jump successful!')
+        print('Jump successful!\n')
         self.player.jump(cursor_x, cursor_y, target)
 
 
     def cmd_system_map(self):
         
         if self.player.star == None:
-            print('Currently in interstellar space, not in a system.')
+            print('Currently in interstellar space, not in a system.\n')
             return
 
         cols, lines = shutil.get_terminal_size()
@@ -218,7 +238,7 @@ class Game:
             '@'
         )
 
-        print(colorama.Style.RESET_ALL);
+        print(colorama.Style.RESET_ALL + colorama.Fore.WHITE);
 
         k = '?'
         while(ord(k) != 13 and k != ' ' and ord(k) != 27):
@@ -250,14 +270,19 @@ class Game:
                     line += 1
         
         if ord(k) == 27 or (cursor_x == self.player.system_x and cursor_y == self.player.system_y):
-            print(ui.pos(1, lines) + '\n' + 'Jump CANCELED')
+            print(ui.pos(1, lines) + '\n' + 'Jump CANCELED\n')
             return
         
         print(ui.pos(1, lines) + '\n' + 'Initiating jump...')
         sleep(1)
         # TODO: random event or something :-)
-        print('Jump successful!')
+        print('Jump successful!\n')
         self.player.jump_in_system(cursor_x, cursor_y, target)
+
+
+    def cmd_dropship(self):
+        print("Dropship not ready yet...\n")
+
 
     def cmd_test(self):
         cols, lines = shutil.get_terminal_size()
