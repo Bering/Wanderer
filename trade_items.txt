@@ -1,19 +1,20 @@
-Raw materials
-Vehicles parts
-Ship parts
-Food rations
-Exotic food
-Spirits
-Milk
-Juice
-Wood
-Granite
-Marble
+Food (Rations)
+Food (Exotic)
+Food (Spirits)
+Food (Milk)
+Food (Juice)
 Gems
 Ore (Iron)
 Ore (Silver)
 Ore (Gold)
 Ore (Unknown)
+Building materials
+Goods (Chair)
+Goods (Table)
+Goods (Sofa)
+Goods (Work of Art)
+Spare Parts (Vehicles)
+Spare Parts (Spaceship)
 Elder artefact (Unknown)
 Elder artefact (Trinket)
 Elder artefact (Weapon)
