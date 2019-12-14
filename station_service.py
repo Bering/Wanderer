@@ -24,7 +24,7 @@ class Trade(StationService):
         self.inventory = Inventory(10000)
         for i in config.trade_items_stack.items:
             chance = random.randint(1, 100)
-            if chance < i.rarity:
+            if chance <= i.rarity:
                 twenty_five_percent = i.price * 25 // 100
                 price = random.randint(
                     i.price - twenty_five_percent,
