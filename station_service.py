@@ -18,6 +18,10 @@ class Rearm(StationService):
     def __init__(self, station):
         super().__init__(station, "Rearm")
 
+class Refuel(StationService):
+    def __init__(self, station):
+        super().__init__(station, "Refuel")
+
 class Trade(StationService):
     def __init__(self, station, config):
         super().__init__(station, "Trade")

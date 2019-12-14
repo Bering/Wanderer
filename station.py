@@ -20,6 +20,9 @@ class Station(Body):
         if chance <= config.probability_rearm:
             self.services.append(station_service.Rearm(self))
         chance = random.randint(1, 100)
+        if chance <= config.probability_refuel:
+            self.services.append(station_service.Refuel(self))
+        chance = random.randint(1, 100)
         if chance <= config.probability_trade:
             self.services.append(station_service.Trade(self, config))
         chance = random.randint(1, 100)
