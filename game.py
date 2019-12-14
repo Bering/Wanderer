@@ -268,8 +268,9 @@ class Game:
 
         print(ui.pos(1, 3), end='')
         for n in range(0,101, 5):
-            print(f'{n: 8}', end='')
-            print(ui.progress_bar(n, 100))
+            print(ui.progress_bar(n, 100).rjust(25))
         
-        print(ui.pos(1, lines) + 'Press any key...', end='', flush=True)
-        k = getch.getch()
+        print(ui.pos(1, lines) + 'Press any key... ', end='', flush=True)
+        k = getch.getch_that_can_do_arrow_keys()
+        print(ord(k))
+

@@ -21,3 +21,14 @@ def _find_getch():
     return _getch
 
 getch = _find_getch()
+
+
+# It can do arrow keys but not ESC :-(
+def getch_that_can_do_arrow_keys():
+    k = getch()
+    if ord(k) == 27:
+        k = getch()
+        if ord(k) == 91: # i think I should check for 224 in Windows
+            k = getch()
+    
+    return k

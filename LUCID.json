@@ -13,7 +13,7 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 0,
             "title": "getch() for Windows returns an int not a char",
-            "description": "Fred might have time to test the fix sometime this week",
+            "description": "Fred might have time to test the fix sometime this week\n\nDidn't work! Looks like I made it worse LOL\n\nOK 3rd time's the charm, this should work",
             "labels": [
                 1
             ]
@@ -103,6 +103,14 @@
             "labels": []
         },
         {
+            "id": "1746848055_3707858129_3460539862_3846853291",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 3,
+            "title": "SubSystem classes",
+            "description": " - [ ] Sensors\n - [ ] Reactors\n - [ ] Jump drive (also coils quantity and alignment)\n - [ ] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n",
+            "labels": []
+        },
+        {
             "id": "4219047632_3630737559_1280686700_4275324277",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 4,
@@ -116,6 +124,14 @@
             "position": 4,
             "title": "Base class",
             "description": "Inherit Landmark",
+            "labels": []
+        },
+        {
+            "id": "2494385881_1561218444_2794589655_2738149348",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 4,
+            "title": "Station Inventory for trading",
+            "description": "",
             "labels": []
         },
         {
@@ -163,11 +179,35 @@
             ]
         },
         {
+            "id": "2583110677_2541195920_3148970938_455457355",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 7,
+            "title": "Rogue Worlds",
+            "description": "",
+            "labels": []
+        },
+        {
             "id": "3217620502_1376862668_3527955332_858619495",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 8,
             "title": "Body class",
             "description": "star, name, system_x, system_y, color, symbol\n\nFor stars, planets, stations, asteroids, comets...\n\ncoordinates are centered around the star",
+            "labels": []
+        },
+        {
+            "id": "378932632_3967463374_3687376349_1863160672",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 8,
+            "title": "Elder Guardian",
+            "description": "Like in the roach motel\n\nThere are sentinels too, they are actively hunting down ships who use elder weapons",
+            "labels": []
+        },
+        {
+            "id": "3622774874_849889469_1198837998_403189632",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 9,
+            "title": "Support arrow keys",
+            "description": "Arrow up is 27 + 91 + 65 in Linux\n            27 + 224 + 0 in Windows (not sure last)\n\nSo it's not too hard, if 27 call getch again etc.\n\nBut 27 is the ESC key so if you press ESC you get stuck with the second getch :-(\n\nThe real solution seems to be rewrite for curses but I don't want to at all now.\n\nDEFERRED",
             "labels": []
         },
         {
@@ -223,38 +263,6 @@
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 15,
             "title": "Choose programming language",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": "1746848055_3707858129_3460539862_3846853291",
-            "list_id": "1901749129_962513719_918349320_1149498453",
-            "position": 3,
-            "title": "SubSystem classes",
-            "description": " - [ ] Sensors\n - [ ] Reactors\n - [ ] Jump drive (also coils quantity and alignment)\n - [ ] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n",
-            "labels": []
-        },
-        {
-            "id": "2583110677_2541195920_3148970938_455457355",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 7,
-            "title": "Rogue Worlds",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": "378932632_3967463374_3687376349_1863160672",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 8,
-            "title": "Elder Guardian",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": "2494385881_1561218444_2794589655_2738149348",
-            "list_id": "1901749129_962513719_918349320_1149498453",
-            "position": 4,
-            "title": "Station Inventory for trading",
             "description": "",
             "labels": []
         }
