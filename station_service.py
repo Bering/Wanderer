@@ -49,4 +49,4 @@ class Trade(StationService):
 
 class Research(StationService):
     def __init__(self, station):
-        super().__init__(station, "Researach")
+        super().__init__(station, "Research")
