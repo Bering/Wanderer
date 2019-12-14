@@ -39,7 +39,11 @@ class Game:
 
         k = "?"
         while(k != 'q' and ord(k) != 27):
-            print("(?,r,g,s,d,t,q) > ", end='', flush=True)
+            print(
+                colorama.Fore.LIGHTWHITE_EX + 
+                "(?,r,g,s,d,t,q) > " + 
+                colorama.Fore.WHITE,
+                end='', flush=True)
             k = getch.getch()
 
             if k == 'q' or ord(k) == 27:
@@ -142,8 +146,7 @@ class Game:
         line = self.player.world_y - view_top + 1
         print(
             ui.pos(col, line + 1) + 
-            colorama.Style.BRIGHT + 
-            colorama.Fore.WHITE + 
+            colorama.Fore.LIGHTWHITE_EX + 
             '@'
         )
 
@@ -163,7 +166,12 @@ class Game:
                     target = s
                     break
             
-            print(ui.pos(1, lines) + 'Jump to: ' + ui.clear_line() + target_text, end='', flush=True)
+            print(
+                ui.pos(1, lines) + 
+                '(w,a,s,d,space,enter,esc) Jump to: ' + 
+                ui.clear_line() + 
+                target_text,
+                end='', flush=True)
             print(ui.pos(col, line + 1), end='', flush=True)
             
             k = getch.getch()
@@ -233,8 +241,7 @@ class Game:
         line = star_y + self.player.system_y
         print(
             ui.pos(col, line + 1) + 
-            colorama.Style.BRIGHT + 
-            colorama.Fore.WHITE + 
+            colorama.Fore.LIGHTWHITE_EX + 
             '@'
         )
 
@@ -252,7 +259,12 @@ class Game:
             else:
                 target_text = target.name
             
-            print(ui.pos(1, lines) + 'Jump to: ' + ui.clear_line() + target_text, end='', flush=True)
+            print(
+                ui.pos(1, lines) + 
+                '(w,a,s,d,space,enter,esc) Jump to: ' + 
+                ui.clear_line() + 
+                target_text,
+                end='', flush=True)
             print(ui.pos(col, line + 1), end='', flush=True)
             
             k = getch.getch()
