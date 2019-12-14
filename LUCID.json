@@ -27,19 +27,19 @@
             "labels": []
         },
         {
-            "id": "3054881890_243648585_1762188127_3621766692",
+            "id": "260465741_1760469332_1275050606_2063338460",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 0,
-            "title": "Good Reference: https://expeditionary-force-by-craig-alanson.fandom.com/wiki/Books",
-            "description": "",
+            "title": "Gas Giants (to refuel)",
+            "description": "Allow stations to have refueling service if they are in a system having a gas giant",
             "labels": []
         },
         {
-            "id": "3285542083_2777414111_1708969119_2353456641",
+            "id": "3054881890_243648585_1762188127_3621766692",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 1,
-            "title": "Derelic class",
-            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
+            "title": "Good Reference: https://expeditionary-force-by-craig-alanson.fandom.com/wiki/Books",
+            "description": "",
             "labels": []
         },
         {
@@ -61,11 +61,11 @@
             "labels": []
         },
         {
-            "id": "1343862095_1231198859_745926488_1555386104",
+            "id": "3285542083_2777414111_1708969119_2353456641",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 2,
-            "title": "Landmark class",
-            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
+            "title": "Derelic class",
+            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
             "labels": []
         },
         {
@@ -73,7 +73,7 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 2,
             "title": "Ship class",
-            "description": " - [ ] Sensors\n - [ ] Reactors\n - [ ] Fuel\n - [ ] Jump drive (also coils quantity and alignment)\n - [ ] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n - [ ] Rail guns\n - [ ] Masers\n - [ ] Missiles\n - [ ] Nukes\n - [ ] Replicators\n\n - [ ] Energy management\n - [ ] Crew\n - [ ] Dropships\n",
+            "description": " - [ ] Sensors\n - [ ] Reactors\n - [ ] Fuel\n - [ ] Jump drive (also coils quantity and alignment)\n - [ ] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n - [ ] Rail guns\n - [ ] Masers\n - [ ] Missiles\n - [ ] Nukes\n\n - [ ] Energy management (All power to weapons!)\n - [ ] Crew\n - [ ] Dropships\n - [ ] Replicators for repairs and upgrades using building materials\n - [ ] Onboard research lab\n",
             "labels": []
         },
         {
@@ -87,19 +87,19 @@
             ]
         },
         {
+            "id": "1343862095_1231198859_745926488_1555386104",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 3,
+            "title": "Landmark class",
+            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
+            "labels": []
+        },
+        {
             "id": "2113445069_468766045_693428332_1374657037",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 3,
             "title": "System view",
             "description": " - [x] Center the view on the star\n - [x] Show bodies (planets, asteroids, comets, etc) in orbit\n - [x] Make that work in a viewport so world can be bigger than window size\n - [x] Make that work in a window bigger than the viewport\n",
-            "labels": []
-        },
-        {
-            "id": "4037761311_4253389076_3422507072_1285356446",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 3,
-            "title": "Wormholes",
-            "description": "On the galaxy map",
             "labels": []
         },
         {
@@ -111,6 +111,14 @@
             "labels": []
         },
         {
+            "id": "4037761311_4253389076_3422507072_1285356446",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 4,
+            "title": "Wormholes",
+            "description": "On the galaxy map",
+            "labels": []
+        },
+        {
             "id": "4219047632_3630737559_1280686700_4275324277",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 4,
@@ -119,19 +127,19 @@
             "labels": []
         },
         {
-            "id": "3834620474_3088399316_1568448146_2202349938",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 4,
-            "title": "Base class",
-            "description": "Inherit Landmark",
-            "labels": []
-        },
-        {
             "id": "2494385881_1561218444_2794589655_2738149348",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 4,
             "title": "Station Inventory for trading",
             "description": "",
+            "labels": []
+        },
+        {
+            "id": "3834620474_3088399316_1568448146_2202349938",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 5,
+            "title": "Base class",
+            "description": "Inherit Landmark",
             "labels": []
         },
         {
@@ -145,7 +153,7 @@
         {
             "id": "57057396_3134067602_1890572729_2752396516",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 5,
+            "position": 6,
             "title": "Bug: jumping near the bottom of the map skews things",
             "description": "In both the galaxy view and the system view",
             "labels": [
@@ -163,7 +171,7 @@
         {
             "id": "460078232_1811257596_703611331_636981942",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 6,
+            "position": 7,
             "title": "Ground screen",
             "description": "For dropships going to planets and asteroids",
             "labels": []
@@ -181,7 +189,7 @@
         {
             "id": "2583110677_2541195920_3148970938_455457355",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 7,
+            "position": 8,
             "title": "Rogue Worlds",
             "description": "",
             "labels": []
@@ -197,7 +205,7 @@
         {
             "id": "378932632_3967463374_3687376349_1863160672",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 8,
+            "position": 9,
             "title": "Elder Guardian",
             "description": "Like in the roach motel\n\nThere are sentinels too, they are actively hunting down ships who use elder weapons",
             "labels": []
@@ -205,7 +213,7 @@
         {
             "id": "3622774874_849889469_1198837998_403189632",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 9,
+            "position": 10,
             "title": "Support arrow keys",
             "description": "Arrow up is 27 + 91 + 65 in Linux\n            27 + 224 + 0 in Windows (not sure last)\n\nSo it's not too hard, if 27 call getch again etc.\n\nBut 27 is the ESC key so if you press ESC you get stuck with the second getch :-(\n\nThe real solution seems to be rewrite for curses but I don't want to at all now.\n\nDEFERRED",
             "labels": []
