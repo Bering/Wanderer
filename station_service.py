@@ -1,6 +1,5 @@
 import random
 
-from inventory import Inventory, InventoryItem
 from inventory import Inventory
 
 
