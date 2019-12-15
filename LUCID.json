@@ -43,6 +43,14 @@
             "labels": []
         },
         {
+            "id": "13925376_3918280602_3709209760_2175576408",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 1,
+            "title": "Theme / Story / Ideas",
+            "description": "- [ ] Priority #1 prevent other ships from reaching Earth\n- [ ] Secondary objective: defend that \"Plan B\" planet I can't remember the name of\n- [ ] Explore and move about stealthily. If discovered you must kill them before they jump away\n- [ ] Have Skippy do crazy-ass moves to destroy other ships\n- [ ] Train Spec-ops\n- [ ] Raid Stations with Spec-ops for Food, Fuel, Missiles and Elder or Alien artifacts\n- [ ] Research artifacts\n- [ ] Have the races wage war against each other. Ships leave a race's shipyard to go attack another race's planet\n- [ ] Have some researchers leave a race's research station to head towards Earth once in a while\n- [ ] Learn in advance about the researchers headed for Earth by visiting Stations\n- [ ] Read the news in stations to learn about ships of that race leaving a station to wage war on another race\n",
+            "labels": []
+        },
+        {
             "id": "2494385881_1561218444_2794589655_2738149348",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 2,
@@ -51,11 +59,11 @@
             "labels": []
         },
         {
-            "id": "13925376_3918280602_3709209760_2175576408",
+            "id": "3054881890_243648585_1762188127_3621766692",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 2,
-            "title": "Theme / Story / Ideas",
-            "description": "- [ ] Priority #1 prevent other ships from reaching Earth\n- [ ] Secondary objective: defend that \"Plan B\" planet I can't remember the name of\n- [ ] Explore and move about stealthily. If discovered you must kill them before they jump away\n- [ ] Have Skippy do crazy-ass moves to destroy other ships\n- [ ] Train Spec-ops\n- [ ] Raid Stations with Spec-ops for Food, Fuel, Missiles and Elder or Alien artifacts\n- [ ] Research artifacts\n- [ ] Have the races wage war against each other. Ships leave a race's shipyard to go attack another race's planet\n- [ ] Have some researchers leave a race's research station to head towards Earth once in a while\n- [ ] Learn in advance about the researchers headed for Earth by visiting Stations\n- [ ] Read the news in stations to learn about ships of that race leaving a station to wage war on another race\n",
+            "title": "Good Reference: https://expeditionary-force-by-craig-alanson.fandom.com/wiki/Books",
+            "description": "",
             "labels": []
         },
         {
@@ -63,14 +71,6 @@
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 3,
             "title": "Gas Giants (to refuel)",
-            "description": "",
-            "labels": []
-        },
-        {
-            "id": "3054881890_243648585_1762188127_3621766692",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 3,
-            "title": "Good Reference: https://expeditionary-force-by-craig-alanson.fandom.com/wiki/Books",
             "description": "",
             "labels": []
         },
@@ -83,6 +83,14 @@
             "labels": []
         },
         {
+            "id": "1257838434_953474678_3428611069_2673009880",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 3,
+            "title": "Enemy fleets",
+            "description": " - [ ] Race\n - [ ] Composition of ships\n - [ ] Goal (Patrol, Attack, Research)\n - [ ] Show up in the news\n - [ ] Movement\n",
+            "labels": []
+        },
+        {
             "id": "1397014827_816900498_235780156_1865574713",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 4,
@@ -91,19 +99,27 @@
             "labels": []
         },
         {
-            "id": "3285542083_2777414111_1708969119_2353456641",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 4,
-            "title": "Derelic class",
-            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
-            "labels": []
-        },
-        {
             "id": "1832546242_2887351767_3015130704_3442157218",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 4,
             "title": "Ship class",
             "description": " - [x] Sensors\n - [x] Reactors\n - [x] Fuel\n - [ ] Jump drive (also coils quantity and alignment)\n - [x] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n - [ ] Rail guns\n - [ ] Masers\n - [ ] Missiles\n - [ ] Nukes\n\n - [ ] Energy management (All power to weapons!)\n - [ ] Crew\n - [ ] Special Operators, Space Commandos (What are they called again? Space Team 1?)\n - [ ] Dropships\n - [ ] Replicators for repairs and upgrades using building materials\n - [ ] Onboard research lab\n",
+            "labels": []
+        },
+        {
+            "id": "3575428154_3499237287_2054302075_752592619",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 4,
+            "title": "Crazy ideas (combat)",
+            "description": " - [ ] Jump a ship into a gas giant\n - [ ] Put a wormhole endpoint on the ship\n - [ ] Bunch of others, I'll probably have to reread the books",
+            "labels": []
+        },
+        {
+            "id": "3285542083_2777414111_1708969119_2353456641",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 5,
+            "title": "Derelic class",
+            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
             "labels": []
         },
         {
@@ -117,14 +133,6 @@
             ]
         },
         {
-            "id": "1343862095_1231198859_745926488_1555386104",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 5,
-            "title": "Landmark class",
-            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
-            "labels": []
-        },
-        {
             "id": "1290033882_4111822711_4269353178_3642925237",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 6,
@@ -135,11 +143,11 @@
             ]
         },
         {
-            "id": "4037761311_4253389076_3422507072_1285356446",
+            "id": "1343862095_1231198859_745926488_1555386104",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 6,
-            "title": "Wormholes",
-            "description": "On the galaxy map",
+            "title": "Landmark class",
+            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
             "labels": []
         },
         {
@@ -159,19 +167,19 @@
             "labels": []
         },
         {
-            "id": "4219047632_3630737559_1280686700_4275324277",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 8,
-            "title": "Galaxy view",
-            "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [x] Make that work in a viewport so world can be bigger than window size\n",
-            "labels": []
-        },
-        {
             "id": "460078232_1811257596_703611331_636981942",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 8,
             "title": "Ground screen",
             "description": "For dropships going to planets and asteroids",
+            "labels": []
+        },
+        {
+            "id": "4219047632_3630737559_1280686700_4275324277",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 8,
+            "title": "Galaxy view",
+            "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [x] Make that work in a viewport so world can be bigger than window size\n",
             "labels": []
         },
         {
@@ -183,14 +191,12 @@
             "labels": []
         },
         {
-            "id": "57057396_3134067602_1890572729_2752396516",
+            "id": "378932632_3967463374_3687376349_1863160672",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 9,
-            "title": "Bug: jumping near the bottom of the map skews things",
-            "description": "In both the galaxy view and the system view",
-            "labels": [
-                1
-            ]
+            "title": "Elder Guardian",
+            "description": "Like in the roach motel\n\nThere are sentinels too, they are actively hunting down ships who use elder weapons",
+            "labels": []
         },
         {
             "id": "481700607_2704421970_3433118822_381914478",
@@ -201,11 +207,11 @@
             "labels": []
         },
         {
-            "id": "2583110677_2541195920_3148970938_455457355",
+            "id": "4037761311_4253389076_3422507072_1285356446",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 10,
-            "title": "Rogue Worlds",
-            "description": "",
+            "title": "Wormholes",
+            "description": "On the galaxy map",
             "labels": []
         },
         {
@@ -219,12 +225,22 @@
             ]
         },
         {
-            "id": "378932632_3967463374_3687376349_1863160672",
+            "id": "2583110677_2541195920_3148970938_455457355",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 11,
-            "title": "Elder Guardian",
-            "description": "Like in the roach motel\n\nThere are sentinels too, they are actively hunting down ships who use elder weapons",
+            "title": "Rogue Worlds",
+            "description": "",
             "labels": []
+        },
+        {
+            "id": "57057396_3134067602_1890572729_2752396516",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 12,
+            "title": "Bug: jumping near the bottom of the map skews things",
+            "description": "In both the galaxy view and the system view",
+            "labels": [
+                1
+            ]
         },
         {
             "id": "3217620502_1376862668_3527955332_858619495",
@@ -237,7 +253,7 @@
         {
             "id": "3622774874_849889469_1198837998_403189632",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 12,
+            "position": 13,
             "title": "Support arrow keys",
             "description": "Arrow up is 27 + 91 + 65 in Linux\n            27 + 224 + 0 in Windows (not sure last)\n\nSo it's not too hard, if 27 call getch again etc.\n\nBut 27 is the ESC key so if you press ESC you get stuck with the second getch :-(\n\nThe real solution seems to be rewrite for curses but I don't want to at all now.\n\nDEFERRED",
             "labels": []
