@@ -83,6 +83,7 @@ class Game:
         print("Help")
         print()
         print("    " + colorama.Fore.LIGHTWHITE_EX + "?" + colorama.Fore.WHITE + "    This help")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "r" + colorama.Fore.WHITE + "    Report       (show ship status and position)")
         print("    " + colorama.Fore.LIGHTWHITE_EX + "g" + colorama.Fore.WHITE + "    Galaxy map   (jump from star to star)")
         print("    " + colorama.Fore.LIGHTWHITE_EX + "s" + colorama.Fore.WHITE + "    System map   (jump inside a star system)")
         print("    " + colorama.Fore.LIGHTWHITE_EX + "d" + colorama.Fore.WHITE + "    Dropship     (visit planets, asteroids, comets and stations)")
