@@ -15,7 +15,7 @@ class TradeItemsStack:
 
         self.items = []
         for line in lines:
-            parts = line.strip().split()
+            parts = line.strip().split("\t")
             #if len(parts) < 4:
             #    continue
             name = parts[0]
