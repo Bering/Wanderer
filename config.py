@@ -21,8 +21,8 @@ max_asteroids_per_belt = 40
 
 # What are the chances a station has these services
 # TODO: All 100% for debugging
+probability_news = 100
 probability_repair = 100
-probability_rearm = 100
 probability_refuel = 100
-probability_trade = 100
+probability_plunder = 100
 probability_research = 100

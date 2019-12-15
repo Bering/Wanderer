@@ -14,17 +14,17 @@ class Station(Body):
         
         self.services = []
         chance = random.randint(1, 100)
+        if chance <= config.probability_news:
+            self.services.append(station_service.News(self))
+        chance = random.randint(1, 100)
         if chance <= config.probability_repair:
             self.services.append(station_service.Repair(self))
-        chance = random.randint(1, 100)
-        if chance <= config.probability_rearm:
-            self.services.append(station_service.Rearm(self))
         chance = random.randint(1, 100)
         if chance <= config.probability_refuel:
             self.services.append(station_service.Refuel(self))
         chance = random.randint(1, 100)
-        if chance <= config.probability_trade:
-            self.services.append(station_service.Trade(self, config))
+        if chance <= config.probability_plunder:
+            self.services.append(station_service.Plunder(self, config))
         chance = random.randint(1, 100)
         if chance <= config.probability_research:
             self.services.append(station_service.Research(self))

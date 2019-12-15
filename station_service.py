@@ -9,24 +9,26 @@ class StationService:
         self.name = name
 
 
+class News(StationService):
+    def __init__(self, station):
+        super().__init__(station, "News")
+
+
 class Repair(StationService):
     def __init__(self, station):
         super().__init__(station, "Repair")
 
-class Rearm(StationService):
-    def __init__(self, station):
-        super().__init__(station, "Rearm")
 
 class Refuel(StationService):
     def __init__(self, station):
         super().__init__(station, "Refuel")
 
-class Trade(StationService):
+
+class Plunder(StationService):
     def __init__(self, station, config):
-        super().__init__(station, "Trade")
+        super().__init__(station, "Plunder")
 
         self.inventory = Inventory(10000)
-        self.prices = {}
 
         # pick items at random and fill inventory with random amount of it
         while self.inventory.size < self.inventory.size_max:
@@ -40,11 +42,7 @@ class Trade(StationService):
             if chance <= i.rarity:
                 quantity = remaining_space // i.size
                 self.inventory.add(i.name, i.size, random.randint(1, quantity))
-                twenty_five_percent = i.price * 25 // 100
-                price = random.randint(
-                    i.price - twenty_five_percent,
-                    i.price + twenty_five_percent)
-                self.prices[i.name] = price
+
 
 class Research(StationService):
     def __init__(self, station):
