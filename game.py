@@ -7,6 +7,12 @@ import getch
 import ui
 from world import World
 from player import Player
+from star import Star
+from planet import Planet
+from asteroid import Asteroid
+from comet import Comet
+from station import Station
+from station_service_ui import StationServiceUI
 
 class Game:
 
@@ -41,7 +47,7 @@ class Game:
         while(k != 'q' and ord(k) != 27):
             print(
                 colorama.Fore.LIGHTWHITE_EX + 
-                "(?,r,g,s,d,t,q) > " + 
+                "(?,r,g,s,d,c,t,q) > " + 
                 colorama.Fore.WHITE,
                 end='', flush=True)
             k = getch.getch()
@@ -58,6 +64,8 @@ class Game:
                 self.cmd_system_map()
             elif k == 'd':
                 self.cmd_dropship()
+            elif k == 'c':
+                self.cmd_jettison_cargo()
             elif k == 't':
                 self.cmd_test()
             else:
@@ -78,6 +86,7 @@ class Game:
         print("    g    Galaxy map   (jump from star to star)")
         print("    s    System map   (jump inside a star system)")
         print("    d    Dropship     (visit planets, asteroids, comets and stations)")
+        print("    c    Cargo Bay    (View inventory, jettison cargo, etc.)")
         print("    t    Tests        (debug stuff)")
         print("    q    Quit")
         print()
@@ -109,8 +118,16 @@ class Game:
                 colorama.Fore.WHITE
             )
         
-        # TODO: Show self.player.star (or intersideral space)
-        # TODO: Show self.player.body (or nothing)
+        print("Position :")
+        if self.player.star:
+            print(" " + self.player.star.name + " system")
+        else:
+            print(" Intersideral space")
+        
+        if self.player.body:
+            print(" Orbiting " + self.player.body.name)
+        else:
+            print(" Nothing near")
 
         print()
 
@@ -293,7 +310,135 @@ class Game:
 
 
     def cmd_dropship(self):
-        print("Dropship not ready yet...\n")
+        print("Launch a Dropship\n")
+
+        if not self.player.body:
+            print("We're in the middle of nowhere...\n")
+            return
+
+        if isinstance(self.player.body, Star):
+            print("I don't think you want to go out in a dropship while orbiting a star :-)")
+
+        elif isinstance(self.player.body, Planet):
+            if self.player.body.type == "Gas Giant":
+                print("Cannot do refueling operations yet :( In a future version maybe...")
+            else:
+                print("Cannot drop to planet surface yet :( In a future version maybe...")
+        
+        elif isinstance(self.player.body, Asteroid):
+            print("Cannot investigate asteroids yet :( In a future version maybe...")
+        
+        elif isinstance(self.player.body, Comet):
+            print("Cannot investigate comets yet :( In a future version maybe...")
+        
+        elif isinstance(self.player.body, Station):
+            station = self.player.body
+            print("Welcome to " + station.name + "!")
+            print("What can I do for you?")
+
+            k = '?'
+            cursor = 0
+            cols, lines = shutil.get_terminal_size()
+            while k != ' ' and ord(k) != 13 and k != 'q' and ord(k) != 27:
+                for index, service in enumerate(station.services):
+                    if cursor == index:
+                        print(
+                            " -" + 
+                            colorama.Fore.LIGHTWHITE_EX + 
+                            "[" + 
+                            colorama.Fore.WHITE + 
+                            service.name + 
+                            colorama.Fore.LIGHTWHITE_EX + 
+                            "]" + 
+                            colorama.Fore.WHITE
+                        )
+                    else:
+                        print(" - " + service.name + " ")
+
+                print("\n(w,s,space,enter,q,esc) ", end='', flush=True)
+
+                k = getch.getch()
+                if k == 'w' and cursor > 0:
+                    cursor -= 1
+                elif k == 's' and cursor < len(station.services) - 1:
+                    cursor += 1
+
+                print(ui.pos(1, lines - 2 - len(station.services)))
+
+        print(ui.pos(25,lines), end='')
+        if k == 'q' or ord(k) == 27:
+            print("Bye\n")
+            return
+
+        print(station.services[cursor].name)
+        ssui = StationServiceUI()
+        ssui.render(station, cursor, self.player)
+
+
+    def cmd_jettison_cargo(self):
+        print("Visit Cargo Bay\n")
+
+        if len(self.player.ship.inventory.items) == 0:
+            print("There is nothing left in here!\n")
+            return
+
+        print("Select cargo to jettison.")
+
+        k = '?'
+        cursor = 0
+        indexes_to_jettison = []
+        cols, lines = shutil.get_terminal_size()
+
+        while ord(k) != 13 and k != 'q' and ord(k) != 27:
+            for index,name in enumerate(self.player.ship.inventory.items):
+
+                if index in indexes_to_jettison:
+                    item_color = colorama.Fore.LIGHTYELLOW_EX
+                else:
+                    item_color = colorama.Fore.WHITE
+
+                if cursor == index:
+                    line = " -" + \
+                            colorama.Fore.LIGHTWHITE_EX + "[" + \
+                            item_color + name + \
+                            colorama.Fore.LIGHTWHITE_EX + "]" + \
+                            colorama.Fore.WHITE
+                    print(line)
+                else:
+                    print(" - " + item_color + name + colorama.Fore.WHITE + " ")
+                
+            print("\n(w,s,space,enter,q,esc) ", end='')
+
+            k = getch.getch()
+            if k == 'w' and cursor > 0:
+                cursor -= 1
+            elif k == 's' and cursor < len(self.player.ship.inventory.items) - 1:
+                cursor += 1
+            elif k == ' ':
+                if cursor in indexes_to_jettison:
+                    indexes_to_jettison.remove(cursor)
+                else:
+                    indexes_to_jettison.append(cursor)
+            
+            print(ui.pos(1, lines - 2 - len(self.player.ship.inventory.items)))
+
+        print(ui.pos(25, lines), end='')
+
+        if k == 'q' or ord(k) == 27:
+            print("Nevermind...\n")
+            return
+        
+        names_to_jettison = []
+        for index,name in enumerate(self.player.ship.inventory.items):
+            if index in indexes_to_jettison:
+                names_to_jettison.append(name)
+        
+        for name in names_to_jettison:
+            i = self.player.ship.inventory.items[name]
+            self.player.ship.inventory.remove(i.name, i.quantity)
+
+        print("Done!\n")
+
 
 
     def cmd_test(self):
