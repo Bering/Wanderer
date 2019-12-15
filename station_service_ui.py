@@ -82,7 +82,14 @@ class StationServiceUI:
                     else:
                         print(" - " + item_color + name + colorama.Fore.WHITE + " ")
                     
-                print("\n(w,s,space,enter,q,esc) ", end='')
+                print(
+                    "\n" + \
+                    colorama.Fore.LIGHTWHITE_EX + \
+                    "(w,s,space,enter,q,esc) " + \
+                    colorama.Fore.WHITE,
+                    end='',
+                    flush=True
+                )
 
                 k = getch.getch()
                 if k == 'w' and cursor > 0:

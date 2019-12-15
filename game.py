@@ -82,13 +82,13 @@ class Game:
     def cmd_help(self):
         print("Help")
         print()
-        print("    ?    This help")
-        print("    g    Galaxy map   (jump from star to star)")
-        print("    s    System map   (jump inside a star system)")
-        print("    d    Dropship     (visit planets, asteroids, comets and stations)")
-        print("    c    Cargo Bay    (View inventory, jettison cargo, etc.)")
-        print("    t    Tests        (debug stuff)")
-        print("    q    Quit")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "?" + colorama.Fore.WHITE + "    This help")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "g" + colorama.Fore.WHITE + "    Galaxy map   (jump from star to star)")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "s" + colorama.Fore.WHITE + "    System map   (jump inside a star system)")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "d" + colorama.Fore.WHITE + "    Dropship     (visit planets, asteroids, comets and stations)")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "c" + colorama.Fore.WHITE + "    Cargo Bay    (View inventory, jettison cargo, etc.)")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "t" + colorama.Fore.WHITE + "    Tests        (debug stuff)")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "q" + colorama.Fore.WHITE + "    Quit")
         print()
 
 
@@ -185,7 +185,10 @@ class Game:
             
             print(
                 ui.pos(1, lines) + 
-                '(w,a,s,d,space,enter,esc) Jump to: ' + 
+                colorama.Fore.LIGHTWHITE_EX + 
+                '(w,a,s,d,space,enter,esc) ' + 
+                colorama.Fore.WHITE + 
+                'Jump to: ' + 
                 ui.clear_line() + 
                 target_text,
                 end='', flush=True)
@@ -278,7 +281,10 @@ class Game:
             
             print(
                 ui.pos(1, lines) + 
-                '(w,a,s,d,space,enter,esc) Jump to: ' + 
+                colorama.Fore.LIGHTWHITE_EX + 
+                '(w,a,s,d,space,enter,esc) ' + 
+                colorama.Fore.WHITE + 
+                'Jump to: ' + 
                 ui.clear_line() + 
                 target_text,
                 end='', flush=True)
@@ -355,7 +361,14 @@ class Game:
                     else:
                         print(" - " + service.name + " ")
 
-                print("\n(w,s,space,enter,q,esc) ", end='', flush=True)
+                print(
+                    "\n" + \
+                    colorama.Fore.LIGHTWHITE_EX + \
+                    "(w,s,space,enter,q,esc) " + \
+                    colorama.Fore.WHITE,
+                    end='',
+                    flush=True
+                )
 
                 k = getch.getch()
                 if k == 'w' and cursor > 0:
@@ -407,7 +420,14 @@ class Game:
                 else:
                     print(" - " + item_color + name + colorama.Fore.WHITE + " ")
                 
-            print("\n(w,s,space,enter,q,esc) ", end='')
+            print(
+                "\n" + \
+                colorama.Fore.LIGHTWHITE_EX + \
+                "(w,s,space,enter,q,esc) " + \
+                colorama.Fore.WHITE,
+                end='',
+                flush=True
+            )
 
             k = getch.getch()
             if k == 'w' and cursor > 0:
@@ -452,7 +472,12 @@ class Game:
         for n in range(0,101, 5):
             print(ui.progress_bar(n, 100).rjust(25))
         
-        print(ui.pos(1, lines) + 'Press any key... ', end='', flush=True)
+        print(
+            ui.pos(1, lines) + 
+            colorama.Fore.LIGHTWHITE_EX + 
+            'Press any key... ' + 
+            colorama.Fore.WHITE,
+            end='', flush=True)
         k = getch.getch_that_can_do_arrow_keys()
-        print(ord(k))
+        print(str(ord(k)) + "\n")
 
