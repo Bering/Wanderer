@@ -49,6 +49,8 @@ class World:
         nb_stars = len(self.stars)
         nb_planets = 0
         nb_asteroids = 0
+        nb_comets = 0
+        nb_stations = 0
 
         for s in self.stars:
             for b in s.bodies:
@@ -56,6 +58,10 @@ class World:
                     nb_planets += 1
                 elif isinstance(b, Asteroid):
                     nb_asteroids += 1
+                elif isinstance(b, Comet):
+                    nb_comets += 1
+                elif isinstance(b, Station):
+                    nb_stations += 1
     
-        return (nb_stars, nb_planets, nb_asteroids)
+        return (nb_stars, nb_planets, nb_asteroids, nb_comets, nb_stations)
     

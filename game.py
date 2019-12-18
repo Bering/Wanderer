@@ -27,19 +27,16 @@ class Game:
 
     def run(self):
         colorama.init()
-        nb_stars, nb_planets, nb_asteroids = self.world.get_body_counts()
+        nb_stars, nb_planets, nb_asteroids, nb_comets, nb_stations = self.world.get_body_counts()
         print("Wanderer v.alpha0")
-        print(
-            "World: " + 
-            str(self.config.world_width) + "x" + str(self.config.world_height) + 
-            ", " + 
-            str(nb_stars) +
-            " stars, " +
-            str(nb_planets) + 
-            " planets, " + 
-            str(nb_asteroids) + 
-            " asteroids"
-        )
+        print("World:")
+        print(" - " + str(self.config.world_width) + "x" + str(self.config.world_height))
+        print(" - " + str(nb_stars) + " stars")
+        print(" - " + str(nb_planets) + " planets")
+        print(" - " + str(nb_asteroids) + " asteroids")
+        print(" - " + str(nb_comets) + " comets")
+        print(" - " + str(nb_stations) + " stations")
+
         print(colorama.Style.RESET_ALL + colorama.Fore.WHITE)
         self.cmd_report()
 
