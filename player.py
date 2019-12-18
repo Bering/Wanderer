@@ -4,7 +4,7 @@ from ship_the_flying_dutchman import TheFlyingDutchman
 
 class Player:
 
-    def __init__(self, config):
+    def __init__(self, config, world):
         self.world_x = config.world_width // 2
         self.world_y = config.world_height // 2
         self.system_x = 0
@@ -15,6 +15,7 @@ class Player:
         self.star = None
         self.body = None
 
+        self.race = world.races["Humans"]
         self.ship = TheFlyingDutchman()
 
 

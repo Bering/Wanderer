@@ -19,7 +19,7 @@ class Game:
     def __init__(self, config):
         self.config = config
         self.world = World(config)
-        self.player = Player(config)
+        self.player = Player(config, self.world)
         #self.ais = []
         #for n in range(config.nb_ais):
         #	self.ais.append(AI(self.world))
