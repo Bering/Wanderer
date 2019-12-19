@@ -191,6 +191,14 @@ class Game:
                     target = s
                     break
             
+            fuel_cost = self.player.fuel_cost(cursor_x, cursor_y)
+            target_text += " (fuel cost: "
+            if fuel_cost > self.player.ship.fuel:
+                target_text += colorama.Fore.LIGHTRED_EX
+            target_text += str(fuel_cost) + \
+                            colorama.Fore.WHITE + \
+                            ")"
+            
             print(
                 ui.pos(1, lines) + 
                 colorama.Fore.LIGHTWHITE_EX + 
@@ -220,12 +228,15 @@ class Game:
             print(ui.pos(1, lines) + '\n' + 'Jump CANCELED\n')
             return
         
-        print(ui.pos(1, lines) + '\n' + 'Initiating jump...')
-        sleep(1)
-        # TODO: random event or something :-)
-        print('Jump successful!\n')
-        self.player.jump(cursor_x, cursor_y, target)
-
+        print(ui.pos(1, lines))
+        if fuel_cost <= self.player.ship.fuel:
+            print('Initiating jump...')
+            self.player.jump(cursor_x, cursor_y, target)
+            sleep(1)
+            # TODO: random event or something :-)
+            print('Jump successful!\n')
+        else:
+            print('Cannot jump: Not enough fuel!\n')
 
     def cmd_system_map(self):
         
