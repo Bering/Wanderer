@@ -316,24 +316,26 @@ class Game:
     def cmd_dropship(self):
         print("Launch a Dropship\n")
 
+        cols, lines = shutil.get_terminal_size()
+
         if not self.player.body:
             print("We're in the middle of nowhere...\n")
             return
 
         if isinstance(self.player.body, Star):
-            print("I don't think you want to go out in a dropship while orbiting a star :-)")
+            print("I don't think you want to go out in a dropship while orbiting a star :-)\n")
 
         elif isinstance(self.player.body, Planet):
             if self.player.body.type == "Gas Giant":
-                print("Cannot do refueling operations yet :( In a future version maybe...")
+                print("Cannot do refueling operations yet :( In a future version maybe...\n")
             else:
-                print("Cannot drop to planet surface yet :( In a future version maybe...")
+                print("Cannot drop to planet surface yet :( In a future version maybe...\n")
         
         elif isinstance(self.player.body, Asteroid):
-            print("Cannot investigate asteroids yet :( In a future version maybe...")
+            print("Cannot investigate asteroids yet :( In a future version maybe...\n")
         
         elif isinstance(self.player.body, Comet):
-            print("Cannot investigate comets yet :( In a future version maybe...")
+            print("Cannot investigate comets yet :( In a future version maybe...\n")
         
         elif isinstance(self.player.body, Station):
             station = self.player.body
@@ -342,7 +344,6 @@ class Game:
 
             k = '?'
             cursor = 0
-            cols, lines = shutil.get_terminal_size()
             while k != ' ' and ord(k) != 13 and k != 'q' and ord(k) != 27:
                 for index, service in enumerate(station.services):
                     if cursor == index:
@@ -376,14 +377,14 @@ class Game:
 
                 print(ui.pos(1, lines - 2 - len(station.services)))
 
-        print(ui.pos(25,lines), end='')
-        if k == 'q' or ord(k) == 27:
-            print("Bye\n")
-            return
+            print(ui.pos(25,lines), end='')
+            if k == 'q' or ord(k) == 27:
+                print("Bye\n")
+                return
 
-        print(station.services[cursor].name)
-        ssui = StationServiceUI()
-        ssui.render(station, cursor, self.player)
+            print(station.services[cursor].name)
+            ssui = StationServiceUI()
+            ssui.render(station, cursor, self.player)
 
 
     def cmd_jettison_cargo(self):
