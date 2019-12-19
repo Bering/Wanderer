@@ -25,3 +25,6 @@ probability_repair = 60
 probability_refuel = 20
 probability_plunder = 50
 probability_research = 10
+
+# What are the chances a system is owned by a race
+probability_is_owned = 60

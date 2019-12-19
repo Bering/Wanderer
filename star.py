@@ -12,10 +12,11 @@ _styles = [Style.NORMAL, Style.BRIGHT]
 
 class Star:
 
-    def __init__(self, config, x, y, name):
+    def __init__(self, config, x, y, name, owner):
         self.world_x = x
         self.world_y = y
         self.name = name
+        self.owner = owner
         self.color = _colors[random.randrange(len(_colors))]
         self.style = _styles[random.randrange(len(_styles))]
         self.bodies = []

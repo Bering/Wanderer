@@ -12,6 +12,20 @@ from station import Station
 class World:
 
     def __init__(self, config):
+        self.races = {}
+        self.races["Elders"] = Race("Elders", None, "E", colorama.Fore.LIGHTWHITE_EX)
+        self.races["Humans"] = Race("Human", None, "H", colorama.Fore.WHITE)
+
+        self.races["Rindhalu"] = Race("Rindhalu", None, "R", colorama.Fore.GREEN)
+        self.races["Jeraptha"] = Race("Jeraptha", self.races["Rindhalu"], "J", colorama.Fore.BLUE)
+        self.races["Ruhar"] = Race("Ruhar", self.races["Jeraptha"], "R", colorama.Fore.LIGHTCYAN_EX)
+
+        self.races["Maxolhx"] = Race("Maxolhx", None, "M", colorama.Fore.LIGHTMAGENTA_EX)
+        self.races["Thuranin"] = Race("Thuranin", self.races["Maxolhx"], "T", colorama.Fore.MAGENTA)
+        self.races["Kristang"] = Race("Kristang", self.races["Thuranin"], "K", colorama.Fore.YELLOW)
+        self.races["Bosphuraq"] = Race("Bosphuraq", self.races["Maxolhx"], "B", colorama.Fore.RED)
+        self.races["Wurgalan"] = Race("Wurgalan", self.races["Bosphuraq"], "W", colorama.Fore.LIGHTYELLOW_EX)
+
         self._star_names = StarNamesStack()
         self.stars = []
         for n in range(len(self._star_names.names)):
@@ -19,26 +33,41 @@ class World:
                 config,
                 random.randrange(config.world_width),
                 random.randrange(config.world_height),
-                self._star_names.pop()
+                self._star_names.pop(),
+                self.get_random_owner_race(config)
             )
             self.stars.append(star)
 
         self._scatter_stars(config)
         self._scatter_stars(config)
 
-        self.races = {}
-        self.races["Elders"] = Race("Elders", None, "E", colorama.Fore.LIGHTWHITE_EX)
-        self.races["Humans"] = Race("Human", None, "H", colorama.Fore.WHITE)
 
-        self.races["Rindhalu"] = Race("Rindhalu", None, "R", colorama.Fore.GREEN)
-        self.races["Jeraphta"] = Race("Jeraptha", self.races["Rindhalu"], "J", colorama.Fore.BLUE)
-        self.races["Ruhar"] = Race("Ruhar", self.races["Jeraphta"], "R", colorama.Fore.LIGHTCYAN_EX)
+    def get_random_owner_race(self, config):
+        chance = random.randint(1, 100)
+        if chance > config.probability_is_owned:
+            return None
+        
+        side = random.randint(0,1)
+        chance = random.randint(1,100)
+        if side == 0:
+            if chance <= 33:
+                return self.races["Rindhalu"]
+            elif chance <= 66:
+                return self.races["Jeraptha"]
+            else:
+                return self.races["Ruhar"]
+        else:
+            if chance <= 20:
+                return self.races["Maxolhx"]
+            elif chance <= 40:
+                return self.races["Thuranin"]
+            elif chance <= 60:
+                return self.races["Bosphuraq"]
+            elif chance <= 80:
+                return self.races["Kristang"]
+            else:
+                return self.races["Wurgalan"]
 
-        self.races["Maxolhx"] = Race("Maxolhx", None, "M", colorama.Fore.LIGHTMAGENTA_EX)
-        self.races["Thuranin"] = Race("Thuranin", self.races["Maxolhx"], "T", colorama.Fore.MAGENTA)
-        self.races["Kristang"] = Race("Kristang", self.races["Thuranin"], "K", colorama.Fore.YELLOW)
-        self.races["Bosphuraq"] = Race("Bosphuraq", self.races["Maxolhx"], "B", colorama.Fore.RED)
-        self.races["Wurgalan"] = Race("Wurgalan", self.races["Bosphuraq"], "W", colorama.Fore.LIGHTYELLOW_EX)
 
 
     def _scatter_stars(self, config):

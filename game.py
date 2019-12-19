@@ -155,7 +155,11 @@ class Game:
 
             col = s.world_x - view_left + 1
             line = s.world_y - view_top + 1
-            print(ui.pos(col, line + 1) + s.style + s.color + '*', end='')
+            if s.owner:
+                color = s.owner.color
+            else:
+                color = colorama.Fore.WHITE
+            print(ui.pos(col, line + 1) + s.style + color + '*', end='')
         
         col = self.player.world_x - view_left + 1
         line = self.player.world_y - view_top + 1
@@ -178,6 +182,12 @@ class Game:
             for s in self.world.stars:
                 if s.world_x == cursor_x and s.world_y == cursor_y:
                     target_text = s.name
+                    if s.owner:
+                        target_text += " (" \
+                                     + s.owner.color \
+                                     + s.owner.name \
+                                     + colorama.Fore.WHITE \
+                                     + ")"
                     target = s
                     break
             
