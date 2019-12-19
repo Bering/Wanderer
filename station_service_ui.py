@@ -125,5 +125,5 @@ class StationServiceUI:
 
         elif isinstance(service, station_service.Research):
             print()
-            print("Nothing to see here!\n")
+            print("Skippy stole everything that could be used to help Earth!\n")
 
