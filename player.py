@@ -18,7 +18,7 @@ class Player:
 
         self.race = world.races["Humans"]
         self.ship = TheFlyingDutchman()
-        
+    
 
     def fuel_cost(self, x, y):
         return round(math.sqrt((x-self.world_x)*(x-self.world_x) + (y-self.world_y)*(y-self.world_y)))

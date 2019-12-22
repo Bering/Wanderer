@@ -20,6 +20,9 @@ class Game:
         self.config = config
         self.world = World(config)
         self.player = Player(config, self.world)
+        sol = self.world.add_sol(self.player.world_x, self.player.world_y)
+        self.player.star = sol
+        self.player.body = sol
         #self.ais = []
         #for n in range(config.nb_ais):
         #	self.ais.append(AI(self.world))

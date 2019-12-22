@@ -4,6 +4,7 @@ import random
 from race import Race
 from star_names_stack import StarNamesStack
 from star import Star
+from sol import Sol
 from planet import Planet
 from asteroid import Asteroid
 from comet import Comet
@@ -69,7 +70,6 @@ class World:
                 return self.races["Wurgalan"]
 
 
-
     def _scatter_stars(self, config):
         pass
         # for s in self.stars:
@@ -92,6 +92,12 @@ class World:
         # 				else:
         # 					s.rect.move_ip(-64, 0)
         # 					s.name_rect.move_ip(-64, 0)
+
+
+    def add_sol(self, x, y):
+        sol = Sol(self, x, y)
+        self.stars.append(sol)
+        return sol
 
 
     def get_body_counts(self):
