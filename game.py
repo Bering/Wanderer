@@ -37,8 +37,8 @@ class Game:
         print(" - " + str(nb_comets) + " comets")
         print(" - " + str(nb_stations) + " stations")
 
-        print(colorama.Style.RESET_ALL + colorama.Fore.WHITE)
-        self.cmd_report()
+        print(colorama.Style.RESET_ALL + colorama.Fore .WHITE)
+        self.cmd_help()
 
         k = "?"
         while(k != 'q' and ord(k) != 27):
