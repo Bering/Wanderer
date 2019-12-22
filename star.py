@@ -18,7 +18,6 @@ class Star:
         self.name = name
         self.owner = owner
         self.color = _colors[random.randrange(len(_colors))]
-        self.style = _styles[random.randrange(len(_styles))]
         self.bodies = []
 
         min_distance = 3

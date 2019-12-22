@@ -159,7 +159,7 @@ class Game:
                 color = s.owner.color
             else:
                 color = colorama.Fore.WHITE
-            print(ui.pos(col, line + 1) + s.style + color + '*', end='')
+            print(ui.pos(col, line + 1) + color + '*', end='')
         
         col = self.player.world_x - view_left + 1
         line = self.player.world_y - view_top + 1
