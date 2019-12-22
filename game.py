@@ -260,9 +260,13 @@ class Game:
         print(ui.clear_screen() + ui.pos(1,1) + self.player.star.name + ' System')
         #print("Viewing: (" + str(view_left) + "," + str(view_top) + ") - (" + str(view_right) + "," + str(view_bottom) + ")")
 
+        if self.player.star.owner:
+            color = self.player.star.owner.color
+        else:
+            color = colorama.Fore.WHITE
         print(
             ui.pos(star_x, star_y + 1) + 
-            self.player.star.color + 
+            color + 
             '*',
             end=''
         )
