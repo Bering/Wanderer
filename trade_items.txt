@@ -1,7 +1,7 @@
 Food (Rations)
 Food (Exotic)
 Food (Spirits)
-Food (Milk)
+Food (Water)
 Food (Juice)
 Gems
 Ore (Iron)
