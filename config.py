@@ -28,3 +28,5 @@ probability_research = 10
 
 # What are the chances a system is owned by a race
 probability_is_owned = 60
+
+probability_fleet_spawn = 20

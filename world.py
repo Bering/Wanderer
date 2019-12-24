@@ -9,6 +9,7 @@ from planet import Planet
 from asteroid import Asteroid
 from comet import Comet
 from station import Station
+import fleet
 
 class World:
 
@@ -41,6 +42,8 @@ class World:
 
         self._scatter_stars(config)
         self._scatter_stars(config)
+
+        self.fleets = []
 
 
     def get_random_owner_race(self, config):
@@ -119,4 +122,35 @@ class World:
                     nb_stations += 1
     
         return (nb_stars, nb_planets, nb_asteroids, nb_comets, nb_stations)
-    
+
+
+    def areAllied(self, a, b):
+        if a == b:
+            return True
+
+        if a == None or b == None:
+            return False
+        
+        parentA = a
+        while parentA.parent:
+            parentA = parentA.parent
+        
+        parentB = b
+        while parentB.parent:
+            parentB = parentB.parent
+        
+        return (parentA == parentB)
+
+
+    def areEnemies(self, a, b):
+        return not self.areAllied(a, b)
+
+
+    def tick(self, config):
+        for s in self.stars:
+            for b in s.bodies:
+                if isinstance(b, Planet) or isinstance(b, Station):
+                    chance = random.randint(1, 100)
+                    if chance <= config.probability_fleet_spawn:
+                        self.fleets.append(fleet.Fleet(self, b, fleet.Orders.RANDOM))
+                        

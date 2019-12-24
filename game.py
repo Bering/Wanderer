@@ -51,6 +51,8 @@ class Game:
 
         k = "?"
         while(k != 'q' and ord(k) != 27):
+            self.world.tick(self.config)
+
             print(
                 colorama.Fore.LIGHTWHITE_EX + 
                 "(?,r,g,s,d,c,t,q) > " + 
