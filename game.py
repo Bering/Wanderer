@@ -45,6 +45,7 @@ class Game:
         print(" - " + str(nb_asteroids) + " asteroids")
         print(" - " + str(nb_comets) + " comets")
         print(" - " + str(nb_stations) + " stations")
+        print(" - " + str(len(self.world.fleets)) + " fleets")
 
         print(colorama.Style.RESET_ALL + colorama.Fore .WHITE)
         self.cmd_help()
@@ -322,8 +323,7 @@ class Game:
                 if f.body_x == cursor_x and f.body_y == cursor_y:
                     target_text += ' (' + \
                                 f.race.color + \
-                                f.race.name + \
-                                ' fleet' + \
+                                f.name + \
                                 colorama.Fore.WHITE + \
                                 ')'
 

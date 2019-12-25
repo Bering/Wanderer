@@ -149,11 +149,12 @@ class World:
 
     def spawn_fleets(self, config):
         for s in self.stars:
-            for b in s.bodies:
-                if isinstance(b, Planet) or isinstance(b, Station):
-                    chance = random.randint(1, 100)
-                    if chance <= config.probability_fleet_spawn:
-                        self.fleets.append(fleet.Fleet(self, b, fleet.Orders.RANDOM))
+            if s.owner:
+                for b in s.bodies:
+                    if isinstance(b, Planet) or isinstance(b, Station):
+                        chance = random.randint(1, 100)
+                        if chance <= config.probability_fleet_spawn:
+                            self.fleets.append(fleet.Fleet(self, b, fleet.Orders.RANDOM))
                         
 
     def tick(self, player):

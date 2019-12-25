@@ -24,8 +24,21 @@ class Fleet(Body):
         self.body_y = home.body_y
 
         self.orders = orders
-        while self.orders == Orders.RANDOM:
+        while self.orders == Orders.RANDOM or self.orders == Orders.RETREAT:
             self.orders = random.choice(list(Orders))
+
+        self.name = self.race.name + ' '
+        if self.orders == Orders.DEFEND:
+            self.name += "Defense"
+        elif self.orders == Orders.PATROL:
+            self.name += "Patrol"
+        elif self.orders == Orders.ATTACK:
+            self.name += "Attack"
+        elif self.orders == Orders.EXPLORE:
+            self.name += "Exploration"
+        elif self.orders == Orders.INVESTIGATE:
+            self.name += "Earth Investigation"
+        self.name += " Fleet"
 
         self.star = home.star
         self.destination = self.set_destination()
