@@ -158,5 +158,5 @@ class World:
 
     def tick(self, player):
         for f in self.fleets:
-            f.tick(self, player)
+            f.tick(player)
 
