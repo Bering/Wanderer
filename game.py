@@ -317,7 +317,16 @@ class Game:
                 target_text = '(' + str(cursor_x) + ',' + str(cursor_y) + ')'
             else:
                 target_text = target.name
-            
+
+            for f in self.player.star.fleets:
+                if f.body_x == cursor_x and f.body_y == cursor_y:
+                    target_text += ' (' + \
+                                f.race.color + \
+                                f.race.name + \
+                                ' fleet' + \
+                                colorama.Fore.WHITE + \
+                                ')'
+
             print(
                 ui.pos(1, lines) + 
                 colorama.Fore.LIGHTWHITE_EX + 
