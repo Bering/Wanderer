@@ -19,6 +19,7 @@ class Star:
         self.owner = owner
         self.color = _colors[random.randrange(len(_colors))]
         self.bodies = []
+        self.fleets = []
 
         min_distance = 3
         max_distance = min(config.system_width, config.system_height) - 3

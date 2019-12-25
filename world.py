@@ -44,6 +44,7 @@ class World:
         self._scatter_stars(config)
 
         self.fleets = []
+        self.spawn_fleets(config)
 
 
     def get_random_owner_race(self, config):
@@ -146,7 +147,7 @@ class World:
         return not self.areAllied(a, b)
 
 
-    def tick(self, config):
+    def spawn_fleets(self, config):
         for s in self.stars:
             for b in s.bodies:
                 if isinstance(b, Planet) or isinstance(b, Station):
@@ -154,3 +155,8 @@ class World:
                     if chance <= config.probability_fleet_spawn:
                         self.fleets.append(fleet.Fleet(self, b, fleet.Orders.RANDOM))
                         
+
+    def tick(self, player):
+        for f in self.fleets:
+            f.tick(self, player)
+

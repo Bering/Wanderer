@@ -51,7 +51,7 @@ class Game:
 
         k = "?"
         while(k != 'q' and ord(k) != 27):
-            self.world.tick(self.config)
+            self.world.tick(self.player)
 
             print(
                 colorama.Fore.LIGHTWHITE_EX + 
@@ -290,7 +290,12 @@ class Game:
             col = star_x + b.body_x
             line = star_y + b.body_y
             print(ui.pos(col, line + 1) + b.color + b.symbol, end='')
-        
+
+        for f in self.player.star.fleets:
+            col = star_x + f.body_x
+            line = star_y + f.body_y
+            print(ui.pos(col, line + 1) + f.race.color + f.race.letter, end='')
+
         col = star_x + self.player.system_x
         line = star_y + self.player.system_y
         print(

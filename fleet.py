@@ -19,6 +19,9 @@ class Fleet(Body):
         self.world = world
         self.race = home.star.owner
         self.home = home
+        self.home.star.fleets.append(self)
+        self.body_x = home.body_x
+        self.body_y = home.body_y
 
         self.orders = orders
         while self.orders == Orders.RANDOM:
@@ -109,7 +112,7 @@ class Fleet(Body):
         return None # Uh?
 
 
-    def tick(self):
+    def tick(self, player):
         # if orders == Orders.RETREAT:
         # elif orders == Orders.DEFEND:
         # elif orders == Orders.PATROL:

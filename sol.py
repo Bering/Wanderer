@@ -26,4 +26,4 @@ class Sol(Star):
         for a in range(config.max_asteroids_per_belt):
             angle = random.randint(0,359)
             self.bodies.append(Asteroid(self, angle, 8))
-        
+        self.fleets = []
