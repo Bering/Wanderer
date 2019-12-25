@@ -126,11 +126,14 @@ class Fleet(Body):
 
 
     def tick(self, player):
-        # if orders == Orders.RETREAT:
-        # elif orders == Orders.DEFEND:
-        # elif orders == Orders.PATROL:
-        # elif orders == Orders.ATTACK:
-        # elif orders == Orders.EXPLORE:
-        # elif orders == Orders.INVESTIGATE:
+        # TODO: change orders if appropriate (repair then attack when retreat complete, go to next system when a system is explored, etc)
+        # if self.orders == Orders.RETREAT:
+        # elif self.orders == Orders.DEFEND:
+        # elif self.orders == Orders.PATROL:
+        # elif self.orders == Orders.ATTACK:
+        # elif self.orders == Orders.EXPLORE:
+        # elif self.orders == Orders.INVESTIGATE:
+
+        # TODO: Jump towards self.destination
         pass
 

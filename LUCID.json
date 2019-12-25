@@ -51,6 +51,14 @@
             "labels": []
         },
         {
+            "id": "2009124817_3500995035_1326300440_283178087",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 1,
+            "title": "Station services",
+            "description": "Inherit Body\n\n - [x] News\n - [x] Repair\n - [x] Refuel\n - [ ] Resupply (Load food and nukes at Earth)\n - [ ] Upgrade\n - [x] Plunder\n - [ ] Recruit (Only Earth and Plan B planet)\n - [ ] Research\n",
+            "labels": []
+        },
+        {
             "id": "2494385881_1561218444_2794589655_2738149348",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 2,
@@ -67,6 +75,14 @@
             "labels": []
         },
         {
+            "id": "1832546242_2887351767_3015130704_3442157218",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 2,
+            "title": "Ship class",
+            "description": " - [x] Sensors\n - [x] Reactors\n - [x] Fuel\n - [ ] Jump drive (also coils quantity and alignment)\n - [x] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n - [ ] Rail guns\n - [ ] Masers\n - [ ] Missiles\n - [ ] Nukes\n\n - [ ] Energy management (All power to weapons!)\n - [ ] Crew\n - [ ] Special Operators, Space Commandos (What are they called again? Space Team 1?)\n - [ ] Dropships\n - [ ] Replicators for repairs and upgrades using building materials\n - [ ] Onboard research lab\n",
+            "labels": []
+        },
+        {
             "id": "260465741_1760469332_1275050606_2063338460",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 3,
@@ -75,19 +91,11 @@
             "labels": []
         },
         {
-            "id": "2009124817_3500995035_1326300440_283178087",
+            "id": "1257838434_953474678_3428611069_2673009880",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 3,
-            "title": "Station services",
-            "description": "Inherit Body\n\n - [x] News\n - [x] Repair\n - [x] Refuel\n - [ ] Resupply (Load food and nukes at Earth)\n - [ ] Upgrade\n - [x] Plunder\n - [ ] Recruit (Only Earth and Plan B planet)\n - [ ] Research\n",
-            "labels": []
-        },
-        {
-            "id": "1257838434_953474678_3428611069_2673009880",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 3,
             "title": "Enemy fleets",
-            "description": " - [ ] Race\n - [ ] Composition of ships\n - [ ] Goal (Patrol, Attack, Research)\n - [ ] Show up in the news\n - [ ] Movement\n",
+            "description": " - [x] Race\n - [ ] Composition of ships\n - [x] Goal (Patrol, Attack, Research)\n - [ ] Show up in the news\n - [ ] Movement\n",
             "labels": []
         },
         {
@@ -99,19 +107,11 @@
             "labels": []
         },
         {
-            "id": "1832546242_2887351767_3015130704_3442157218",
-            "list_id": "1901749129_962513719_918349320_1149498453",
-            "position": 4,
-            "title": "Ship class",
-            "description": " - [x] Sensors\n - [x] Reactors\n - [x] Fuel\n - [ ] Jump drive (also coils quantity and alignment)\n - [x] Shield emitters\n - [ ] Stealth field\n - [ ] Dampening field\n - [ ] Rail guns\n - [ ] Masers\n - [ ] Missiles\n - [ ] Nukes\n\n - [ ] Energy management (All power to weapons!)\n - [ ] Crew\n - [ ] Special Operators, Space Commandos (What are they called again? Space Team 1?)\n - [ ] Dropships\n - [ ] Replicators for repairs and upgrades using building materials\n - [ ] Onboard research lab\n",
-            "labels": []
-        },
-        {
             "id": "3575428154_3499237287_2054302075_752592619",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 4,
             "title": "Crazy ideas (combat)",
-            "description": " - [ ] Jump a ship into a gas giant\n - [ ] Put a wormhole endpoint on the ship\n - [ ] Bunch of others, I'll probably have to reread the books",
+            "description": " - [ ] Jump a ship into a gas giant\n - [ ] Put a wormhole endpoint on the ship\n - [ ] Alter frequency of a maser cannon to resonate a ship to tear it appart\n - [ ] Bunch of others, I'll probably have to reread the books",
             "labels": []
         },
         {
@@ -313,6 +313,16 @@
             "title": "Choose programming language",
             "description": "",
             "labels": []
+        },
+        {
+            "id": "3803035150_3361969934_239936901_3496980237",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 13,
+            "title": "Text wraps in system view",
+            "description": "If the star name is long and it's a huge gas giant and there's a fleet there, the text wraps",
+            "labels": [
+                1
+            ]
         }
     ]
 }
