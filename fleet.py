@@ -78,6 +78,8 @@ class Fleet(Body):
         nearest_star = None
         nearest_distance = 9999999
         for s in self.world.stars:
+            if s.name == "Sol":
+                continue
             if self.world.areEnemies(self.star.owner, s.owner):
                 distanceSqr = (self.star.world_x - s.world_x) * (self.star.world_x - s.world_x)
                 distanceSqr += (self.star.world_y - s.world_y) * (self.star.world_y - s.world_y)
@@ -92,7 +94,7 @@ class Fleet(Body):
         nearest_star = None
         nearest_distance = 9999999
         for s in self.world.stars:
-            if s != self.star and s != self.home.star:
+            if s != self.star and s != self.home.star and s.name != "Sol":
                 distanceSqr = (self.star.world_x - s.world_x) * (self.star.world_x - s.world_x)
                 distanceSqr += (self.star.world_y - s.world_y) * (self.star.world_y - s.world_y)
                 if distanceSqr < nearest_distance:
