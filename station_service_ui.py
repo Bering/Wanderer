@@ -40,7 +40,7 @@ class StationServiceUI:
                 k = getch.getch()
             
             if k == 'y':
-                print("Repairing...")
+                print("Repairing... ", end='', flush=True)
                 # TODO: make time pass by
                 sleep(1)
                 game.player.ship.hull = game.player.ship.hull_max
