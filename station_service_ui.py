@@ -7,15 +7,16 @@ import ui
 import station_service
 
 class StationServiceUI:
-    def render(self, station, service_index, player):
+    def render(self, station, service_index, game):
         service = station.services[service_index]
 
         if isinstance(service, station_service.News):
             print()
-            print(" - A fleet is leaving <planet or station> in the <system> system to attack <target>")
-            print(" - (Rumor) An enemy fleet is en-route to attack <target> in the <system> system")
-            print(" - Update on ongoing research on <artifact> on <planet or station> in the <system> system")
-            print(" - A fleet is being dispatched to Earth (or Plan B planet) from <planet or station> in <system>")
+            for n in game.world.news[station.star.name]:
+                print("%03d: %s" % (n.turn, n.text))
+            print("000: (Rumor) An enemy fleet is en-route to attack this system")
+            print("000: Update on ongoing research on <artifact> on <planet or station> in the <system> system")
+            print("000: A fleet is being dispatched to Earth (or Plan B planet) from <planet or station> in <system>")
             print()
 
 
@@ -23,7 +24,7 @@ class StationServiceUI:
             print()
             print(
                 "It will take " + 
-                str(player.ship.hull_max - player.ship.hull) + 
+                str(game.player.ship.hull_max - game.player.ship.hull) + 
                 " days. (y/n) ",
                 end='',
                 flush=True)
@@ -36,7 +37,7 @@ class StationServiceUI:
                 print("Repairing...")
                 # TODO: make time pass by
                 sleep(1)
-                player.ship.hull = player.ship.hull_max
+                game.player.ship.hull = game.player.ship.hull_max
                 print("It was a pleasure doing business with you!\n")
             else:
                 print("Ok bye\n")
@@ -46,7 +47,7 @@ class StationServiceUI:
             print()
             # TODO: make time pass by
             sleep(1)
-            player.ship.fuel = player.ship.fuel_max
+            game.player.ship.fuel = game.player.ship.fuel_max
             print("OK we're full!\n")
 
 
@@ -117,7 +118,7 @@ class StationServiceUI:
             
             for name in names_to_plunder:
                 i = service.inventory.items[name]
-                player.ship.inventory.add(i.name, i.unit_size, i.quantity)
+                game.player.ship.inventory.add(i.name, i.unit_size, i.quantity)
                 service.inventory.remove(i.name, i.quantity)
 
             print("Yarr! The Merry Band of Pirates strikes again :-)\n")

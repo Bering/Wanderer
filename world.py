@@ -10,6 +10,7 @@ from asteroid import Asteroid
 from comet import Comet
 from station import Station
 import fleet
+from news import News
 
 class World:
 
@@ -28,6 +29,8 @@ class World:
         self.races["Bosphuraq"] = Race("Bosphuraq", self.races["Maxolhx"], "B", colorama.Fore.RED)
         self.races["Wurgalan"] = Race("Wurgalan", self.races["Bosphuraq"], "W", colorama.Fore.LIGHTYELLOW_EX)
 
+        self.news = {}
+
         self._star_names = StarNamesStack()
         self.stars = []
         for n in range(len(self._star_names.names)):
@@ -39,7 +42,7 @@ class World:
                 self.get_random_owner_race(config)
             )
             self.stars.append(star)
-
+            self.news[star.name] = []
         self._scatter_stars(config)
         self._scatter_stars(config)
 
@@ -160,6 +163,9 @@ class World:
                         if chance <= config.probability_fleet_spawn:
                             f = fleet.Fleet(self, b, fleet.Orders.RANDOM)
                             self.fleets.append(f)
+                            self.news[f.home.star.name].append(News(0, f))
+
+
     def find_sol(self):
         for s in self.stars:
             if s.name == "Sol":

@@ -426,7 +426,7 @@ class Game:
 
             print(station.services[cursor].name)
             ssui = StationServiceUI()
-            ssui.render(station, cursor, self.player)
+            ssui.render(station, cursor, self)
 
 
     def cmd_jettison_cargo(self):
