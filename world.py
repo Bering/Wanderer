@@ -10,7 +10,7 @@ from asteroid import Asteroid
 from comet import Comet
 from station import Station
 import fleet
-from news import News
+import news
 
 class World:
 
@@ -30,6 +30,7 @@ class World:
         self.races["Wurgalan"] = Race("Wurgalan", self.races["Bosphuraq"], "W", colorama.Fore.LIGHTYELLOW_EX)
 
         self.news = {}
+        self.news["global"] = []
 
         self._star_names = StarNamesStack()
         self.stars = []
@@ -163,7 +164,13 @@ class World:
                         if chance <= config.probability_fleet_spawn:
                             f = fleet.Fleet(self, b, fleet.Orders.RANDOM)
                             self.fleets.append(f)
-                            self.news[f.home.star.name].append(News(0, f))
+
+                            n = news.LocalNews_NewFleet(0, f)
+                            self.news[f.home.star.name].append(n)
+                            if f.orders == fleet.Orders.ATTACK:
+                                self.news[f.destination.name].append(n)
+                            elif f.orders == fleet.Orders.INVESTIGATE:
+                                self.news["global"].append(n)
 
 
     def find_sol(self):

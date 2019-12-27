@@ -95,7 +95,7 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 3,
             "title": "Enemy fleets",
-            "description": " - [x] Race\n - [ ] Composition of ships\n - [x] Goal (Patrol, Attack, Research)\n - [ ] Show up in the news\n - [ ] Movement\n",
+            "description": " - [x] Race\n - [ ] Composition of ships\n - [x] Goal (Patrol, Attack, Research)\n - [x] Show up in the news\n - [ ] Movement\n",
             "labels": []
         },
         {
@@ -323,6 +323,14 @@
             "labels": [
                 1
             ]
+        },
+        {
+            "id": "2801740561_1991614270_3372151673_3770347827",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 4,
+            "title": "News system",
+            "description": " - [x] Local news of spawned fleets\n - [ ] Local news of incoming fleets (allies retreating and enemies attacking)\n - [ ] Global news of fleets en-route to investigate Earth from <system name>\n - [ ] Global news of research projects. Update on ongoing research on <artifact> on <planet or station> in the <system> system",
+            "labels": []
         }
     ]
 }

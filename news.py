@@ -1,25 +1,34 @@
 import colorama
 
-class News:
-    def __init__(self, turn, fleet):
-        self.turn = turn
-        self.fleet = fleet
-        self.star = self.fleet.home.star
+from fleet import Orders
 
-        if self.fleet.destination.owner:
-            destinationColor = self.fleet.destination.owner.color
+class News:
+    def __init__(self, turn, text):
+        self.turn = turn
+        self.text = text
+
+
+class LocalNews_NewFleet(News):
+    def __init__(self, turn, fleet):
+        if fleet.destination.owner:
+            destinationColor = fleet.destination.owner.color
         else:
             destinationColor = colorama.Fore.WHITE
         
-        self.text = "New " + \
-                    self.fleet.race.color + \
-                    self.fleet.name + \
-                    colorama.Fore.WHITE + \
-                    " from " + \
-                    self.fleet.home.star.owner.color + \
-                    self.fleet.home.star.name + \
-                    colorama.Fore.WHITE + \
-                    " going to " + \
+        text = "New " + \
+               fleet.race.color + \
+               fleet.name + \
+               colorama.Fore.WHITE + \
+               " from " + \
+               fleet.home.star.owner.color + \
+               fleet.home.star.name + \
+               colorama.Fore.WHITE
+
+        if fleet.orders != Orders.DEFEND:
+            text += " going to " + \
                     destinationColor + \
-                    self.fleet.destination.name
+                    fleet.destination.name + \
+                    colorama.Fore.WHITE
+
+        super().__init__(turn, text)
 

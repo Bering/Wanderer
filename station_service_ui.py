@@ -12,9 +12,15 @@ class StationServiceUI:
 
         if isinstance(service, station_service.News):
             print()
+            print("Local News:")
             for n in game.world.news[station.star.name]:
                 print("%03d: %s" % (n.turn, n.text))
             print("000: (Rumor) An enemy fleet is en-route to attack this system")
+            print()
+
+            print("Global News:")
+            for n in game.world.news["global"]:
+                print("%03d: %s" % (n.turn, n.text))
             print("000: Update on ongoing research on <artifact> on <planet or station> in the <system> system")
             print("000: A fleet is being dispatched to Earth (or Plan B planet) from <planet or station> in <system>")
             print()
