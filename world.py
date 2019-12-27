@@ -59,6 +59,7 @@ class World:
 
         self.fleets = []
         self.spawn_fleets(config)
+        self.spawn_investigator_fleet()
 
 
     def get_random_owner_race(self, config):
@@ -162,15 +163,30 @@ class World:
                     if isinstance(b, Planet) or isinstance(b, Station):
                         chance = random.randint(1, 100)
                         if chance <= config.probability_fleet_spawn:
-                            f = fleet.Fleet(self, b, fleet.Orders.RANDOM)
+                            f = fleet.Fleet(self, b, None)
                             self.fleets.append(f)
 
                             n = news.LocalNews_NewFleet(0, f)
                             self.news[f.home.star.name].append(n)
                             if f.orders == fleet.Orders.ATTACK:
                                 self.news[f.destination.name].append(n)
-                            elif f.orders == fleet.Orders.INVESTIGATE:
-                                self.news["global"].append(n)
+
+
+    def spawn_investigator_fleet(self):
+        n = 0
+        while self.stars[n].name == "Sol" \
+            or not self.stars[n].owner \
+            or len(self.stars[n].bodies) == 0 \
+            or ( \
+                not isinstance(self.stars[n].bodies[0], Planet)
+                and \
+                not isinstance(self.stars[n].bodies[0], Station) \
+            ):
+            n = random.randrange(len(self.stars))
+        
+        f = fleet.Fleet(self, self.stars[n].bodies[0], fleet.Orders.INVESTIGATE)
+        self.fleets.append(f)
+        self.news["global"].append(news.LocalNews_NewFleet(0, f))
 
 
     def find_sol(self):
@@ -179,6 +195,14 @@ class World:
                 return s
         
         raise Exception("Could not find Sol in the world !? This should never happen!")
+
+
+    def find_investigatiors(self):
+        for f in self.fleets:
+            if f.orders == fleet.Orders.INVESTIGATE:
+                return f
+        
+        return None
 
 
     def tick(self, player):
