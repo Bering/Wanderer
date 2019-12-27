@@ -22,7 +22,7 @@ class Star:
         self.fleets = []
 
         min_distance = 3
-        max_distance = min(config.system_width, config.system_height) - 3
+        max_distance = min(config.system_width, config.system_height) // 2
         for n in range(min_distance, max_distance + 1, 3):
             chance = random.randint(1, 100)
             if len(self.bodies) < config.max_planet_per_system \

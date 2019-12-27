@@ -170,7 +170,8 @@ class Game:
         print(
             ui.pos(col, line + 1) + 
             colorama.Fore.LIGHTWHITE_EX + 
-            '@'
+            '@',
+            end = ''
         )
 
         print(colorama.Style.RESET_ALL + colorama.Fore.WHITE);
@@ -255,10 +256,10 @@ class Game:
         star_y = lines // 2
 
         view_left = -(cols // 2)
-        view_right = view_left + cols - 1
+        view_right = (cols // 2)
 
-        view_top = -(lines // 2)
-        view_bottom = view_top + lines - 3 # -1 for math, -1 for header, -1 for footer
+        view_top = -(lines // 2) + 2        # +1 for // 2 flooring the value instead of rounding, +1 for header
+        view_bottom = (lines // 2) - 1      # -1 for footer
 
         # clear screen
         print(ui.clear_screen() + ui.pos(1,1) + self.player.star.name + ' System')
@@ -269,7 +270,7 @@ class Game:
         else:
             color = colorama.Fore.WHITE
         print(
-            ui.pos(star_x, star_y + 1) + 
+            ui.pos(star_x, star_y) + 
             color + 
             '*',
             end=''
@@ -282,19 +283,20 @@ class Game:
 
             col = star_x + b.body_x
             line = star_y + b.body_y
-            print(ui.pos(col, line + 1) + b.color + b.symbol, end='')
+            print(ui.pos(col, line) + b.color + b.symbol, end='')
 
         for f in self.player.star.fleets:
             col = star_x + f.body_x
             line = star_y + f.body_y
-            print(ui.pos(col, line + 1) + f.race.color + f.race.letter, end='')
+            print(ui.pos(col, line) + f.race.color + f.race.letter, end='')
 
         col = star_x + self.player.system_x
         line = star_y + self.player.system_y
         print(
-            ui.pos(col, line + 1) + 
+            ui.pos(col, line) + 
             colorama.Fore.LIGHTWHITE_EX + 
-            '@'
+            '@',
+            end = ''
         )
 
         print(colorama.Style.RESET_ALL + colorama.Fore.WHITE);
@@ -328,11 +330,11 @@ class Game:
                 ui.clear_line() + 
                 target_text,
                 end='', flush=True)
-            print(ui.pos(col, line + 1), end='', flush=True)
+            print(ui.pos(col, line), end='', flush=True)
             
             k = getch.getch()
             if k == 'w':
-                if line > 1:
+                if line > 2:
                     line -= 1
             elif k == 'a':
                 if col > 1:
@@ -341,7 +343,7 @@ class Game:
                 if col < cols:
                     col += 1
             elif k == 's':
-                if line < lines - 2:
+                if line < lines - 1:
                     line += 1
         
         if ord(k) == 27 or (cursor_x == self.player.system_x and cursor_y == self.player.system_y):
