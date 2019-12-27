@@ -2,7 +2,6 @@ from enum import Enum
 import random
 
 from body import Body
-from sol import Sol
 
 class Orders(Enum):
     RANDOM = 0
@@ -56,7 +55,7 @@ class Fleet(Body):
         elif self.orders == Orders.EXPLORE:
             return self.find_nearest_system_to_explore()
         elif self.orders == Orders.INVESTIGATE:
-            return self.find_sol()   
+            return self.world.find_sol()   
         else:
             raise IndexError()
 
@@ -115,14 +114,6 @@ class Fleet(Body):
                     nearest_star = s
 
         return nearest_star
-
-
-    def find_sol(self):
-        for s in self.world.stars:
-            if isinstance(s, Sol):
-                return s
-        
-        return None # Uh?
 
 
     def tick(self, player):

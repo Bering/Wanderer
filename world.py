@@ -13,7 +13,7 @@ import fleet
 
 class World:
 
-    def __init__(self, config):
+    def __init__(self, config, player):
         self.races = {}
         self.races["Elders"] = Race("Elders", None, "E", colorama.Fore.LIGHTWHITE_EX)
         self.races["Humans"] = Race("Human", None, "H", colorama.Fore.WHITE)
@@ -42,6 +42,16 @@ class World:
 
         self._scatter_stars(config)
         self._scatter_stars(config)
+
+        sol = Sol(self, player.world_x, player.world_y)
+        self.stars.append(sol)
+        player.star = sol
+        for b in sol.bodies:
+            if b.name == 'Planet Earth (Medium Terran)':
+                player.system_x = b.body_x
+                player.system_y = b.body_y
+                player.body = b
+                break
 
         self.fleets = []
         self.spawn_fleets(config)
@@ -98,12 +108,6 @@ class World:
         # 					s.name_rect.move_ip(-64, 0)
 
 
-    def add_sol(self, x, y):
-        sol = Sol(self, x, y)
-        self.stars.append(sol)
-        return sol
-
-
     def get_body_counts(self):
         nb_stars = len(self.stars)
         nb_planets = 0
@@ -149,13 +153,20 @@ class World:
 
     def spawn_fleets(self, config):
         for s in self.stars:
-            if s.owner:
+            if s.owner and s.name != "Sol":
                 for b in s.bodies:
                     if isinstance(b, Planet) or isinstance(b, Station):
                         chance = random.randint(1, 100)
                         if chance <= config.probability_fleet_spawn:
-                            self.fleets.append(fleet.Fleet(self, b, fleet.Orders.RANDOM))
-                        
+                            f = fleet.Fleet(self, b, fleet.Orders.RANDOM)
+                            self.fleets.append(f)
+    def find_sol(self):
+        for s in self.stars:
+            if s.name == "Sol":
+                return s
+        
+        raise Exception("Could not find Sol in the world !? This should never happen!")
+
 
     def tick(self, player):
         for f in self.fleets:

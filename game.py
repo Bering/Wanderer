@@ -18,16 +18,8 @@ class Game:
 
     def __init__(self, config):
         self.config = config
-        self.world = World(config)
-        self.player = Player(config, self.world)
-        sol = self.world.add_sol(self.player.world_x, self.player.world_y)
-        self.player.star = sol
-        for b in sol.bodies:
-            if b.name == 'Planet Earth (Medium Terran)':
-                self.player.system_x = b.body_x
-                self.player.system_y = b.body_y
-                self.player.body = b
-                break
+        self.player = Player(config)
+        self.world = World(config, self.player)
 
         #self.ais = []
         #for n in range(config.nb_ais):
