@@ -32,7 +32,9 @@ class Star:
             else:
                 chance = random.randint(1, 100)
                 if chance <= config.probability_asteroids:
-                    nb_asteroids = random.randrange(config.max_asteroids_per_belt)
+                    nb_asteroids = random.randrange(
+                        config.max_asteroids_per_belt // 3,
+                        config.max_asteroids_per_belt)
                     for a in range(nb_asteroids):
                         angle = random.randint(0, 359)
                         self.bodies.append(Asteroid(self, angle, n))

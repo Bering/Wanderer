@@ -12,7 +12,7 @@ system_height = 24
 
 # At a distance x around a star, what are the chances one of these shows up (if the previous one didn't)
 probability_planet = 50
-probability_asteroids = 20 # this is the probability for a belt to show up, not just one
+probability_asteroids = 50 # this is the probability for a belt to show up, not just one
 probability_station = 30
 probability_comet = 20
 
