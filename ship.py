@@ -2,7 +2,7 @@ import subsystem
 from inventory import Inventory
 
 class Ship:
-    def __init__(self, name, crew, hull, fuel, reactors, jump, shields, stealth, dampening, railguns, masers, missiles, nukes):
+    def __init__(self, name, crew, hull, fuel, reactors, jump, shields, stealth, dampening, railguns, masers, missiles, nukes, inventory):
         self.name = name
         self.crew_max = crew
         self.hull_max = hull
@@ -11,7 +11,7 @@ class Ship:
         self.power = 0
         self.shields_max = 0
         self.subsystems = []
-        self.inventory = Inventory(1000000) # TODO: Ridiculously big, for development
+        self.inventory = Inventory(inventory)
 
         for n in range(reactors):
             self.subsystems.append(subsystem.Reactor(self))

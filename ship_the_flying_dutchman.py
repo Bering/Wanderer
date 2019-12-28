@@ -15,8 +15,9 @@ class TheFlyingDutchman(Ship):
             0,      # railguns
             1,      # masers
             20,     # missiles
-            10      # nukes
+            10,     # nukes
+            9999    # inventory
         )
         self.inventory.add("Food (Rations)", 1, 1000)
-        self.inventory.add("Food (Water)", 1, 250)
-        self.inventory.add("Food (Spirits)", 1, 50)
+        self.inventory.add("Food (Water)", 1, 1000)
+        self.inventory.add("Food (Spirits)", 1, 100)
