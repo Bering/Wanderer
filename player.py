@@ -37,3 +37,18 @@ class Player:
         self.system_x = x
         self.system_y = y
         self.body = target
+
+
+    def eat(self):
+        try:
+            self.ship.inventory.remove("Food (Rations)", 1)
+        except inventory.ItemNotInStockError:
+            print("We're out of food!")
+
+
+    def drink(self):
+        try:
+            self.ship.inventory.remove("Food (Water)", 1)
+        except inventory.ItemNotInStockError:
+            print("We're out of water!")
+        

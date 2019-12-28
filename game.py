@@ -13,6 +13,7 @@ from asteroid import Asteroid
 from comet import Comet
 from station import Station
 from station_service_ui import StationServiceUI
+from inventory import ItemNotInStockError
 
 class Game:
 
@@ -20,10 +21,11 @@ class Game:
         self.config = config
         self.player = Player(config)
         self.world = World(config, self.player)
-
-        #self.ais = []
-        #for n in range(config.nb_ais):
-        #	self.ais.append(AI(self.world))
+        self.turn = 1
+        
+        # Store here like that for now but I need a better way
+        self.intel_earth_status = "Safe"
+        self.intel_beta_site_status = "Safe"
 
 
     def run(self):
@@ -44,7 +46,6 @@ class Game:
 
         k = "?"
         while(k != 'q' and ord(k) != 27):
-            self.world.tick(self.player)
 
             print(
                 colorama.Fore.LIGHTWHITE_EX + 
@@ -54,36 +55,46 @@ class Game:
             k = getch.getch()
 
             if k == 'q' or ord(k) == 27:
-                self.cmd_quit()
+                next_turn = self.cmd_quit()
             elif k == '?':
-                self.cmd_help()
+                next_turn = self.cmd_help()
+            elif k == 'w':
+                next_turn = self.cmd_wait()
             elif k == 'r':
-                self.cmd_report()
+                next_turn = self.cmd_report()
             elif k == 'g':
-                self.cmd_galaxy_map()
+                next_turn = self.cmd_galaxy_map()
             elif k == 's':
-                self.cmd_system_map()
+                next_turn = self.cmd_system_map()
             elif k == 'd':
-                self.cmd_dropship()
+                next_turn = self.cmd_dropship()
             elif k == 'c':
-                self.cmd_jettison_cargo()
+                next_turn = self.cmd_jettison_cargo()
             elif k == 't':
-                self.cmd_test()
+                next_turn = self.cmd_test()
             else:
                 print("Unknown or unavailable command: " + k)
-        
+                next_turn = False
+
+            if next_turn:
+                self.player.drink()
+                self.player.eat()
+                self.world.tick(self.player)
+
         print(colorama.Style.RESET_ALL)
         colorama.deinit()
 
 
     def cmd_quit(self):
         print("Quit")
+        return False
 
 
     def cmd_help(self):
         print("Help")
         print()
         print("    " + colorama.Fore.LIGHTWHITE_EX + "?" + colorama.Fore.WHITE + "    This help")
+        print("    " + colorama.Fore.LIGHTWHITE_EX + "w" + colorama.Fore.WHITE + "    Wait         (do nothing for 1 turn)")
         print("    " + colorama.Fore.LIGHTWHITE_EX + "r" + colorama.Fore.WHITE + "    Report       (show ship status and position)")
         print("    " + colorama.Fore.LIGHTWHITE_EX + "g" + colorama.Fore.WHITE + "    Galaxy map   (jump from star to star)")
         print("    " + colorama.Fore.LIGHTWHITE_EX + "s" + colorama.Fore.WHITE + "    System map   (jump inside a star system)")
@@ -92,19 +103,34 @@ class Game:
         print("    " + colorama.Fore.LIGHTWHITE_EX + "t" + colorama.Fore.WHITE + "    Tests        (debug stuff)")
         print("    " + colorama.Fore.LIGHTWHITE_EX + "q" + colorama.Fore.WHITE + "    Quit")
         print()
+        return False
 
+
+    def cmd_wait(self):
+        print("Wait\n")
+        return True
 
     def cmd_report(self):
         print("Report")
+        print()
+        
+        print('--------------------')
+        print('Turn'.ljust(9) + ':' + str(self.turn).rjust(10))
+        print('Earth'.ljust(9) + ':' + self.intel_earth_status.rjust(10))
+        print('Beta Site'.ljust(9) + ':' + self.intel_beta_site_status.rjust(10))
+        print()
 
         ship = self.player.ship
-        print('\n' + ship.name)
+        print(ship.name)
         print('--------------------')
-        print('Crew'.ljust(9) + ':' + ui.progress_bar(ship.crew, ship.crew_max).rjust(25))
-        print('Fuel'.ljust(9) + ':' + ui.progress_bar(ship.fuel, ship.fuel_max).rjust(25))
-        print('Power'.ljust(9) + ':' + ui.progress_bar(ship.power, ship.power_max).rjust(25))
-        print('Hull'.ljust(9) + ':' + ui.progress_bar(ship.hull, ship.hull_max).rjust(25))
-        print('Shields'.ljust(9) + ':' + ui.progress_bar(ship.shields, ship.shields_max).rjust(25))
+        print('Crew'.ljust(9) + ':' + str(ship.crew).rjust(3) + ui.health_bar(ship.crew, ship.crew_max))
+        print('Fuel'.ljust(9) + ':' + str(ship.fuel).rjust(3) + ui.health_bar(ship.fuel, ship.fuel_max))
+        print('Inventory:' + \
+            str(round(ship.inventory.size / 1000)).rjust(2) + "k" + \
+            ui.cargo_bar(ship.inventory.size, ship.inventory.size_max))
+        print('Hull'.ljust(9) + ':' + str(ship.hull).rjust(3) + ui.health_bar(ship.hull, ship.hull_max))
+        print('Power'.ljust(9) + ':' + str(ship.power).rjust(3) + ui.cargo_bar(ship.power, ship.power_max))
+        print('Shields'.ljust(9) + ':' + str(ship.shields).rjust(3) + ui.health_bar(ship.shields, ship.shields_max))
         for s in ship.subsystems:
             if s.status == s.green:
                 color = colorama.Fore.GREEN
@@ -131,7 +157,11 @@ class Game:
         else:
             print(" Nothing near")
 
+        print("Objective:")
+        print(" Not set")
+
         print()
+        return False
 
 
     def cmd_galaxy_map(self):
@@ -231,7 +261,7 @@ class Game:
         
         if ord(k) == 27 or (cursor_x == self.player.world_x and cursor_y == self.player.world_y):
             print(ui.pos(1, lines) + '\n' + 'Jump CANCELED\n')
-            return
+            return False
         
         print(ui.pos(1, lines))
         if fuel_cost <= self.player.ship.fuel:
@@ -240,14 +270,17 @@ class Game:
             sleep(1)
             # TODO: random event or something :-)
             print('Jump successful!\n')
+            return True
         else:
             print('Cannot jump: Not enough fuel!\n')
+            return False
+
 
     def cmd_system_map(self):
         
         if self.player.star == None:
             print('Currently in interstellar space, not in a system.\n')
-            return
+            return False
 
         cols, lines = shutil.get_terminal_size()
 
@@ -348,13 +381,14 @@ class Game:
         
         if ord(k) == 27 or (cursor_x == self.player.system_x and cursor_y == self.player.system_y):
             print(ui.pos(1, lines) + '\n' + 'Jump CANCELED\n')
-            return
+            return False
         
         print(ui.pos(1, lines) + '\n' + 'Initiating jump...')
         sleep(1)
         # TODO: random event or something :-)
         print('Jump successful!\n')
         self.player.jump_in_system(cursor_x, cursor_y, target)
+        return True
 
 
     def cmd_dropship(self):
@@ -364,7 +398,7 @@ class Game:
 
         if not self.player.body:
             print("We're in the middle of nowhere...\n")
-            return
+            return False
 
         if isinstance(self.player.body, Star):
             print("I don't think you want to go out in a dropship while orbiting a star :-)\n")
@@ -422,21 +456,23 @@ class Game:
                 print(ui.pos(1, lines - 2 - len(station.services)))
 
             print(ui.pos(25,lines), end='')
+
+            next_turn = False
             if k == 'q' or ord(k) == 27:
                 print("Bye\n")
-                return
+                return next_turn
 
             print(station.services[cursor].name)
             ssui = StationServiceUI()
-            ssui.render(station, cursor, self)
+            next_turn = ssui.render(station, cursor, self)
 
 
     def cmd_jettison_cargo(self):
         print("Visit Cargo Bay\n")
 
         if len(self.player.ship.inventory.items) == 0:
-            print("There is nothing left in here!\n")
-            return
+            print("There is nothing in here! We need to plunder a station or base...\n")
+            return False
 
         print("Select cargo to jettison.")
 
@@ -488,8 +524,8 @@ class Game:
         print(ui.pos(25, lines), end='')
 
         if k == 'q' or ord(k) == 27:
-            print("Nevermind...\n")
-            return
+            print("\n")
+            return False
         
         names_to_jettison = []
         for index,name in enumerate(self.player.ship.inventory.items):
@@ -501,7 +537,7 @@ class Game:
             self.player.ship.inventory.remove(i.name, i.quantity)
 
         print("Done!\n")
-
+        return True
 
 
     def cmd_test(self):
@@ -513,7 +549,7 @@ class Game:
 
         print(ui.pos(1, 3), end='')
         for n in range(0,101, 5):
-            print(ui.progress_bar(n, 100).rjust(25))
+            print(str(n).rjust(3) + " " + ui.health_bar(n, 100))
         
         print(
             ui.pos(1, lines) + 
@@ -523,4 +559,5 @@ class Game:
             end='', flush=True)
         k = getch.getch_that_can_do_arrow_keys()
         print(str(ord(k)) + "\n")
+        return False
 

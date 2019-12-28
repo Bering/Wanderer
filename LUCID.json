@@ -27,9 +27,17 @@
             "labels": []
         },
         {
-            "id": "57057396_3134067602_1890572729_2752396516",
+            "id": "2302017033_4165720343_539781602_3974693712",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 0,
+            "title": "Turn System",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "57057396_3134067602_1890572729_2752396516",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 1,
             "title": "Bug: jumping near the bottom of the map skews things",
             "description": "In both the galaxy view and the system view",
             "labels": [
@@ -37,19 +45,11 @@
             ]
         },
         {
-            "id": "1872640877_1571505547_561750311_1293373978",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 1,
-            "title": "Show all the keyboard hints in LIGHTWHITE_EX",
-            "description": "",
-            "labels": []
-        },
-        {
             "id": "13925376_3918280602_3709209760_2175576408",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 1,
             "title": "Theme / Story / Ideas",
-            "description": "- [ ] Priority #1 prevent other ships from reaching Earth\n- [ ] Secondary objective: defend that \"Plan B\" planet I can't remember the name of\n- [ ] Explore and move about stealthily. If discovered you must kill them before they jump away\n- [ ] Have Skippy do crazy-ass moves to destroy other ships\n- [ ] Train Spec-ops\n- [ ] Raid Stations with Spec-ops for Food, Fuel, Missiles and Elder or Alien artifacts\n- [ ] Research artifacts\n- [ ] Have the races wage war against each other. Ships leave a race's shipyard to go attack another race's planet\n- [ ] Have some researchers leave a race's research station to head towards Earth once in a while\n- [ ] Learn in advance about the researchers headed for Earth by visiting Stations\n- [ ] Read the news in stations to learn about ships of that race leaving a station to wage war on another race\n",
+            "description": "- [ ] Priority #1 prevent other ships from reaching Earth\n- [ ] Secondary objective: defend that \"Plan B\" planet I can't remember the name of\n- [ ] Explore and move about stealthily. If discovered you must kill them before they jump away\n- [ ] Have Skippy do crazy-ass moves to destroy other ships\n- [ ] Train Spec-ops\n- [ ] Raid Stations with Spec-ops for Food, Fuel, Missiles and Elder or Alien artifacts\n- [ ] Research artifacts\n- [ ] Have the races wage war against each other. Ships leave a race's shipyard to go attack another race's planet\n- [ ] Have some researchers leave a race's research station to head towards Earth once in a while\n- [x] Learn in advance about the researchers headed for Earth by visiting Stations\n- [x] Read the news in stations to learn about ships of that race leaving a station to wage war on another race\n",
             "labels": []
         },
         {
@@ -61,11 +61,11 @@
             "labels": []
         },
         {
-            "id": "1746848055_3707858129_3460539862_3846853291",
+            "id": "1872640877_1571505547_561750311_1293373978",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 2,
-            "title": "SubSystem classes stubs",
-            "description": " - [x] Sensors\n - [x] Reactors\n - [x] Jump drive (also coils quantity and alignment)\n - [x] Shield emitters\n - [x] Stealth field\n - [x] Dampening field\n",
+            "title": "Show all the keyboard hints in LIGHTWHITE_EX",
+            "description": "",
             "labels": []
         },
         {
@@ -85,11 +85,11 @@
             "labels": []
         },
         {
-            "id": "2494385881_1561218444_2794589655_2738149348",
+            "id": "1746848055_3707858129_3460539862_3846853291",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 3,
-            "title": "Inventory for plundering",
-            "description": " - [x] Backend\n - [x] Add inventory to ship\n - [x] Browse inventory UI\n - [x] Plunder station UI\n",
+            "title": "SubSystem classes stubs",
+            "description": " - [x] Sensors\n - [x] Reactors\n - [x] Jump drive (also coils quantity and alignment)\n - [x] Shield emitters\n - [x] Stealth field\n - [x] Dampening field\n",
             "labels": []
         },
         {
@@ -101,11 +101,11 @@
             "labels": []
         },
         {
-            "id": "260465741_1760469332_1275050606_2063338460",
+            "id": "2494385881_1561218444_2794589655_2738149348",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 4,
-            "title": "Gas Giants (to refuel)",
-            "description": "",
+            "title": "Inventory for plundering",
+            "description": " - [x] Backend\n - [x] Add inventory to ship\n - [x] Browse inventory UI\n - [x] Plunder station UI\n",
             "labels": []
         },
         {
@@ -121,15 +121,15 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 4,
             "title": "News system",
-            "description": " - [x] Local news of spawned fleets\n - [ ] Local news of incoming fleets (allies retreating and enemies attacking)\n - [ ] Global news of fleets en-route to investigate Earth from <system name>\n - [ ] Global news of research projects. Update on ongoing research on <artifact> on <planet or station> in the <system> system",
+            "description": " - [x] Local news of spawned fleets\n - [x] Local news of incoming enemies attacking\n - [ ] Local news of incoming allies retreating\n - [x] Global news of fleets en-route to investigate Earth from <system name>\n - [ ] Global news of research projects. Update on ongoing research on <artifact> on <planet or station> in the <system> system",
             "labels": []
         },
         {
-            "id": "1397014827_816900498_235780156_1865574713",
+            "id": "260465741_1760469332_1275050606_2063338460",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 5,
-            "title": "Comet class",
-            "description": "Inherit Body\n\nSymbol is /, \\, | or --, pointing towards the star",
+            "title": "Gas Giants (to refuel)",
+            "description": "",
             "labels": []
         },
         {
@@ -141,14 +141,12 @@
             "labels": []
         },
         {
-            "id": "2292943580_855386292_1665295193_828085516",
+            "id": "1397014827_816900498_235780156_1865574713",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 6,
-            "title": "Bodies only show up in the bottom of the screen !?",
-            "description": "",
-            "labels": [
-                1
-            ]
+            "title": "Comet class",
+            "description": "Inherit Body\n\nSymbol is /, \\, | or --, pointing towards the star",
+            "labels": []
         },
         {
             "id": "1343862095_1231198859_745926488_1555386104",
@@ -159,11 +157,11 @@
             "labels": []
         },
         {
-            "id": "1290033882_4111822711_4269353178_3642925237",
+            "id": "2292943580_855386292_1665295193_828085516",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 7,
-            "title": "View should be centered around the player when the window is bigger than the map",
-            "description": "Maximize the console and look at the system view",
+            "title": "Bodies only show up in the bottom of the screen !?",
+            "description": "",
             "labels": [
                 1
             ]
@@ -177,12 +175,14 @@
             "labels": []
         },
         {
-            "id": "2113445069_468766045_693428332_1374657037",
+            "id": "1290033882_4111822711_4269353178_3642925237",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 8,
-            "title": "System view",
-            "description": " - [x] Center the view on the star\n - [x] Show bodies (planets, asteroids, comets, etc) in orbit\n - [x] Make that work in a viewport so world can be bigger than window size\n - [x] Make that work in a window bigger than the viewport\n",
-            "labels": []
+            "title": "View should be centered around the player when the window is bigger than the map",
+            "description": "Maximize the console and look at the system view",
+            "labels": [
+                1
+            ]
         },
         {
             "id": "460078232_1811257596_703611331_636981942",
@@ -193,11 +193,11 @@
             "labels": []
         },
         {
-            "id": "4219047632_3630737559_1280686700_4275324277",
+            "id": "2113445069_468766045_693428332_1374657037",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 9,
-            "title": "Galaxy view",
-            "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [x] Make that work in a viewport so world can be bigger than window size\n",
+            "title": "System view",
+            "description": " - [x] Center the view on the star\n - [x] Show bodies (planets, asteroids, comets, etc) in orbit\n - [x] Make that work in a viewport so world can be bigger than window size\n - [x] Make that work in a window bigger than the viewport\n",
             "labels": []
         },
         {
@@ -209,11 +209,11 @@
             "labels": []
         },
         {
-            "id": "3438612815_3576665032_648051149_1609108209",
+            "id": "4219047632_3630737559_1280686700_4275324277",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 10,
-            "title": "Asteroid class",
-            "description": "Inherit Body",
+            "title": "Galaxy view",
+            "description": " - [x] Show stars\n - [x] Show player\n - [x] Show jump cursor\n - [ ] Show lines from player to jump cursor\n - [x] Make that work in a viewport so world can be bigger than window size\n",
             "labels": []
         },
         {
@@ -225,11 +225,11 @@
             "labels": []
         },
         {
-            "id": "481700607_2704421970_3433118822_381914478",
+            "id": "3438612815_3576665032_648051149_1609108209",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 11,
-            "title": "Star class",
-            "description": "",
+            "title": "Asteroid class",
+            "description": "Inherit Body",
             "labels": []
         },
         {
@@ -241,22 +241,22 @@
             "labels": []
         },
         {
-            "id": "2440150274_157638296_3025540694_745833145",
+            "id": "481700607_2704421970_3433118822_381914478",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 12,
+            "title": "Star class",
+            "description": "",
+            "labels": []
+        },
+        {
+            "id": "2440150274_157638296_3025540694_745833145",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 13,
             "title": "All planets and asteroids have the same name",
             "description": "WTH !? I'm pretty sure I'm not doing it wrong :-/\n\nNo they don't, I was printing the name of the last iteration instead of the current one... DUH!",
             "labels": [
                 1
             ]
-        },
-        {
-            "id": "3217620502_1376862668_3527955332_858619495",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 13,
-            "title": "Body class",
-            "description": "star, name, system_x, system_y, color, symbol\n\nFor stars, planets, stations, asteroids, comets...\n\ncoordinates are centered around the star",
-            "labels": []
         },
         {
             "id": "3622774874_849889469_1198837998_403189632",
@@ -277,9 +277,17 @@
             ]
         },
         {
-            "id": "2764517655_3968030259_3591491117_2021233754",
+            "id": "3217620502_1376862668_3527955332_858619495",
             "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 14,
+            "title": "Body class",
+            "description": "star, name, system_x, system_y, color, symbol\n\nFor stars, planets, stations, asteroids, comets...\n\ncoordinates are centered around the star",
+            "labels": []
+        },
+        {
+            "id": "2764517655_3968030259_3591491117_2021233754",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
+            "position": 15,
             "title": "Player class",
             "description": "",
             "labels": []
@@ -287,7 +295,7 @@
         {
             "id": "2764517655_3968030259_3591491117_2021233754",
             "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 15,
+            "position": 16,
             "title": "Planet class",
             "description": "Inherit Body\n\nHas Landmarks (cities, bases, outposts, research facility, shipyards, etc.)",
             "labels": []
@@ -295,7 +303,7 @@
         {
             "id": "3388036575_436440252_4156889895_1988962351",
             "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 16,
+            "position": 17,
             "title": "Import 'Master of Stars' stuff to create randomized world with stars and planets",
             "description": "",
             "labels": []
@@ -303,7 +311,7 @@
         {
             "id": "3619354459_2889607529_3086928605_3858061606",
             "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 17,
+            "position": 18,
             "title": "Install game engine",
             "description": "Unity? PyGame? Something else?",
             "labels": []
@@ -311,7 +319,7 @@
         {
             "id": "933944626_2806977787_227411340_3377458057",
             "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 18,
+            "position": 19,
             "title": "Create project on github",
             "description": "",
             "labels": []
@@ -319,7 +327,7 @@
         {
             "id": "2775249964_3926464596_1611168160_1008452023",
             "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 19,
+            "position": 20,
             "title": "Choose name",
             "description": "",
             "labels": []
@@ -327,7 +335,7 @@
         {
             "id": "3267542806_2668350600_2957385233_984043023",
             "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 20,
+            "position": 21,
             "title": "Choose programming language",
             "description": "",
             "labels": []

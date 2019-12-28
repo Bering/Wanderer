@@ -166,7 +166,7 @@ class World:
                             f = fleet.Fleet(self, b, None)
                             self.fleets.append(f)
 
-                            n = news.LocalNews_NewFleet(0, f)
+                            n = news.LocalNews_NewFleet(1, f)
                             self.news[f.home.star.name].append(n)
                             if f.orders == fleet.Orders.ATTACK:
                                 self.news[f.destination.name].append(n)
