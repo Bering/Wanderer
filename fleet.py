@@ -121,14 +121,42 @@ class Fleet(Body):
 
 
     def tick(self, player):
-        # TODO: change orders if appropriate (repair then attack when retreat complete, go to next system when a system is explored, etc)
-        # if self.orders == Orders.RETREAT:
-        # elif self.orders == Orders.DEFEND:
-        # elif self.orders == Orders.PATROL:
-        # elif self.orders == Orders.ATTACK:
-        # elif self.orders == Orders.EXPLORE:
-        # elif self.orders == Orders.INVESTIGATE:
 
-        # TODO: Jump towards self.destination
-        pass
+        # Jump to destination system
+        if self.destination != self.star:
+            self.star.fleets.remove(self)
+            self.star = self.destination
+            self.star.fleets.append(self)
+            self.world_x = self.star.world_x
+            self.world_y = self.star.world_y
+
+            self.body_x = 0
+            self.body_y = 0
+            self.body = self.star
+
+        # Wait 1 turn for repairs
+        elif self.orders == Orders.RETREAT:
+            self.orders = None
+
+        # Attack again after repair (possibly a different system)
+        elif self.orders == None:
+            self.orders = Orders.ATTACK
+            self.set_destination()
+        
+        # Go patrol another system
+        elif self.orders == Orders.PATROL:
+            self.set_destination()
+        
+        # Retreat to an allied system
+        elif self.orders == Orders.ATTACK:
+            self.orders = Orders.RETREAT
+            self.set_destination()
+
+        # Stay there long-term
+        elif self.orders == Orders.EXPLORE:
+            pass
+        
+        # Game over!
+        elif self.orders == Orders.INVESTIGATE:
+            print(self.name + " reached Earth! GAME OVER!")
 
