@@ -39,7 +39,7 @@ class Player:
         
         fuel_cost = self.get_fuel_cost(x, y)
         if self.ship.fuel < fuel_cost:
-            print("Not enough gas!\n")
+            print("Not enough fuel!\n")
             return False
         
         self.ship.fuel -= fuel_cost
