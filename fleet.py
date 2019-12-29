@@ -48,6 +48,7 @@ class Fleet(Body):
         self.star = home.star
         self.destination = self.set_destination()
         
+        self.wait = 0
 
     def set_destination(self):
         if self.orders == Orders.RETREAT:
@@ -126,8 +127,13 @@ class Fleet(Body):
 
     def tick(self, player):
 
+        # special case: investigation fleets take 20 turns to organise
+        if self.orders == Orders.INVESTIGATE and self.star == self.home.star and self.wait < 20:
+            self.wait += 1
+            return
+
         # Jump towards destination system
-        if self.destination != self.star:
+        if self.star != self.destination:
             if self.star:
                 self.star.fleets.remove(self)
                 self.star = None
@@ -146,30 +152,39 @@ class Fleet(Body):
                 self.star = self.destination
                 self.star.fleets.append(self)
                 self.body = self.star
+                self.wait = 0
 
-        # Wait 1 turn for repairs
+        # Wait 3 turns for repairs then Attack again (possibly a different system)
         elif self.orders == Orders.RETREAT:
-            self.orders = None
-
-        # Attack again after repair (possibly a different system)
-        elif self.orders == None:
-            self.orders = Orders.ATTACK
-            self.set_destination()
+            if self.wait < 3:
+                self.wait += 1
+            else:
+                self.orders = Orders.ATTACK
+                self.set_destination()
         
-        # Go patrol another system
+        # Wait for 3 turns then go patrol another system
         elif self.orders == Orders.PATROL:
-            self.set_destination()
+            if self.wait < 1:
+                self.wait += 1
+            else:
+                self.set_destination()
         
-        # Retreat to an allied system
+        # Attack for 3 turns then retreat to an allied system
         elif self.orders == Orders.ATTACK:
-            self.orders = Orders.RETREAT
-            self.set_destination()
+            if self.wait < 2:
+                self.wait += 1
+            else:
+                self.orders = Orders.RETREAT
+                self.set_destination()
 
-        # Stay there long-term
+        # conduct research for 10 turns then find another system to explore
         elif self.orders == Orders.EXPLORE:
-            pass
+            if self.wait < 10:
+                self.wait += 1
+            else:
+                self.set_destination()
         
         # Game over!
         elif self.orders == Orders.INVESTIGATE:
-            print(self.name + " reached Earth! GAME OVER!")
+            print("\n" + self.name + " reached Earth! GAME OVER!\n")
 
