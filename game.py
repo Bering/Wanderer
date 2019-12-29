@@ -7,7 +7,7 @@ import config
 import getch
 import ui
 from world import World
-from player import Player
+import player
 from star import Star
 from planet import Planet
 from asteroid import Asteroid
@@ -19,7 +19,7 @@ from inventory import ItemNotInStockError
 class Game:
 
     def __init__(self):
-        self.player = Player()
+        self.player = player.Player()
         self.world = World(self.player)
         self.turn = 1
         
@@ -77,13 +77,26 @@ class Game:
                 next_turn = False
 
             if next_turn:
-                self.turn += 1
-                self.player.drink()
-                self.player.eat()
-                self.world.tick(self.player)
+                self.next_turn()
 
         print(colorama.Style.RESET_ALL)
         colorama.deinit()
+
+
+    def next_turn(self):
+        self.turn += 1
+
+        try:
+            self.player.drink()
+        except player.OutOfWaterError:
+            print(colorama.Fore.RED + "We're out of water!" + colorama.Fore.WHITE)
+
+        try:
+            self.player.eat()
+        except player.OutOfFoodError:
+            print(colorama.Fore.RED + "We're out of food!" + colorama.Fore.WHITE)
+
+        self.world.tick(self.player)
 
 
     def cmd_quit(self):
@@ -270,17 +283,19 @@ class Game:
             return False
         
         print(ui.pos(1, lines))
-        if fuel_cost <= self.player.ship.fuel:
-            print('Initiating jump...')
-            if self.player.jump(cursor_x, cursor_y, target):
-                sleep(1)
-                # TODO: random event or something :-)
-                print('Jump successful!\n')
-                return True
-            else:
-                return False
-        else:
-            print('Cannot jump: Not enough fuel!\n')
+
+        print('Initiating jump...')
+        try:
+            self.player.jump(cursor_x, cursor_y, target)
+            sleep(1)
+            # TODO: random event or something :-)
+            print('Jump successful!\n')
+            return True
+        except player.JumpTooFarError:
+            print("Cannot jump that far! Maximum distance is " + str(config.maximum_jump_distance) + ".\n")
+            return False
+        except player.NotEnoughFuelError:
+            print("Not enough fuel!\n")
             return False
 
 

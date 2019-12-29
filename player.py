@@ -4,6 +4,26 @@ import math
 import config
 from ship_the_flying_dutchman import TheFlyingDutchman
 
+class JumpTooFarError(Exception):
+    def __init__(self):
+        pass
+
+
+class NotEnoughFuelError(Exception):
+    def __init__(self):
+        pass
+
+
+class OutOfFoodError(Exception):
+    def __init__(self):
+        pass
+
+
+class OutOfWaterError(Exception):
+    def __init__(self):
+        pass
+
+
 class Player:
 
     def __init__(self):
@@ -30,17 +50,12 @@ class Player:
 
     # remember that target can be empty space, not always a star, hence x, y
     def jump(self, x, y, target):
-
-        # TODO: raise errors instead, and let the game class handle display
-
         if self.get_distance(x, y) > config.maximum_jump_distance:
-            print("Cannot jump that far! Maximum distance is " + str(config.maximum_jump_distance) + ".\n")
-            return False
+            raise JumpTooFarError()
         
         fuel_cost = self.get_fuel_cost(x, y)
         if self.ship.fuel < fuel_cost:
-            print("Not enough fuel!\n")
-            return False
+            raise NotEnoughFuelError()
         
         self.ship.fuel -= fuel_cost
         self.world_x = x
@@ -62,12 +77,12 @@ class Player:
         try:
             self.ship.inventory.remove("Food (Rations)", 1)
         except inventory.ItemNotInStockError:
-            print("We're out of food!")
+            raise OutOfFoodError()
 
 
     def drink(self):
         try:
             self.ship.inventory.remove("Food (Water)", 1)
         except inventory.ItemNotInStockError:
-            print("We're out of water!")
-        
+            raise OutOfWaterError()
+
