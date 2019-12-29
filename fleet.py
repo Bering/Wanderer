@@ -1,7 +1,9 @@
 from enum import Enum
 import random
+import math
 
 from body import Body
+import config
 
 class Orders(Enum):
     RETREAT = 1
@@ -18,6 +20,8 @@ class Fleet(Body):
         self.race = home.star.owner
         self.home = home
         self.home.star.fleets.append(self)
+        self.world_x = self.home.star.world_x
+        self.world_y = self.home.star.world_y
         self.body_x = home.body_x
         self.body_y = home.body_y
 
@@ -122,17 +126,26 @@ class Fleet(Body):
 
     def tick(self, player):
 
-        # Jump to destination system
+        # Jump towards destination system
         if self.destination != self.star:
-            self.star.fleets.remove(self)
-            self.star = self.destination
-            self.star.fleets.append(self)
-            self.world_x = self.star.world_x
-            self.world_y = self.star.world_y
-
-            self.body_x = 0
-            self.body_y = 0
-            self.body = self.star
+            if self.star:
+                self.star.fleets.remove(self)
+                self.star = None
+                self.body = None
+                self.body_x = 0
+                self.body_y = 0
+            
+            distance_to_destination = math.sqrt((self.destination.world_x-self.world_x)**2+(self.destination.world_y-self.world_y)**2)
+            if distance_to_destination > config.maximum_jump_distance:
+                self.world_x = self.world_x - ((config.maximum_jump_distance * (self.world_x - self.destination.world_x)) / distance_to_destination)
+                self.world_y = self.world_y - ((config.maximum_jump_distance * (self.world_y - self.destination.world_y)) / distance_to_destination)
+            
+            else:
+                self.world_x = self.destination.world_x
+                self.world_y = self.destination.world_y
+                self.star = self.destination
+                self.star.fleets.append(self)
+                self.body = self.star
 
         # Wait 1 turn for repairs
         elif self.orders == Orders.RETREAT:
