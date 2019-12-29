@@ -197,14 +197,6 @@ class World:
         raise Exception("Could not find Sol in the world !? This should never happen!")
 
 
-    def find_investigatiors(self):
-        for f in self.fleets:
-            if f.orders == fleet.Orders.INVESTIGATE:
-                return f
-        
-        return None
-
-
     def tick(self, player):
         for f in self.fleets:
             f.tick(player)
