@@ -35,8 +35,10 @@ class Inventory:
 
     def add(self, name, unit_size, quantity):
 
-        if self.size + (unit_size * quantity) > self.size_max:
-            raise WouldOverflowError(name, unit_size, quantity, self.size_max - self.size)
+        # Maybe the inventory is over-engineered?
+        # No need for size, maybe use a max number of items instead, or no max at all even
+        # if self.size + (unit_size * quantity) > self.size_max:
+        #     raise WouldOverflowError(name, unit_size, quantity, self.size_max - self.size)
         
         if name in self.items:
             self.items[name].quantity += quantity
