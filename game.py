@@ -228,12 +228,12 @@ class Game:
                     break
             
             distance = self.player.get_distance(cursor_x, cursor_y)
-            target_text += " (distance: "
+            target_text += " ("
             if distance > config.maximum_jump_distance:
                 target_text += colorama.Fore.RED
-            target_text += str(distance) + colorama.Fore.WHITE + ")"
+            target_text += str(distance) + colorama.Fore.WHITE + "/"
+
             fuel_cost = self.player.get_fuel_cost(cursor_x, cursor_y)
-            target_text += " (fuel cost: "
             if fuel_cost > self.player.ship.fuel:
                 target_text += colorama.Fore.LIGHTRED_EX
             target_text += str(fuel_cost) + \
