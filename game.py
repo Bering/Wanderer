@@ -227,7 +227,7 @@ class Game:
                     target = s
                     break
             
-            fuel_cost = self.player.fuel_cost(cursor_x, cursor_y)
+            fuel_cost = self.player.get_fuel_cost(cursor_x, cursor_y)
             target_text += " (fuel cost: "
             if fuel_cost > self.player.ship.fuel:
                 target_text += colorama.Fore.LIGHTRED_EX
@@ -267,11 +267,13 @@ class Game:
         print(ui.pos(1, lines))
         if fuel_cost <= self.player.ship.fuel:
             print('Initiating jump...')
-            self.player.jump(cursor_x, cursor_y, target)
-            sleep(1)
-            # TODO: random event or something :-)
-            print('Jump successful!\n')
-            return True
+            if self.player.jump(cursor_x, cursor_y, target):
+                sleep(1)
+                # TODO: random event or something :-)
+                print('Jump successful!\n')
+                return True
+            else:
+                return False
         else:
             print('Cannot jump: Not enough fuel!\n')
             return False

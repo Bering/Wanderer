@@ -20,18 +20,36 @@ class Player:
         self.ship = TheFlyingDutchman()
     
 
-    def fuel_cost(self, x, y):
-        return round(math.sqrt((x-self.world_x)*(x-self.world_x) + (y-self.world_y)*(y-self.world_y)))
+    def get_distance(self, x, y):
+        return round(math.sqrt((x - self.world_x) ** 2 + (y - self.world_y) ** 2))
 
 
+    def get_fuel_cost(self, x, y):
+        return self.get_distance(x, y) ** 2
+
+
+    # remember that target can be empty space, not always a star, hence x, y
     def jump(self, x, y, target):
-        self.ship.fuel -= self.fuel_cost(x, y)
+
+        # TODO: raise errors instead, and let the game class handle display
+
+        if self.get_distance(x, y) > config.maximum_jump_distance:
+            print("Cannot jump that far! Maximum is " + str(config.maximum_jump_distance) + ".\n")
+            return False
+        
+        fuel_cost = self.get_fuel_cost(x, y)
+        if self.ship.fuel < fuel_cost:
+            print("Not enough gas!\n")
+            return False
+        
+        self.ship.fuel -= fuel_cost
         self.world_x = x
         self.world_y = y
         self.star = target
         self.system_x = 0
         self.system_y = 0
         self.body = self.star
+        return True
 
 
     def jump_in_system(self, x, y, target):
