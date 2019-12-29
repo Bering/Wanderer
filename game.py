@@ -3,6 +3,7 @@ import random
 import colorama
 from time import sleep
 
+import config
 import getch
 import ui
 from world import World
@@ -17,8 +18,7 @@ from inventory import ItemNotInStockError
 
 class Game:
 
-    def __init__(self, config):
-        self.config = config
+    def __init__(self):
         self.player = Player()
         self.world = World(self.player)
         self.turn = 1
@@ -33,7 +33,7 @@ class Game:
         nb_stars, nb_planets, nb_asteroids, nb_comets, nb_stations = self.world.get_body_counts()
         print("Wanderer v.alpha0")
         print("World:")
-        print(" - " + str(self.config.world_width) + "x" + str(self.config.world_height))
+        print(" - " + str(config.world_width) + "x" + str(config.world_height))
         print(" - " + str(nb_stars) + " stars")
         print(" - " + str(nb_planets) + " planets")
         print(" - " + str(nb_asteroids) + " asteroids")
@@ -170,11 +170,11 @@ class Game:
         cols, lines = shutil.get_terminal_size()
 
         view_left = max(self.player.world_x - (cols // 2), 1)
-        view_left = min(view_left, self.config.world_width - cols)
+        view_left = min(view_left, config.world_width - cols)
         view_right = view_left + cols - 1
 
         view_top = max(self.player.world_y - (lines // 2), 1)
-        view_top = min(view_top, self.config.world_height - lines)
+        view_top = min(view_top, config.world_height - lines)
         view_bottom = view_top + lines - 3 # -1 for math, -1 for header, -1 for footer
 
         # clear screen
