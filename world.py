@@ -1,6 +1,7 @@
 import colorama
 import random
 
+import config
 from race import Race
 from star_names_stack import StarNamesStack
 from star import Star
@@ -14,7 +15,7 @@ import news
 
 class World:
 
-    def __init__(self, config, player):
+    def __init__(self, player):
         self.races = {}
         self.races["Elders"] = Race("Elders", None, "E", colorama.Fore.LIGHTWHITE_EX)
         self.races["Humans"] = Race("Human", None, "H", colorama.Fore.WHITE)
@@ -36,16 +37,15 @@ class World:
         self.stars = []
         for n in range(len(self._star_names.names)):
             star = Star(
-                config,
                 random.randrange(config.world_width),
                 random.randrange(config.world_height),
                 self._star_names.pop(),
-                self.get_random_owner_race(config)
+                self.get_random_owner_race()
             )
             self.stars.append(star)
             self.news[star.name] = []
-        self._scatter_stars(config)
-        self._scatter_stars(config)
+        self._scatter_stars()
+        self._scatter_stars()
 
         sol = Sol(self, player.world_x, player.world_y)
         self.stars.append(sol)
@@ -58,11 +58,11 @@ class World:
                 break
 
         self.fleets = []
-        self.spawn_fleets(config)
+        self.spawn_fleets()
         self.spawn_investigator_fleet()
 
 
-    def get_random_owner_race(self, config):
+    def get_random_owner_race(self):
         chance = random.randint(1, 100)
         if chance > config.probability_is_owned:
             return None
@@ -89,7 +89,7 @@ class World:
                 return self.races["Wurgalan"]
 
 
-    def _scatter_stars(self, config):
+    def _scatter_stars(self):
         pass
         # for s in self.stars:
         # 	for o in self.stars:
@@ -156,7 +156,7 @@ class World:
         return not self.areAllied(a, b)
 
 
-    def spawn_fleets(self, config):
+    def spawn_fleets(self):
         for s in self.stars:
             if s.owner and s.name != "Sol":
                 for b in s.bodies:

@@ -19,8 +19,8 @@ class Game:
 
     def __init__(self, config):
         self.config = config
-        self.player = Player(config)
-        self.world = World(config, self.player)
+        self.player = Player()
+        self.world = World(self.player)
         self.turn = 1
         
         # Store here like that for now but I need a better way

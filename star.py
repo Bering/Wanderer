@@ -1,6 +1,7 @@
 import random
 from colorama import Fore, Style
 
+import config
 import body
 from planet import Planet
 from asteroid import Asteroid
@@ -12,7 +13,7 @@ _styles = [Style.NORMAL, Style.BRIGHT]
 
 class Star:
 
-    def __init__(self, config, x, y, name, owner):
+    def __init__(self, x, y, name, owner):
         self.world_x = x
         self.world_y = y
         self.name = name
@@ -42,7 +43,7 @@ class Star:
                     chance = random.randint(1, 100)
                     if chance <= config.probability_station:
                         angle = random.randint(0, 359)
-                        self.bodies.append(Station(config, self, angle, n))
+                        self.bodies.append(Station(self, angle, n))
                     else:
                         chance = random.randint(1, 100)
                         if chance <= config.probability_comet:

@@ -1,5 +1,6 @@
 import random
 
+import config
 from inventory import Inventory
 
 
@@ -25,7 +26,7 @@ class Refuel(StationService):
 
 
 class Plunder(StationService):
-    def __init__(self, station, config):
+    def __init__(self, station):
         super().__init__(station, "Plunder")
 
         self.inventory = Inventory(10000)

@@ -1,11 +1,12 @@
 import random
 import math
 
+import config
 from ship_the_flying_dutchman import TheFlyingDutchman
 
 class Player:
 
-    def __init__(self, config):
+    def __init__(self):
         self.world_x = config.world_width // 2
         self.world_y = config.world_height // 2
         self.system_x = 0
