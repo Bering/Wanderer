@@ -248,10 +248,8 @@ class Game:
 
             fuel_cost = self.player.get_fuel_cost(cursor_x, cursor_y)
             if fuel_cost > self.player.ship.fuel:
-                target_text += colorama.Fore.LIGHTRED_EX
-            target_text += str(fuel_cost) + \
-                            colorama.Fore.WHITE + \
-                            ")"
+                target_text += colorama.Fore.RED
+            target_text += str(fuel_cost) + colorama.Fore.WHITE + ")"
             
             print(
                 ui.pos(1, lines) + 
