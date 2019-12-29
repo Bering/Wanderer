@@ -77,6 +77,7 @@ class Game:
                 next_turn = False
 
             if next_turn:
+                self.turn += 1
                 self.player.drink()
                 self.player.eat()
                 self.world.tick(self.player)
@@ -107,7 +108,7 @@ class Game:
 
 
     def cmd_wait(self):
-        print("Wait\n")
+        print("Wait")
         return True
 
     def cmd_report(self):
