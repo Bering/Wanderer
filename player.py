@@ -34,7 +34,7 @@ class Player:
         # TODO: raise errors instead, and let the game class handle display
 
         if self.get_distance(x, y) > config.maximum_jump_distance:
-            print("Cannot jump that far! Maximum is " + str(config.maximum_jump_distance) + ".\n")
+            print("Cannot jump that far! Maximum distance is " + str(config.maximum_jump_distance) + ".\n")
             return False
         
         fuel_cost = self.get_fuel_cost(x, y)
