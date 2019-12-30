@@ -49,7 +49,7 @@
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 1,
             "title": "Theme / Story / Ideas",
-            "description": "- [ ] Priority #1 prevent other ships from reaching Earth\n- [ ] Secondary objective: defend that \"Plan B\" planet I can't remember the name of\n- [ ] Explore and move about stealthily. If discovered you must kill them before they jump away\n- [ ] Have Skippy do crazy-ass moves to destroy other ships\n- [ ] Train Spec-ops\n- [ ] Raid Stations with Spec-ops for Food, Fuel, Missiles and Elder or Alien artifacts\n- [ ] Research artifacts\n- [ ] Have the races wage war against each other. Ships leave a race's shipyard to go attack another race's planet\n- [ ] Have some researchers leave a race's research station to head towards Earth once in a while\n- [x] Learn in advance about the researchers headed for Earth by visiting Stations\n- [x] Read the news in stations to learn about ships of that race leaving a station to wage war on another race\n",
+            "description": "- [ ] Priority #1 prevent other ships from reaching Earth\n- [ ] Secondary objective: defend the beta site\n- [ ] Explore and move about stealthily. If discovered you must kill them before they jump away\n- [ ] Have Skippy do crazy-ass moves to destroy other ships\n- [ ] Train Spec-ops\n- [ ] Raid Stations with Spec-ops for Food, Fuel, Missiles and Elder or Alien artifacts\n- [ ] Research artifacts\n- [ ] Have the races wage war against each other. Ships leave a race's shipyard to go attack another race's planet\n- [ ] Have some researchers leave a race's research station to head towards Earth once in a while\n- [x] Learn in advance about the researchers headed for Earth by visiting Stations\n- [x] Read the news in stations to learn about ships of that race leaving a station to wage war on another race\n",
             "labels": []
         },
         {
@@ -57,7 +57,7 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 1,
             "title": "Station services",
-            "description": "Inherit Body\n\n - [x] News\n - [x] Repair\n - [x] Refuel\n - [ ] Resupply (Load food and nukes at Earth)\n - [ ] Upgrade\n - [x] Plunder\n - [ ] Recruit (Only Earth and Plan B planet)\n - [ ] Research\n",
+            "description": "Inherit Body\n\n - [x] News\n - [x] Repair\n - [x] Refuel\n - [ ] Resupply (Load food and nukes at Earth)\n - [ ] Upgrade\n - [x] Plunder\n - [ ] Recruit (Only Earth and beta site)\n - [ ] Research\n",
             "labels": []
         },
         {
@@ -97,7 +97,15 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 3,
             "title": "Enemy fleets",
-            "description": " - [x] Race\n - [ ] Composition of ships\n - [x] Goal (Patrol, Attack, Research)\n - [x] Show up in the news\n - [ ] Movement\n",
+            "description": " - [x] Race\n - [ ] Composition of ships (for combat)\n - [x] Goal (Patrol, Attack, Research)\n - [x] Show up in the news\n - [x] Movement\n",
+            "labels": []
+        },
+        {
+            "id": "3575428154_3499237287_2054302075_752592619",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 3,
+            "title": "Crazy ideas (combat)",
+            "description": " - [ ] Jump a ship into a gas giant\n - [ ] Put a wormhole endpoint on the ship\n - [ ] Alter frequency of a maser cannon to resonate a ship to tear it appart\n - [ ] Bunch of others, I'll probably have to reread the books",
             "labels": []
         },
         {
@@ -109,19 +117,19 @@
             "labels": []
         },
         {
-            "id": "3575428154_3499237287_2054302075_752592619",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 4,
-            "title": "Crazy ideas (combat)",
-            "description": " - [ ] Jump a ship into a gas giant\n - [ ] Put a wormhole endpoint on the ship\n - [ ] Alter frequency of a maser cannon to resonate a ship to tear it appart\n - [ ] Bunch of others, I'll probably have to reread the books",
-            "labels": []
-        },
-        {
             "id": "2801740561_1991614270_3372151673_3770347827",
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 4,
             "title": "News system",
             "description": " - [x] Local news of spawned fleets\n - [x] Local news of incoming enemies attacking\n - [ ] Local news of incoming allies retreating\n - [x] Global news of fleets en-route to investigate Earth from <system name>\n - [ ] Global news of research projects. Update on ongoing research on <artifact> on <planet or station> in the <system> system",
+            "labels": []
+        },
+        {
+            "id": "3285542083_2777414111_1708969119_2353456641",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 4,
+            "title": "Derelic class",
+            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
             "labels": []
         },
         {
@@ -133,11 +141,11 @@
             "labels": []
         },
         {
-            "id": "3285542083_2777414111_1708969119_2353456641",
+            "id": "1343862095_1231198859_745926488_1555386104",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 5,
-            "title": "Derelic class",
-            "description": "Inherit body\n\nShips to scavenge, artefacts to research, etc",
+            "title": "Landmark class",
+            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
             "labels": []
         },
         {
@@ -149,11 +157,11 @@
             "labels": []
         },
         {
-            "id": "1343862095_1231198859_745926488_1555386104",
+            "id": "3834620474_3088399316_1568448146_2202349938",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 6,
-            "title": "Landmark class",
-            "description": "ParentBody, BodyX, BodyY, Name\n\nFor cities, outposts, bases, artefacts...",
+            "title": "Base class",
+            "description": "Inherit Landmark",
             "labels": []
         },
         {
@@ -167,11 +175,11 @@
             ]
         },
         {
-            "id": "3834620474_3088399316_1568448146_2202349938",
+            "id": "460078232_1811257596_703611331_636981942",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 7,
-            "title": "Base class",
-            "description": "Inherit Landmark",
+            "title": "Ground screen",
+            "description": "For dropships going to planets and asteroids",
             "labels": []
         },
         {
@@ -185,11 +193,11 @@
             ]
         },
         {
-            "id": "460078232_1811257596_703611331_636981942",
+            "id": "378932632_3967463374_3687376349_1863160672",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 8,
-            "title": "Ground screen",
-            "description": "For dropships going to planets and asteroids",
+            "title": "Elder Guardian",
+            "description": "Like in the roach motel\n\nThere are sentinels too, they are actively hunting down ships who use elder weapons",
             "labels": []
         },
         {
@@ -201,11 +209,11 @@
             "labels": []
         },
         {
-            "id": "378932632_3967463374_3687376349_1863160672",
+            "id": "4037761311_4253389076_3422507072_1285356446",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 9,
-            "title": "Elder Guardian",
-            "description": "Like in the roach motel\n\nThere are sentinels too, they are actively hunting down ships who use elder weapons",
+            "title": "Wormholes",
+            "description": "On the galaxy map",
             "labels": []
         },
         {
@@ -217,11 +225,11 @@
             "labels": []
         },
         {
-            "id": "4037761311_4253389076_3422507072_1285356446",
+            "id": "2583110677_2541195920_3148970938_455457355",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 10,
-            "title": "Wormholes",
-            "description": "On the galaxy map",
+            "title": "Rogue Worlds",
+            "description": "",
             "labels": []
         },
         {
@@ -233,11 +241,11 @@
             "labels": []
         },
         {
-            "id": "2583110677_2541195920_3148970938_455457355",
+            "id": "3622774874_849889469_1198837998_403189632",
             "list_id": "1463394567_1005693800_3793023534_2523788226",
             "position": 11,
-            "title": "Rogue Worlds",
-            "description": "",
+            "title": "Support arrow keys and CTRL-C",
+            "description": "Arrow up is 27 + 91 + 65 in Linux\n            27 + 224 + 0 in Windows (not sure last)\n\nSo it's not too hard, if 27 call getch again etc.\n\nBut 27 is the ESC key so if you press ESC you get stuck with the second getch :-(\n\nThe real solution seems to be rewrite for curses but I don't want to at all now.\n\nDEFERRED",
             "labels": []
         },
         {
@@ -249,29 +257,21 @@
             "labels": []
         },
         {
-            "id": "2440150274_157638296_3025540694_745833145",
-            "list_id": "1994759157_3198025395_360080308_1005768122",
-            "position": 13,
-            "title": "All planets and asteroids have the same name",
-            "description": "WTH !? I'm pretty sure I'm not doing it wrong :-/\n\nNo they don't, I was printing the name of the last iteration instead of the current one... DUH!",
+            "id": "3803035150_3361969934_239936901_3496980237",
+            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "position": 12,
+            "title": "Text wraps in system view",
+            "description": "If the star name is long and it's a huge gas giant and there's a fleet there, the text wraps",
             "labels": [
                 1
             ]
         },
         {
-            "id": "3622774874_849889469_1198837998_403189632",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
+            "id": "2440150274_157638296_3025540694_745833145",
+            "list_id": "1994759157_3198025395_360080308_1005768122",
             "position": 13,
-            "title": "Support arrow keys",
-            "description": "Arrow up is 27 + 91 + 65 in Linux\n            27 + 224 + 0 in Windows (not sure last)\n\nSo it's not too hard, if 27 call getch again etc.\n\nBut 27 is the ESC key so if you press ESC you get stuck with the second getch :-(\n\nThe real solution seems to be rewrite for curses but I don't want to at all now.\n\nDEFERRED",
-            "labels": []
-        },
-        {
-            "id": "3803035150_3361969934_239936901_3496980237",
-            "list_id": "1463394567_1005693800_3793023534_2523788226",
-            "position": 13,
-            "title": "Text wraps in system view",
-            "description": "If the star name is long and it's a huge gas giant and there's a fleet there, the text wraps",
+            "title": "All planets and asteroids have the same name",
+            "description": "WTH !? I'm pretty sure I'm not doing it wrong :-/\n\nNo they don't, I was printing the name of the last iteration instead of the current one... DUH!",
             "labels": [
                 1
             ]
@@ -338,6 +338,14 @@
             "position": 21,
             "title": "Choose programming language",
             "description": "",
+            "labels": []
+        },
+        {
+            "id": "908460355_1405387632_286778679_100417364",
+            "list_id": "1901749129_962513719_918349320_1149498453",
+            "position": 5,
+            "title": "Compute Investigation Fleet Intercept Point",
+            "description": "Remember:\n- Delay of 20 turns before launch\n- Line segments of \"maximum_jump_distance\" length\n\nAlgo:\n- find target_vel (next jump point - current position) (math in fleet.tick())\n- compute target_pos (subtract target_vel * fleet.wait)\n- compute intersection point (math from https://stackoverflow.com/questions/29919156/calculating-intercepting-vector)\n- adjust intersection point to target's current_pos if it is behind current_pos. (target will never be behind current_pos, it will wait there)\n",
             "labels": []
         }
     ]

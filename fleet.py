@@ -1,9 +1,9 @@
 from enum import Enum
 import random
-import math
 
-from body import Body
 import config
+from body import Body
+import jump
 
 class Orders(Enum):
     RETREAT = 1
@@ -141,14 +141,9 @@ class Fleet(Body):
                 self.body_x = 0
                 self.body_y = 0
             
-            distance_to_destination = math.sqrt((self.destination.world_x-self.world_x)**2+(self.destination.world_y-self.world_y)**2)
-            if distance_to_destination > config.maximum_jump_distance:
-                self.world_x = self.world_x - ((config.maximum_jump_distance * (self.world_x - self.destination.world_x)) / distance_to_destination)
-                self.world_y = self.world_y - ((config.maximum_jump_distance * (self.world_y - self.destination.world_y)) / distance_to_destination)
-            
-            else:
-                self.world_x = self.destination.world_x
-                self.world_y = self.destination.world_y
+            self.world_x, self.world_y = jump.towards(self.world_x, self.world_y, self.destination.world_x, self.destination.world_y)
+
+            if self.world_x == self.destination.world_x and self.world_y == self.destination.world_y:
                 self.star = self.destination
                 self.star.fleets.append(self)
                 self.body = self.star

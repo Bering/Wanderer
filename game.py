@@ -15,6 +15,7 @@ from comet import Comet
 from station import Station
 from station_service_ui import StationServiceUI
 from inventory import ItemNotInStockError
+import jump
 
 class Game:
 
@@ -172,7 +173,20 @@ class Game:
             print(" Nothing near")
 
         print("Objective:")
-        print(" Not set")
+
+        target = None
+        for f in self.world.fleets:
+            if f.destination.name == 'Sol':
+                target = f
+                break
+        if target == None:
+            print(" Not set")
+        else:
+            target_next_x,target_next_y = jump.towards(target.world_x,target.world_y, target.destination.world_x,target.destination.world_y)
+            target_vel_x = target_next_x - target.world_x
+            target_vel_y = target_next_y - target.world_y
+            ix, iy = jump.find_collision_point(target.world_x,target.world_y, target_vel_x,target_vel_y, self.player.world_x,self.player.world_y)
+            print("Intercept at " + str(ix) + "," + str(iy))
 
         print()
         return False
