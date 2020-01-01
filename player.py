@@ -41,7 +41,13 @@ class Player:
     
 
     def get_distance(self, x, y):
-        return round(math.sqrt((x - self.world_x) ** 2 + (y - self.world_y) ** 2))
+        d = math.sqrt((x - self.world_x) ** 2 + (y - self.world_y) ** 2)
+        if d < 0:
+            d = math.ceil(d)
+        else:
+            d = math.floor(d)
+        
+        return d
 
 
     def get_fuel_cost(self, x, y):
@@ -54,8 +60,8 @@ class Player:
             raise JumpTooFarError()
         
         fuel_cost = self.get_fuel_cost(x, y)
-        if self.ship.fuel < fuel_cost:
-            raise NotEnoughFuelError()
+        #if self.ship.fuel < fuel_cost:
+        #    raise NotEnoughFuelError()
         
         self.ship.fuel -= fuel_cost
         self.world_x = x

@@ -345,7 +345,7 @@
             "list_id": "1901749129_962513719_918349320_1149498453",
             "position": 5,
             "title": "Compute Investigation Fleet Intercept Point",
-            "description": "Remember:\n- Delay of 20 turns before launch\n- Line segments of \"maximum_jump_distance\" length\n\nAlgo:\n- find target_vel (next jump point - current position) (math in fleet.tick())\n- compute target_pos (subtract target_vel * fleet.wait)\n- compute intersection point (math from https://stackoverflow.com/questions/29919156/calculating-intercepting-vector)\n- adjust intersection point to target's current_pos if it is behind current_pos. (target will never be behind current_pos, it will wait there)\n",
+            "description": "Remember:\n- Delay of 20 turns before launch\n- Line segments of \"maximum_jump_distance\" length\n\nAlgo:\n- find target_vel (next jump point - current position) (math in fleet.tick())\n- compute target_pos (subtract target_vel * fleet.wait)\n- compute intersection point (math from https://stackoverflow.com/questions/29919156/calculating-intercepting-vector)\n- adjust intersection point to target's current_pos if it is behind current_pos. (target will never be behind current_pos, it will wait there)\n\nErrors:\n - [ ] asin() sometimes fails. I think it's when the fleet cannot be intercepted\n - [ ] division by zero error when arrived at target",
             "labels": []
         }
     ]

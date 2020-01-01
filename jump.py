@@ -2,12 +2,13 @@ import math
 
 import config
 
-def dot_product(a_x, a_y, b_x, b_y):
-    return a_x * b_x + a_y * b_y
-
 
 def magnitude(x, y):
-    return math.sqrt(x ** 2 + y ** 2)
+    return round(math.sqrt(x ** 2 + y ** 2))
+
+
+def dot_product(a_x, a_y, b_x, b_y):
+    return a_x * b_x + a_y * b_y
 
 
 def angle_between(b_x, b_y, c_x, c_y):
@@ -17,11 +18,20 @@ def angle_between(b_x, b_y, c_x, c_y):
 """Compute jump endpoint for a jump from cur_x,cur_y towards dest_x,dest_y,
 making sure not to jump farther than config.maximum_jump_distance"""
 def towards(cur_x, cur_y, dest_x, dest_y):
-    distance_to_destination = magnitude(dest_x - cur_x, dest_y - cur_y)
+    distance_to_destination = round(magnitude(dest_x - cur_x, dest_y - cur_y))
 
     if distance_to_destination > config.maximum_jump_distance:
         x = cur_x - ((config.maximum_jump_distance * (cur_x - dest_x)) / distance_to_destination)
+        if x < 0:
+            x = math.ceil(x)
+        else:
+            x = math.floor(x)
+        
         y = cur_y - ((config.maximum_jump_distance * (cur_y - dest_y)) / distance_to_destination)
+        if y < 0:
+            y = math.ceil(y)
+        else:
+            y = math.floor(y)
     else:
         x = dest_x
         y = dest_y
@@ -50,4 +60,6 @@ def find_collision_point(target_pos_x,target_pos_y, target_vel_x,target_vel_y, i
     collision_pos_x = target_pos_x + (target_vel_x * time_to_collision)
     collision_pos_y = target_pos_y + (target_vel_y * time_to_collision)
 
-    return interceptor_pos_x - collision_pos_x, interceptor_pos_y - collision_pos_y
+#    return interceptor_pos_x - collision_pos_x, interceptor_pos_y - collision_pos_y
+    return round(collision_pos_x),round(collision_pos_y)
+    

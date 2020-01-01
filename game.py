@@ -186,6 +186,8 @@ class Game:
             target_vel_x = target_next_x - target.world_x
             target_vel_y = target_next_y - target.world_y
             ix, iy = jump.find_collision_point(target.world_x,target.world_y, target_vel_x,target_vel_y, self.player.world_x,self.player.world_y)
+            print("Target at " + str(target.world_x) + "," + str(target.world_y))
+            print("We are at " + str(self.player.world_x) + "," + str(self.player.world_y))
             print("Intercept at " + str(ix) + "," + str(iy))
 
         print()
@@ -210,6 +212,7 @@ class Game:
         #print("Window size: " + str(cols) + "x" + str(lines))
         #print("Viewing: (" + str(view_left) + "," + str(view_top) + ") - (" + str(view_right) + "," + str(view_bottom) + ")")
 
+        # Show stars
         for s in self.world.stars:
             if s.world_x < view_left or s.world_x > view_right \
             or s.world_y < view_top or s.world_y > view_bottom:
@@ -222,7 +225,35 @@ class Game:
             else:
                 color = colorama.Fore.WHITE
             print(ui.pos(col, line + 1) + color + '*', end='')
+
+        # Show investigation fleet's waypoints
+        target = None
+        for f in self.world.fleets:
+            if f.destination.name == 'Sol':
+                target = f
+                break
         
+        n = 0
+        n_x = target.world_x
+        n_y = target.world_y
+        while n_x != target.destination.world_x or n_y != target.destination.world_y:
+            n += 1
+            n_x,n_y = jump.towards(n_x,n_y, target.destination.world_x,target.destination.world_y)
+
+            if n_x < view_left or n_x > view_right or n_y < view_top or n_y > view_bottom:
+                continue
+
+            col = n_x - view_left + 1
+            line = n_y - view_top + 1
+            print(
+                ui.pos(col, line + 1) + 
+                colorama.Fore.LIGHTYELLOW_EX + 
+                #'¤ ' + str(n_x) + "," + str(n_y),
+                '¤' + str(n),
+                end = ''
+            )
+
+        # Show player
         col = self.player.world_x - view_left + 1
         line = self.player.world_y - view_top + 1
         print(
