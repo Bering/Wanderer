@@ -41,13 +41,7 @@ class Player:
     
 
     def get_distance(self, x, y):
-        d = math.sqrt((x - self.world_x) ** 2 + (y - self.world_y) ** 2)
-        if d < 0:
-            d = math.ceil(d)
-        else:
-            d = math.floor(d)
-        
-        return d
+        return round(math.sqrt((x - self.world_x) ** 2 + (y - self.world_y) ** 2))
 
 
     def get_fuel_cost(self, x, y):

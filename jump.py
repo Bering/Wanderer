@@ -18,20 +18,11 @@ def angle_between(b_x, b_y, c_x, c_y):
 """Compute jump endpoint for a jump from cur_x,cur_y towards dest_x,dest_y,
 making sure not to jump farther than config.maximum_jump_distance"""
 def towards(cur_x, cur_y, dest_x, dest_y):
-    distance_to_destination = round(magnitude(dest_x - cur_x, dest_y - cur_y))
+    distance_to_destination = magnitude(dest_x - cur_x, dest_y - cur_y)
 
     if distance_to_destination > config.maximum_jump_distance:
-        x = cur_x - ((config.maximum_jump_distance * (cur_x - dest_x)) / distance_to_destination)
-        if x < 0:
-            x = math.ceil(x)
-        else:
-            x = math.floor(x)
-        
-        y = cur_y - ((config.maximum_jump_distance * (cur_y - dest_y)) / distance_to_destination)
-        if y < 0:
-            y = math.ceil(y)
-        else:
-            y = math.floor(y)
+        x = cur_x - round((config.maximum_jump_distance * (cur_x - dest_x)) / distance_to_destination)
+        y = cur_y - round((config.maximum_jump_distance * (cur_y - dest_y)) / distance_to_destination)
     else:
         x = dest_x
         y = dest_y
