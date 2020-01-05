@@ -233,25 +233,26 @@ class Game:
                 target = f
                 break
         
-        n = 0
-        n_x = target.world_x
-        n_y = target.world_y
-        while n_x != target.destination.world_x or n_y != target.destination.world_y:
-            n += 1
-            n_x,n_y = jump.towards(n_x,n_y, target.destination.world_x,target.destination.world_y)
+        if target:
+            n = target.wait
+            n_x = target.world_x
+            n_y = target.world_y
+            while n_x != target.destination.world_x or n_y != target.destination.world_y:
+                n += 1
+                n_x,n_y = jump.towards(n_x,n_y, target.destination.world_x,target.destination.world_y)
 
-            if n_x < view_left or n_x > view_right or n_y < view_top or n_y > view_bottom:
-                continue
+                if n_x < view_left or n_x > view_right or n_y < view_top or n_y > view_bottom:
+                    continue
 
-            col = n_x - view_left + 1
-            line = n_y - view_top + 1
-            print(
-                ui.pos(col, line + 1) + 
-                colorama.Fore.LIGHTYELLOW_EX + 
-                #'¤ ' + str(n_x) + "," + str(n_y),
-                '¤' + str(n),
-                end = ''
-            )
+                col = n_x - view_left + 1
+                line = n_y - view_top + 1
+                print(
+                    ui.pos(col, line + 1) + 
+                    colorama.Fore.LIGHTYELLOW_EX + 
+                    #'¤ ' + str(n_x) + "," + str(n_y),
+                    '¤' + str(n),
+                    end = ''
+                )
 
         # Show player
         col = self.player.world_x - view_left + 1
