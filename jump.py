@@ -4,7 +4,7 @@ import config
 
 
 def magnitude(x, y):
-    return round(math.sqrt(x ** 2 + y ** 2))
+    return math.sqrt(x ** 2 + y ** 2)
 
 
 def dot_product(a_x, a_y, b_x, b_y):
