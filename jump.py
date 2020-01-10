@@ -12,6 +12,9 @@ def dot_product(a_x, a_y, b_x, b_y):
 
 
 def angle_between(b_x, b_y, c_x, c_y):
+    if c_x == 0 and c_y == 0:
+        return 0
+    
     return math.acos(dot_product(b_x,b_y, c_x,c_y) / (magnitude(b_x,b_y) * magnitude(c_x,c_y)))
 
 
