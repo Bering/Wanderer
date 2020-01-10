@@ -12,6 +12,9 @@ def dot_product(a_x, a_y, b_x, b_y):
 
 
 def angle_between(b_x, b_y, c_x, c_y):
+    if b_x == 0 and b_y == 0:
+        return 0
+    
     if c_x == 0 and c_y == 0:
         return 0
     
