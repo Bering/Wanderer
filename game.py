@@ -161,7 +161,7 @@ class Game:
                 colorama.Fore.WHITE
             )
         
-        print("Position :")
+        print("Position :" + (str(self.player.world_x) + "," + str(self.player.world_y)).rjust(10))
         if self.player.star:
             print(" " + self.player.star.name + " system")
         else:
@@ -172,7 +172,7 @@ class Game:
         else:
             print(" Nothing near")
 
-        print("Objective:")
+        print("Objective:" + "fleet".rjust(10))
 
         target = None
         for f in self.world.fleets:
@@ -185,10 +185,11 @@ class Game:
             target_next_x,target_next_y = jump.towards(target.world_x,target.world_y, target.destination.world_x,target.destination.world_y)
             target_vel_x = target_next_x - target.world_x
             target_vel_y = target_next_y - target.world_y
-            ix, iy = jump.find_collision_point(target.world_x,target.world_y, target_vel_x,target_vel_y, self.player.world_x,self.player.world_y)
-            print("Target at " + str(target.world_x) + "," + str(target.world_y))
-            print("We are at " + str(self.player.world_x) + "," + str(self.player.world_y))
-            print("Intercept at " + str(ix) + "," + str(iy))
+            jumps, ix, iy = jump.find_collision_point(target.world_x,target.world_y, target_vel_x,target_vel_y, self.player.world_x,self.player.world_y)
+            print(" Target at " + str(target.world_x) + "," + str(target.world_y))
+            print(" Target velocity: " + str(target_vel_x) + "," + str(target_vel_y))
+            print(" Next jump at: " + str(target_next_x) + "," + str(target_next_y))
+            print(" Intercept at " + str(ix) + "," + str(iy) + " in " + str(jumps) + " jump(s)")
 
         print()
         return False

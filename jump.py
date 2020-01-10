@@ -58,5 +58,5 @@ def find_collision_point(target_pos_x,target_pos_y, target_vel_x,target_vel_y, i
     collision_pos_y = target_pos_y + (target_vel_y * time_to_collision)
 
 #    return interceptor_pos_x - collision_pos_x, interceptor_pos_y - collision_pos_y
-    return round(collision_pos_x),round(collision_pos_y)
+    return math.ceil(time_to_collision), round(collision_pos_x),round(collision_pos_y)
     
