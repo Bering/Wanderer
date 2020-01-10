@@ -185,11 +185,16 @@ class Game:
             target_next_x,target_next_y = jump.towards(target.world_x,target.world_y, target.destination.world_x,target.destination.world_y)
             target_vel_x = target_next_x - target.world_x
             target_vel_y = target_next_y - target.world_y
-            jumps, ix, iy = jump.find_collision_point(target.world_x,target.world_y, target_vel_x,target_vel_y, self.player.world_x,self.player.world_y)
             print(" Target at " + str(target.world_x) + "," + str(target.world_y))
             print(" Target velocity: " + str(target_vel_x) + "," + str(target_vel_y))
             print(" Next jump at: " + str(target_next_x) + "," + str(target_next_y))
-            print(" Intercept at " + str(ix) + "," + str(iy) + " in " + str(jumps) + " jump(s)")
+
+            try:
+                jumps, ix, iy = jump.find_collision_point(target.world_x,target.world_y, target_vel_x,target_vel_y, self.player.world_x,self.player.world_y)
+                print(" Interception at " + str(ix) + "," + str(iy) + " in " + str(jumps) + " jump(s)")
+            except:
+                # TODO: The fleet should be spawned in a place where the player can intercept it but the player might wander around too much
+                print(" Interception impossible!")
 
         print()
         return False
